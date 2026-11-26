@@ -2,7 +2,7 @@ import type Stripe from "stripe";
 import { env } from "./env";
 
 /**
- * India GST on OpenPromoter's own plans. Prices are exclusive (Terms of Service): GST is added on top.
+ * India GST on LeadXMedia's own plans. Prices are exclusive (Terms of Service): GST is added on top.
  * Seller in GST_HOME_STATE: buyers there pay CGST 9% + SGST 9%, buyers in other Indian states IGST 18%,
  * buyers outside India nothing (export of services under LUT). Stripe Tax isn't available to Indian
  * accounts, so these are plain Stripe tax rates.

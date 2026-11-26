@@ -1,5 +1,5 @@
-import { agentAction, billingConnection, commission, partner, payout, referral } from "@openpromoter/db";
-import { Avatar, Badge, Button, cn, EmptyState, StatusBadge } from "@openpromoter/ui";
+import { agentAction, billingConnection, commission, partner, payout, referral } from "@leadxmedia/db";
+import { Avatar, Badge, Button, cn, EmptyState, StatusBadge } from "@leadxmedia/ui";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -20,7 +20,7 @@ import {
   UserPlus,
   Users,
   Wallet,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import { and, desc, eq, sql } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";

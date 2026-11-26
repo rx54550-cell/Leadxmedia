@@ -1,5 +1,5 @@
 {
-  "name": "openpromoter-monorepo",
+  "name": "leadxmedia-monorepo",
   "private": true,
   "license": "AGPL-3.0-only",
   "packageManager": "pnpm@10.34.6",
@@ -13,10 +13,10 @@
     "test": "turbo run test",
     "lint": "biome check apps/app/src apps/app/tests apps/app/e2e apps/app/scripts packages/*/src packages/*/test",
     "format": "biome check --write apps/app/src apps/app/tests apps/app/e2e apps/app/scripts packages/*/src packages/*/test",
-    "db:migrate": "pnpm --filter @openpromoter/db migrate",
-    "db:generate": "pnpm --filter @openpromoter/db generate",
-    "db:seed": "pnpm --filter @openpromoter/app seed",
-    "e2e": "pnpm --filter @openpromoter/app e2e"
+    "db:migrate": "pnpm --filter @leadxmedia/db migrate",
+    "db:generate": "pnpm --filter @leadxmedia/db generate",
+    "db:seed": "pnpm --filter @leadxmedia/app seed",
+    "e2e": "pnpm --filter @leadxmedia/app e2e"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",

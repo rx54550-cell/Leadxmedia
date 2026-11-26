@@ -1,6 +1,6 @@
-import { campaign, click, commission, link, referral } from "@openpromoter/db";
-import { Button, Card, CardBody, CardHeader } from "@openpromoter/ui";
-import { ArrowRight, Check, Coins, Megaphone, Target, Users } from "@openpromoter/ui/icons";
+import { campaign, click, commission, link, referral } from "@leadxmedia/db";
+import { Button, Card, CardBody, CardHeader } from "@leadxmedia/ui";
+import { ArrowRight, Check, Coins, Megaphone, Target, Users } from "@leadxmedia/ui/icons";
 import { and, asc, eq, gte, sql } from "drizzle-orm";
 import Link from "next/link";
 import { AutoRefresh } from "@/components/auto-refresh";

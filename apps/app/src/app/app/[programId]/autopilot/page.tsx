@@ -1,4 +1,4 @@
-import { agentAction } from "@openpromoter/db";
+import { agentAction } from "@leadxmedia/db";
 import { desc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page";

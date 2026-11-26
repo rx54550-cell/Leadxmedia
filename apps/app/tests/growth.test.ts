@@ -1,4 +1,4 @@
-import { agentAction, apiKey, commission, partner, partnerGroup } from "@openpromoter/db";
+import { agentAction, apiKey, commission, partner, partnerGroup } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { sha256 } from "@/lib/crypto";

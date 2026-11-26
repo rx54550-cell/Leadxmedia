@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { workspace } from "@openpromoter/db";
+import { workspace } from "@leadxmedia/db";
 import { eq, sql } from "drizzle-orm";
 import { z } from "zod";
 import { planById } from "@/lib/plans";
@@ -100,7 +100,7 @@ export async function recordAiSpend(workspaceId: string | undefined, micros: num
  * House writing rules (docs/CONTENT-GUIDELINES.md), sent first in every system prompt. Identical bytes on every
  * call, so it is the shared cache prefix (models here cache prefixes of 512+ tokens; keep this block above that).
  */
-export const WRITING_RULES = `You write for OpenPromoter, affiliate software for SaaS founders. Founders and their partners read what you write, often on a phone, between other tasks. Every rule below applies to every word of text you produce, including JSON string values. When a task's own instructions are stricter (a word limit, plain text only), follow both.
+export const WRITING_RULES = `You write for LeadXMedia, affiliate software for SaaS founders. Founders and their partners read what you write, often on a phone, between other tasks. Every rule below applies to every word of text you produce, including JSON string values. When a task's own instructions are stricter (a word limit, plain text only), follow both.
 
 Hard rules:
 - Never use an em dash. Write two short sentences instead. An en dash in a number range such as 9–17 is fine.
@@ -160,7 +160,7 @@ export interface AiTask {
 let anthropic: Anthropic | null = null;
 
 /**
- * Only OpenPromoter's own key and the public API. A parent process (a desktop app, a CI runner) can leave
+ * Only LeadXMedia's own key and the public API. A parent process (a desktop app, a CI runner) can leave
  * ANTHROPIC_BASE_URL or ANTHROPIC_AUTH_TOKEN set, which the SDK would otherwise pick up and fail on.
  */
 export function anthropicClient() {

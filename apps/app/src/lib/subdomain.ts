@@ -1,5 +1,5 @@
 /**
- * Free program subdomains: acme.openpromoter.com serves the program whose slug is "acme", for founders without
+ * Free program subdomains: acme.leadxmedia.com serves the program whose slug is "acme", for founders without
  * a custom domain. On only when PROGRAM_SUBDOMAINS names the parent domain (a wildcard DNS record must point
  * there first). No server imports: proxy.ts uses this too.
  */
@@ -10,7 +10,7 @@ export const RESERVED_SUBDOMAINS = new Set(
     "www app api admin dashboard docs doc help support status blog mail email smtp imap pop mx ns ns1 ns2 " +
     "ftp cdn static assets img images media files auth login signup account accounts billing pay payments " +
     "checkout secure security domains proxy-fallback mta-sts autodiscover autoconfig dev staging test demo " +
-    "partners partner affiliates affiliate portal go link links r p openpromoter"
+    "partners partner affiliates affiliate portal go link links r p leadxmedia"
   ).split(" "),
 );
 
@@ -22,7 +22,7 @@ export const subdomainRoot = () =>
 /** A slug that can be used as a subdomain label at all. */
 export const subdomainable = (slug: string) => LABEL.test(slug) && !RESERVED_SUBDOMAINS.has(slug);
 
-/** "acme" for acme.openpromoter.com (port ignored), null for any other host. */
+/** "acme" for acme.leadxmedia.com (port ignored), null for any other host. */
 export function subdomainSlug(host: string): string | null {
   const root = subdomainRoot();
   const name = host.split(":")[0]!.toLowerCase();
@@ -31,7 +31,7 @@ export function subdomainSlug(host: string): string | null {
   return subdomainable(label) ? label : null;
 }
 
-/** https://acme.openpromoter.com, with the app's own scheme and port (http://acme.localhost:3000 locally). */
+/** https://acme.leadxmedia.com, with the app's own scheme and port (http://acme.localhost:3000 locally). */
 export function subdomainOrigin(slug: string): string | null {
   const root = subdomainRoot();
   if (!root || !subdomainable(slug)) return null;

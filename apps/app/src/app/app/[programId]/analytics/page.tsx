@@ -1,5 +1,5 @@
-import { Button, Card, CardBody, CardHeader } from "@openpromoter/ui";
-import { Banknote, Coins, Download, MousePointerClick, UserPlus } from "@openpromoter/ui/icons";
+import { Button, Card, CardBody, CardHeader } from "@leadxmedia/ui";
+import { Banknote, Coins, Download, MousePointerClick, UserPlus } from "@leadxmedia/ui/icons";
 import type { Metadata } from "next";
 import { BarChart, DotChart } from "@/components/charts";
 import { PageHeader, Section, Stat } from "@/components/page";

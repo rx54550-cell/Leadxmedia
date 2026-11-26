@@ -1,11 +1,11 @@
-import { OFFER_CATEGORIES, offer, cpaLead, click, payoutRequest } from "@openpromoter/db";
+import { OFFER_CATEGORIES, offer, cpaLead, click, payoutRequest } from "@leadxmedia/db";
 import { and, desc, eq, sql } from "drizzle-orm";
 import { PageHeader } from "@/components/page";
 import { partnerCtx } from "@/server/context";
 import { db } from "@/server/db";
 import { env } from "@/server/env";
 
-export const metadata = { title: "Offers · LeadX Media" };
+export const metadata = { title: "Offers · LeadXMedia" };
 export default async function PublisherOffers({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ category?: string; geo?: string; payout?: string }> }) {
  const {slug}=await params, filters=await searchParams, ctx=await partnerCtx(slug);
  const where=[eq(offer.workspaceId,ctx.program.workspaceId),eq(offer.status,"active")];

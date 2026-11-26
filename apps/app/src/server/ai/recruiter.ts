@@ -1,5 +1,5 @@
 import type Anthropic from "@anthropic-ai/sdk";
-import { billingCustomer, partner, type program, prospect } from "@openpromoter/db";
+import { billingCustomer, partner, type program, prospect } from "@leadxmedia/db";
 import { and, desc, eq, inArray, isNotNull, sql } from "drizzle-orm";
 import { z } from "zod";
 import { createId } from "@/lib/id";
@@ -215,7 +215,7 @@ export function inviteUrl(prog: Program, p: { id: string; email: string | null }
 
 /**
  * Invites go out from the founder's own mailbox (the dialog opens Gmail, the mail app or copies the draft),
- * never from OpenPromoter: unsolicited mail from a shared sending domain would put every customer's
+ * never from LeadXMedia: unsolicited mail from a shared sending domain would put every customer's
  * password resets and payout emails at risk. This records that the founder sent it.
  */
 export async function markInvited(prog: Program, ids: string[], actor: Actor) {

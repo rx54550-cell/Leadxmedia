@@ -8,7 +8,7 @@ import {
   partnerGroup,
   program,
   referral,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, desc, eq, gte, inArray, lt, ne, sql } from "drizzle-orm";
 import { z } from "zod";
 import { createId } from "@/lib/id";

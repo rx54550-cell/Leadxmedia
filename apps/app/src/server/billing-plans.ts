@@ -1,4 +1,4 @@
-import { commission, member, program, user, workspace } from "@openpromoter/db";
+import { commission, member, program, user, workspace } from "@leadxmedia/db";
 import { and, eq, gte, lt, ne, sql } from "drizzle-orm";
 import type Stripe from "stripe";
 import { PRODUCT } from "@/lib/config";
@@ -197,7 +197,7 @@ export async function applyPlanSubscription(sub: Stripe.Subscription) {
   // the price says which plan it is; portal upgrades change the price, not the metadata
   const key = sub.items?.data?.[0]?.price?.lookup_key ?? "";
   const plan =
-    PLANS.find((p) => key.startsWith(`openpromoter_${p.id}_`))?.id ?? sub.metadata?.plan ?? "starter";
+    PLANS.find((p) => key.startsWith(`leadxmedia_${p.id}_`))?.id ?? sub.metadata?.plan ?? "starter";
   const periodEnd = sub.items?.data?.[0]?.current_period_end;
   const interval = sub.items?.data?.[0]?.price?.recurring?.interval === "year" ? "year" : "month";
   await db()
@@ -236,7 +236,7 @@ export async function applyPlanSubscription(sub: Stripe.Subscription) {
 
 /**
  * Mail to the workspace owners when a payment fails or a paid plan ends. Stripe's own mails come from the
- * shared DevDiggers account, so these carry the OpenPromoter name and link to Plan & billing.
+ * shared DevDiggers account, so these carry the LeadXMedia name and link to Plan & billing.
  * Logged, not thrown: a mail problem must not undo the plan change.
  */
 async function tellOwners(workspaceId: string, kind: "failed" | "ended" | "unpaid", plan: string) {
@@ -273,7 +273,7 @@ async function tellOwners(workspaceId: string, kind: "failed" | "ended" | "unpai
                 ? "We couldn't charge your card after several tries. You're on the Free plan now."
                 : "You're on the Free plan now.",
               kept,
-              "Free covers up to $1k a month in partner revenue and shows the OpenPromoter badge on your portal. Choose a plan again any time.",
+              "Free covers up to $1k a month in partner revenue and shows the LeadXMedia badge on your portal. Choose a plan again any time.",
             ],
             cta: { label: "Choose a plan", href },
           };

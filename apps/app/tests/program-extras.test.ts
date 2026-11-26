@@ -1,10 +1,10 @@
-import type { ApplicationQuestion } from "@openpromoter/db";
+import type { ApplicationQuestion } from "@leadxmedia/db";
 import { describe, expect, it, vi } from "vitest";
 import { applicationAnswer, MULTI_SEP } from "@/lib/application-answer";
 import { afterLabel, durationLabel } from "@/lib/program-labels";
 import { computeCommission, resolvePlan } from "@/server/commission";
 
-let host = "app.openpromoter.test";
+let host = "app.leadxmedia.test";
 vi.mock("next/headers", () => ({ headers: async () => new Headers({ host }) }));
 const { at, programBase } = await import("@/server/program-base");
 const { programUrl } = await import("@/server/ref-link");
@@ -77,7 +77,7 @@ describe("program URLs on a custom domain", () => {
     host = "partners.acme.com";
     expect(await programBase(p)).toBe("");
     expect(at(await programBase(p))).toBe("/");
-    host = "app.openpromoter.test";
+    host = "app.leadxmedia.test";
     expect(await programBase(p)).toBe("/p/acme");
     expect(await programBase({ ...p, customDomainVerifiedAt: null })).toBe("/p/acme");
   });

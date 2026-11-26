@@ -1,4 +1,4 @@
-import { billingConnection } from "@openpromoter/db";
+import { billingConnection } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { decrypt } from "@/lib/crypto";
 import { normalizeChargebee, verifyChargebee } from "@/server/billing/chargebee";

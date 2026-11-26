@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@openpromoter/ui";
+import { cn } from "@leadxmedia/ui";
 import {
   ArrowLeft,
   Coins,
@@ -13,7 +13,7 @@ import {
   Users,
   UsersRound,
   Webhook,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogoMark } from "@/components/logo";
@@ -74,7 +74,7 @@ export function AdminShell({
           <LogoMark />
           <div className="min-w-0">
             <div className="truncate text-[14px] leading-5 font-medium tracking-[-0.01em] text-fg">
-              OpenPromoter
+              LeadXMedia
             </div>
             <div className="truncate text-xs leading-4 text-subtle">Cloud admin</div>
           </div>

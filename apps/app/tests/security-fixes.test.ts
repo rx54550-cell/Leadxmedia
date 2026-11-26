@@ -1,4 +1,4 @@
-import { campaign, commission, program, referral } from "@openpromoter/db";
+import { campaign, commission, program, referral } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { afterEach, describe, expect, it } from "vitest";
 import { clientIp } from "@/lib/client-ip";

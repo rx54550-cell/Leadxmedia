@@ -17,7 +17,7 @@ const appHost = () => new URL(process.env.APP_URL ?? "http://localhost:3000").ho
 async function db() {
   const [{ db }, schema, orm] = await Promise.all([
     import("./server/db"),
-    import("@openpromoter/db"),
+    import("@leadxmedia/db"),
     import("drizzle-orm"),
   ]);
   return { db, schema, orm };
@@ -37,7 +37,7 @@ async function syncVersion() {
 }
 
 /**
- * The program a host serves: a verified custom domain, or a free subdomain (acme.openpromoter.com). `home` is set
+ * The program a host serves: a verified custom domain, or a free subdomain (acme.leadxmedia.com). `home` is set
  * when a subdomain's program also has a verified custom domain: that domain is its one address, so we redirect.
  */
 async function programFor(host: string): Promise<{ slug: string | null; home: string | null }> {
@@ -80,7 +80,7 @@ function forwarded(req: NextRequest): Headers {
   return headers;
 }
 
-/** Custom domains (partners.yourapp.com) and free subdomains (acme.openpromoter.com) → program page, portal and short links. */
+/** Custom domains (partners.yourapp.com) and free subdomains (acme.leadxmedia.com) → program page, portal and short links. */
 export async function proxy(req: NextRequest) {
   const request = { headers: forwarded(req) };
   const pass = () => NextResponse.next({ request });

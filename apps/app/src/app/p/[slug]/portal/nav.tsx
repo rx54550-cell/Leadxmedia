@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@openpromoter/ui";
+} from "@leadxmedia/ui";
 import {
   ArrowUpRight,
   Banknote,
@@ -26,7 +26,7 @@ import {
   Settings2,
   Sun,
   UserPlus,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "@/components/theme";

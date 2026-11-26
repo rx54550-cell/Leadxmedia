@@ -1,4 +1,4 @@
-import { resource } from "@openpromoter/db";
+import { resource } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { db } from "@/server/db";
 

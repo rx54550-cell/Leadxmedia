@@ -9,8 +9,8 @@ test("no console errors", async ({ page }) => {
   page.on("console", (m) => m.type() === "error" && errors.push(`${page.url()}: ${m.text().slice(0, 200)}`));
   page.on("pageerror", (e) => errors.push(`${page.url()}: ${e.message.slice(0, 200)}`));
   await page.goto("/login");
-  await page.getByLabel("Email").fill("demo@openpromoter.test");
-  await page.getByLabel("Password", { exact: true }).fill("openpromoter-demo");
+  await page.getByLabel("Email").fill("demo@leadxmedia.test");
+  await page.getByLabel("Password", { exact: true }).fill("leadxmedia-demo");
   await page.getByRole("button", { name: "Sign in" }).click();
   await page.waitForURL(/\/app\/prg_/);
   const base = new URL(page.url()).pathname;

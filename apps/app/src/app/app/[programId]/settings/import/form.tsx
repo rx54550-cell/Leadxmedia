@@ -1,6 +1,6 @@
 "use client";
-import { Button, Checkbox, cn, Textarea } from "@openpromoter/ui";
-import { Upload } from "@openpromoter/ui/icons";
+import { Button, Checkbox, cn, Textarea } from "@leadxmedia/ui";
+import { Upload } from "@leadxmedia/ui/icons";
 import { useEffect, useId, useRef, useState } from "react";
 import { SettingsCard } from "@/components/page";
 import { useAction } from "@/components/use-action";

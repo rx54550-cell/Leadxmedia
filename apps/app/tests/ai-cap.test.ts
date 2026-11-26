@@ -1,4 +1,4 @@
-import { program, resource, workspace } from "@openpromoter/db";
+import { program, resource, workspace } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it, vi } from "vitest";
 

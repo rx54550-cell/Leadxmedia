@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Field, Input } from "@openpromoter/ui";
+import { Button, Field, Input } from "@leadxmedia/ui";
 import { useRouter } from "next/navigation";
 import { SettingsCard } from "@/components/page";
 import { useAction } from "@/components/use-action";

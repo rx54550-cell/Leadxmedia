@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
   Kbd,
   Tooltip,
-} from "@openpromoter/ui";
+} from "@leadxmedia/ui";
 import {
   Banknote,
   BookOpen,
@@ -43,7 +43,7 @@ import {
   UserPlus,
   Users,
   UsersRound,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -339,7 +339,7 @@ export function AppShell({ program, programs, user, role, counts, children }: Sh
             collapsed={collapsed}
           />
           <NavLink
-            item={{ href: "https://openpromoter.com/docs", label: t("nav.docs"), icon: BookOpen }}
+            item={{ href: "https://leadxmedia.com/docs", label: t("nav.docs"), icon: BookOpen }}
             active={false}
             collapsed={collapsed}
           />

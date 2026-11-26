@@ -1,4 +1,4 @@
-import { click, link, referral } from "@openpromoter/db";
+import { click, link, referral } from "@leadxmedia/db";
 import { and, desc, eq, gte, lt, type SQL, sql } from "drizzle-orm";
 import { db } from "./db";
 

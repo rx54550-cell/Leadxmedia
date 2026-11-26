@@ -1,4 +1,4 @@
-import { billingPrice, partnerGroup } from "@openpromoter/db";
+import { billingPrice, partnerGroup } from "@leadxmedia/db";
 import { and, asc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { priceLabel } from "@/lib/program-labels";

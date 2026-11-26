@@ -1,4 +1,4 @@
-import { emailLog, program } from "@openpromoter/db";
+import { emailLog, program } from "@leadxmedia/db";
 import { and, count, desc, eq, inArray, like, type SQL } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page";
@@ -63,7 +63,7 @@ export default async function AdminEmails({
     <>
       <PageHeader
         title="Emails"
-        description="Every email OpenPromoter sent in the last 30 days and what the mail provider reported. A copy of each email is kept with its links removed."
+        description="Every email LeadXMedia sent in the last 30 days and what the mail provider reported. A copy of each email is kept with its links removed."
         actions={<TestEmailForm />}
       />
       <EmailsTable

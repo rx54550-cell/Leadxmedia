@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@openpromoter/ui";
+import { Input } from "@leadxmedia/ui";
 import { useState } from "react";
 
 /** Password field with a Show button, so people can check what they typed before submitting. */

@@ -2,7 +2,7 @@
  * Demo workspace for self-hosters and performance testing.
  *   pnpm db:seed            # creates the demo if it doesn't exist
  *   pnpm db:seed --reset    # deletes and recreates it
- * Sign in: demo@openpromoter.test (founder) or leo@partners.example (partner), password openpromoter-demo
+ * Sign in: demo@leadxmedia.test (founder) or leo@partners.example (partner), password leadxmedia-demo
  */
 import {
   account,
@@ -22,7 +22,7 @@ import {
   resource,
   user,
   workspace,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { hashPassword } from "better-auth/crypto";
 import { eq, sql } from "drizzle-orm";
 import { DEMO } from "../src/lib/demo-accounts";
@@ -208,7 +208,7 @@ export async function seed({
       overrideRate: 1000,
       listedInNetwork: !quiet,
       autopilotEnabled: !quiet,
-      category: "Analytics",
+      category: "Other",
       brand: {
         color: "#4F46E5",
         logoUrl: null,

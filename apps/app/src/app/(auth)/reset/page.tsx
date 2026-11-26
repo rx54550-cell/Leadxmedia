@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Field } from "@openpromoter/ui";
+import { Button, Field } from "@leadxmedia/ui";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import { AuthCard } from "@/components/auth/auth-card";

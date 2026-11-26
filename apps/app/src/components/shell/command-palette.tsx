@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar } from "@openpromoter/ui";
-import { Banknote, Megaphone, Settings2, Sparkles, UserPlus } from "@openpromoter/ui/icons";
+import { Avatar } from "@leadxmedia/ui";
+import { Banknote, Megaphone, Settings2, Sparkles, UserPlus } from "@leadxmedia/ui/icons";
 import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
 import { Dialog as DialogPrimitive } from "radix-ui";

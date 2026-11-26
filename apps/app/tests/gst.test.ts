@@ -1,4 +1,4 @@
-import { workspace } from "@openpromoter/db";
+import { workspace } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import type Stripe from "stripe";
 import { describe, expect, it, vi } from "vitest";

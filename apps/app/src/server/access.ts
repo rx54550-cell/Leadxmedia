@@ -1,4 +1,4 @@
-import { member, program, type Role } from "@openpromoter/db";
+import { member, program, type Role } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { db } from "./db";
 

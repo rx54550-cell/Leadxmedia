@@ -1,6 +1,6 @@
 "use server";
 
-import { program, user } from "@openpromoter/db";
+import { program, user } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import type { ProgramDesign } from "@/server/ai/designer";

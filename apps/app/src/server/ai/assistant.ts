@@ -1,4 +1,4 @@
-import { fraudFlag, partner, payout } from "@openpromoter/db";
+import { fraudFlag, partner, payout } from "@leadxmedia/db";
 import { and, desc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { formatMoney, formatNumber, formatPercent } from "@/lib/money";

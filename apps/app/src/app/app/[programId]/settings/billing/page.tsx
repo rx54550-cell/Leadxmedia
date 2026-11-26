@@ -1,5 +1,5 @@
-import { Badge, Card, CardBody, CardHeader, cn, Progress } from "@openpromoter/ui";
-import { Check } from "@openpromoter/ui/icons";
+import { Badge, Card, CardBody, CardHeader, cn, Progress } from "@leadxmedia/ui";
+import { Check } from "@leadxmedia/ui/icons";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { formatMoney } from "@/lib/money";
@@ -71,8 +71,8 @@ export default async function BillingPage({
           title={`${s.plan.name} plan`}
           description={
             s.plan.price && s.interval === "year"
-              ? "Billed yearly with 2 months free. OpenPromoter never takes a cut of your payouts."
-              : "Flat monthly price. OpenPromoter never takes a cut of your payouts."
+              ? "Billed yearly with 2 months free. LeadXMedia never takes a cut of your payouts."
+              : "Flat monthly price. LeadXMedia never takes a cut of your payouts."
           }
           action={s.over ? <Badge tone="warning">Over limit</Badge> : null}
         />
@@ -98,8 +98,8 @@ export default async function BillingPage({
                 // the top plan never sees the upgrade screen (billing-plans.ts upgradeRequired)
                 <>
                   Everything keeps working with no upgrade screen. Email{" "}
-                  <a href="mailto:support@openpromoter.com" className="underline">
-                    support@openpromoter.com
+                  <a href="mailto:support@leadxmedia.com" className="underline">
+                    support@leadxmedia.com
                   </a>{" "}
                   for a custom price.
                 </>

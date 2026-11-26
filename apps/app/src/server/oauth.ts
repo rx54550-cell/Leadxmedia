@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { kvStore } from "@openpromoter/db";
+import { kvStore } from "@leadxmedia/db";
 import { and, eq, like, lt } from "drizzle-orm";
 import { hmacHex, randomToken, safeEqual, sha256 } from "@/lib/crypto";
 import type { ApiScope } from "@/lib/scopes";
@@ -161,7 +161,7 @@ export function serverMetadata() {
     code_challenge_methods_supported: ["S256"],
     token_endpoint_auth_methods_supported: ["none"],
     scopes_supported: Object.keys(ACCESS),
-    service_documentation: "https://openpromoter.com/docs/mcp/",
+    service_documentation: "https://leadxmedia.com/docs/mcp/",
   };
 }
 
@@ -172,7 +172,7 @@ export function resourceMetadata() {
     authorization_servers: [base],
     scopes_supported: Object.keys(ACCESS),
     bearer_methods_supported: ["header"],
-    resource_name: "OpenPromoter",
-    resource_documentation: "https://openpromoter.com/docs/mcp/",
+    resource_name: "LeadXMedia",
+    resource_documentation: "https://leadxmedia.com/docs/mcp/",
   };
 }

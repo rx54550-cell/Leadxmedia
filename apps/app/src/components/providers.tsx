@@ -1,6 +1,6 @@
 "use client";
 
-import { TooltipProvider } from "@openpromoter/ui";
+import { TooltipProvider } from "@leadxmedia/ui";
 import { Toaster } from "sonner";
 
 export function Providers({ children }: { children: React.ReactNode }) {

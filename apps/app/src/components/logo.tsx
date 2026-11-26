@@ -28,7 +28,7 @@ export function Logo({ className }: { className?: string }) {
       className={`inline-flex items-center gap-2 text-[15px] font-medium tracking-[-0.02em] text-fg ${className ?? ""}`}
     >
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[var(--accent)] text-[10px] font-bold tracking-[-0.06em] text-white">LX</span>
-      <span>LeadX <span className="font-normal text-muted">Media</span></span>
+      <span>LeadX<span className="font-normal text-muted">Media</span></span>
     </span>
   );
 }

@@ -1,4 +1,4 @@
-import { commission } from "@openpromoter/db";
+import { commission } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { normalizeChargebee } from "@/server/billing/chargebee";

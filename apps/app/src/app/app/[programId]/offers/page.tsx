@@ -1,4 +1,4 @@
-import { OFFER_CATEGORIES, offer } from "@openpromoter/db";
+import { OFFER_CATEGORIES, offer } from "@leadxmedia/db";
 import { desc, eq } from "drizzle-orm";
 import { PageHeader } from "@/components/page";
 import { programCtx } from "@/server/context";
@@ -6,7 +6,7 @@ import { db } from "@/server/db";
 import { createId } from "@/lib/id";
 import { revalidatePath } from "next/cache";
 
-export const metadata = { title: "Offers · LeadX Media" };
+export const metadata = { title: "Offers · LeadXMedia" };
 
 export default async function OffersPage({ params }: { params: Promise<{ programId: string }> }) {
   const { programId } = await params;

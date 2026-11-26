@@ -1,4 +1,4 @@
-import { billingConnection } from "@openpromoter/db";
+import { billingConnection } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { verifyStripe } from "@/server/billing/stripe";
 import { WebhookSignatureError } from "@/server/billing/types";

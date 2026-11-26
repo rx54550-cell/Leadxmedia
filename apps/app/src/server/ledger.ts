@@ -1,4 +1,4 @@
-import { commission, partner, payout, program, referral } from "@openpromoter/db";
+import { commission, partner, payout, program, referral } from "@leadxmedia/db";
 import { and, eq, inArray, isNull, like, lte, or, type SQL, sql } from "drizzle-orm";
 import { createId } from "@/lib/id";
 import { formatMoney } from "@/lib/money";

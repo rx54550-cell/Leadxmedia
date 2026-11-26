@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Card, CardHeader, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { Check, RefreshCw, ShieldCheck, X } from "@openpromoter/ui/icons";
+import { Badge, Button, Card, CardHeader, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { Check, RefreshCw, ShieldCheck, X } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { useAction } from "@/components/use-action";
 import { rescoreAction, resolveFlagAction } from "../growth-actions";

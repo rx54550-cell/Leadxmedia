@@ -9,7 +9,7 @@ import {
   promoCode,
   type ReferralStatus,
   referral,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, inArray, like, sql } from "drizzle-orm";
 import { createCode, createId, slugify } from "@/lib/id";
 import { toMinor } from "@/lib/money";

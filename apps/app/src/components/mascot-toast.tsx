@@ -1,6 +1,6 @@
 "use client";
 
-import { Beacon, type BeaconPose } from "@openpromoter/ui";
+import { Beacon, type BeaconPose } from "@leadxmedia/ui";
 import { toast } from "sonner";
 
 /** A success toast with Beacon. Only for the few friendly moments: payouts sent, invites, setup steps. */

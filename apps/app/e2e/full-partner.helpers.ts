@@ -6,7 +6,7 @@ import path from "node:path";
 import type { APIRequestContext, Browser, BrowserContext, Page } from "@playwright/test";
 
 /** Scratch folder for state, storage states and nothing else. */
-export const SCRATCH = process.env.PARTNER_E2E_DIR ?? path.join(tmpdir(), "openpromoter-partner-e2e");
+export const SCRATCH = process.env.PARTNER_E2E_DIR ?? path.join(tmpdir(), "leadxmedia-partner-e2e");
 mkdirSync(SCRATCH, { recursive: true });
 const STATE_FILE = path.join(SCRATCH, "state.json");
 
@@ -81,7 +81,7 @@ export function startSite(port: number, defaultSlug: () => string) {
       m === "consent" ? ' data-consent="required"' : m === "nostorage" ? ' data-storage="none"' : "";
     const embed =
       m === "embed"
-        ? `<script src="${APP}/embed.js"></script><openpromoter-dashboard program="${s}" token="${u.searchParams.get("token") ?? ""}"></openpromoter-dashboard>`
+        ? `<script src="${APP}/embed.js"></script><leadxmedia-dashboard program="${s}" token="${u.searchParams.get("token") ?? ""}"></leadxmedia-dashboard>`
         : "";
     res.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     res.end(`<!doctype html><html><head><meta charset="utf-8"><title>Site ${m}</title>

@@ -1,7 +1,7 @@
 {
-  "name": "openpromoter-cli",
+  "name": "leadxmedia-cli",
   "version": "0.1.2",
-  "description": "Command line for OpenPromoter: partners, commissions, payouts and agent-skill install",
+  "description": "Command line for LeadXMedia: partners, commissions, payouts and agent-skill install",
   "keywords": [
     "affiliate",
     "affiliate-program",
@@ -10,17 +10,17 @@
     "stripe",
     "saas",
     "payouts",
-    "openpromoter"
+    "leadxmedia"
   ],
-  "homepage": "https://openpromoter.com",
+  "homepage": "https://leadxmedia.com",
   "bugs": {
-    "url": "https://github.com/openpromoter/openpromoter/issues"
+    "url": "https://github.com/leadxmedia/leadxmedia/issues"
   },
   "author": "DevDiggers (https://devdiggers.com)",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "openpromoter": "dist/index.js"
+    "leadxmedia": "dist/index.js"
   },
   "files": [
     "dist",
@@ -28,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openpromoter/openpromoter.git",
+    "url": "git+https://github.com/leadxmedia/leadxmedia.git",
     "directory": "packages/cli"
   },
   "scripts": {
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "commander": "14.0.3",
-    "openpromoter": "workspace:*"
+    "leadxmedia": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "22.20.5",

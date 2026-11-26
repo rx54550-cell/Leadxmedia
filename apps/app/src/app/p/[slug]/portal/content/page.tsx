@@ -1,4 +1,4 @@
-import { campaign, contentAsset, link, resource } from "@openpromoter/db";
+import { campaign, contentAsset, link, resource } from "@leadxmedia/db";
 import { and, asc, eq } from "drizzle-orm";
 import { PageHeader } from "@/components/page";
 import { partnerCtx } from "@/server/context";

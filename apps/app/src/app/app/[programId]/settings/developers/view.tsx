@@ -15,8 +15,8 @@ import {
   Input,
   Select,
   StatusBadge,
-} from "@openpromoter/ui";
-import { KeyRound, Plus, RotateCcw, Send, Trash2, Webhook } from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui";
+import { KeyRound, Plus, RotateCcw, Send, Trash2, Webhook } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { CodeBlock, CopyField } from "@/components/copy";
 import { useAction } from "@/components/use-action";
@@ -193,7 +193,7 @@ export function DevelopersView({
       <Card>
         <CardHeader
           title="Webhooks and alerts"
-          description="Signed with HMAC-SHA256 (OpenPromoter-Signature: t=…,v1=…) and retried with backoff for about a day. Slack and Discord get readable messages."
+          description="Signed with HMAC-SHA256 (LeadXMedia-Signature: t=…,v1=…) and retried with backoff for about a day. Slack and Discord get readable messages."
           action={
             canWrite ? (
               <Dialog open={epOpen} onOpenChange={setEpOpen}>
@@ -362,10 +362,10 @@ export function DevelopersView({
             code={JSON.stringify(
               {
                 mcpServers: {
-                  openpromoter: {
+                  leadxmedia: {
                     command: "npx",
-                    args: ["-y", "openpromoter-mcp"],
-                    env: { OPENPROMOTER_API_KEY: `${keyPrefix}...`, OPENPROMOTER_URL: appUrl },
+                    args: ["-y", "leadxmedia-mcp"],
+                    env: { LEADXMEDIA_API_KEY: `${keyPrefix}...`, LEADXMEDIA_URL: appUrl },
                   },
                 },
               },
@@ -375,7 +375,7 @@ export function DevelopersView({
           />
           <CodeBlock
             label="CLI"
-            code={`npx openpromoter-cli login --url ${appUrl} --key ${keyPrefix}...\nnpx openpromoter-cli partners list --program ${programId}`}
+            code={`npx leadxmedia-cli login --url ${appUrl} --key ${keyPrefix}...\nnpx leadxmedia-cli partners list --program ${programId}`}
           />
         </CardBody>
       </Card>

@@ -1,5 +1,5 @@
-import { partner, program } from "@openpromoter/db";
-import { ArrowLeft } from "@openpromoter/ui/icons";
+import { partner, program } from "@leadxmedia/db";
+import { ArrowLeft } from "@leadxmedia/ui/icons";
 import { and, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { headers } from "next/headers";

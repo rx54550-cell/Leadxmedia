@@ -1,4 +1,4 @@
-# OpenPromoter architecture
+# LeadXMedia architecture
 
 ## Stack (versions confirmed on npm, 2026-11-03)
 
@@ -29,10 +29,10 @@ apps/app            Next.js: /app (founder dashboard), /p/[slug] (public page, a
 packages/db         Drizzle schema + SQL migrations
 packages/ui         design-system components + tokens (styles.css)
 packages/emails     React Email templates
-packages/sdk        `openpromoter` npm package (REST client, webhook verification, browser helper)
-packages/mcp        `openpromoter-mcp` MCP server (stdio)
-packages/cli        `openpromoter-cli` npm package (installs the `openpromoter` command)
-skills/openpromoter agent skill for Claude Code / Cursor
+packages/sdk        `leadxmedia` npm package (REST client, webhook verification, browser helper)
+packages/mcp        `leadxmedia-mcp` MCP server (stdio)
+packages/cli        `leadxmedia-cli` npm package (installs the `leadxmedia` command)
+skills/leadxmedia agent skill for Claude Code / Cursor
 ```
 
 ## Data model (packages/db/src/schema.ts)
@@ -51,7 +51,7 @@ Tenancy: `workspace` ← `member(role)` → `user`. A workspace owns `program`s;
 
 **Click.** `/r/<program>/<code>` or a short link `/r/<program>/l/<key>` (or a custom domain mapped to the program) records a click and 302s to the founder's site with `?op_click=…`. The redirect costs one lookup (program + partner/link in one query, run in parallel with the shared rate limit); the click id is generated up front and the row is inserted after the response is sent (Next `after()`), so a crash in that window can lose a click but never delays a visitor. `click_daily` (program, UTC day, partner → human clicks, bots) is kept exact by statement-level triggers on `click`; dashboards read whole days from it and only the partial first and last day from raw rows. On the founder's site, `op.js` (one script tag) records `?via=` clicks itself, stores `op_click`/`op_visitor` in a first-party cookie for `cookie_days` (respecting first/last-click and consent mode), and decorates Stripe Payment Links, Pricing Tables and Checkout buttons with `client_reference_id`.
 
-**Signup (lead).** `openpromoter.signup({ email })` in the browser, or `POST /api/v1/leads` from the server, creates a `referral` in `lead` state.
+**Signup (lead).** `leadxmedia.signup({ email })` in the browser, or `POST /api/v1/leads` from the server, creates a `referral` in `lead` state.
 
 **Payment.** Stripe → `POST /api/webhooks/stripe/<workspace>` → signature check (`Stripe-Signature`, 5-minute tolerance) → `normalizeStripe` → `ingest()` in one transaction: insert into `processed_event` (duplicate → stop), resolve the referral (coupon → click id → partner code → visitor clicks in window → lead email), compute the commission (`commission.ts`: plan from tier/program, once/months/lifetime window, best live boost), insert with hold date, auto-hold on fraud score, enqueue side effects (bounties, tier promotion, outgoing webhooks, emails) in the same transaction (outbox). Refunds, disputes and subscription changes adjust the ledger. Out-of-order delivery is safe: every handler looks up by external ids and is idempotent.
 
@@ -63,7 +63,7 @@ Tenancy: `workspace` ← `member(role)` → `user`. A workspace owns `program`s;
 
 - Tenant isolation: every route resolves the program through `requireProgram(user, programId, permission)` which checks membership; API keys are scoped to one workspace and checked the same way. Tests in `tests/access.test.ts`.
 - Roles: owner, admin, finance, viewer (`server/access.ts`). Money writes need `money.write`; payout approval also requires a user session (not an API key, not AI).
-- Webhooks in: signature verification for Stripe, Paddle, Lemon Squeezy, Polar; idempotent processing. Webhooks out: `OpenPromoter-Signature: t=…,v1=HMAC-SHA256(secret, "t.body")`, retries with exponential backoff (8 attempts).
+- Webhooks in: signature verification for Stripe, Paddle, Lemon Squeezy, Polar; idempotent processing. Webhooks out: `LeadXMedia-Signature: t=…,v1=HMAC-SHA256(secret, "t.body")`, retries with exponential backoff (8 attempts).
 - Secrets only from env; provider secrets encrypted at rest (AES-256-GCM, `ENCRYPTION_KEY`); IPs stored as salted hashes; no PII in logs.
 - zod validation on every API input; rate limits on tracking and API; Better Auth rate limits on auth; Next.js server actions are origin-checked (CSRF); cookie-authenticated API routes check `Origin`.
 - SSRF guard on server-side fetches of user URLs (brand extraction, webhooks).
@@ -71,7 +71,7 @@ Tenancy: `workspace` ← `member(role)` → `user`. A workspace owns `program`s;
 
 ## Editions
 
-`HOSTED_MODE=true` enables cloud plans (Stripe Billing on OpenPromoter's own account), usage limits by attributed revenue, a trial and Stripe Connect OAuth. Self-host has the same features with no limits.
+`HOSTED_MODE=true` enables cloud plans (Stripe Billing on LeadXMedia's own account), usage limits by attributed revenue, a trial and Stripe Connect OAuth. Self-host has the same features with no limits.
 
 ## Running several replicas
 

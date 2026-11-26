@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge } from "@openpromoter/ui";
-import { UsersRound } from "@openpromoter/ui/icons";
+import { Badge } from "@leadxmedia/ui";
+import { UsersRound } from "@leadxmedia/ui/icons";
 import { type Column, DataTable, type Tab } from "@/components/data-table";
 import { formatMoney } from "@/lib/money";
 import { BILLING_TONE, billingLabel } from "@/server/admin-labels";

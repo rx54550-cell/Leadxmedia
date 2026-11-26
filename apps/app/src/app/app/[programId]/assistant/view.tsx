@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Button, Kbd } from "@openpromoter/ui";
+import { Badge, Button, Kbd } from "@leadxmedia/ui";
 import {
   ArrowUp,
   ArrowUpRight,
@@ -12,7 +12,7 @@ import {
   Trophy,
   Users,
   Webhook,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { toast } from "sonner";

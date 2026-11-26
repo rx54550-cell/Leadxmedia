@@ -7,7 +7,7 @@ import {
   program,
   reportSubscription,
   user,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, inArray, isNull, lte, or, sql } from "drizzle-orm";
 import { DEMO } from "@/lib/demo-accounts";
 import { formatMoney, formatNumber, formatPercent } from "@/lib/money";
@@ -97,7 +97,7 @@ export function registerJobs() {
       String(p.to),
       String(p.subject),
       {
-        brandName: prog?.name ?? "OpenPromoter",
+        brandName: prog?.name ?? "LeadXMedia",
         brandColor: prog?.brand.color,
         logoUrl: prog?.brand.logoUrl,
         preview: String(p.subject),
@@ -185,7 +185,7 @@ export function registerJobs() {
                       : "Bank transfer",
             },
             ...(row.po.invoiceNumber ? [{ label: "Invoice", value: row.po.invoiceNumber }] : []),
-            { label: "Fees from OpenPromoter", value: formatMoney(0, row.po.currency) },
+            { label: "Fees from LeadXMedia", value: formatMoney(0, row.po.currency) },
           ],
           total: { label: "Paid to you", value: formatMoney(row.po.amount, row.po.currency) },
         },
@@ -253,7 +253,7 @@ export function registerJobs() {
     if (!row) return;
     for (const to of await teamEmails(row.prog.workspaceId)) {
       await sendNotice(to, `New partner application: ${row.pt.name}`, {
-        brandName: "OpenPromoter",
+        brandName: "LeadXMedia",
         preview: "Review a new application",
         title: `${row.pt.name} wants to promote ${row.prog.name}`,
         paragraphs: [

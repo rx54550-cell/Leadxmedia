@@ -66,7 +66,7 @@ Plain words, direct, founder-to-founder. Follow docs/CONTENT-GUIDELINES.md.
 | Theme | Proof |
 |-------|-------|
 | 0% payouts | plans.ts, pricing page |
-| Live demo, no signup | openpromoter.com/demo/ |
+| Live demo, no signup | leadxmedia.com/demo/ |
 | Migration | Settings > Import, README section |
 
 ## Goals

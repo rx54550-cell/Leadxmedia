@@ -14,7 +14,7 @@ import {
   Input,
   Select,
   Textarea,
-} from "@openpromoter/ui";
+} from "@leadxmedia/ui";
 import {
   Download,
   ExternalLink,
@@ -24,7 +24,7 @@ import {
   RefreshCw,
   Sparkles,
   Trash2,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { CopyButton } from "@/components/copy";
 import { useAction } from "@/components/use-action";

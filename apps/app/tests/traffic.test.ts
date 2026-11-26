@@ -1,4 +1,4 @@
-import { click, referral } from "@openpromoter/db";
+import { click, referral } from "@leadxmedia/db";
 import { describe, expect, it } from "vitest";
 import { db } from "@/server/db";
 import { trafficReport } from "@/server/traffic";

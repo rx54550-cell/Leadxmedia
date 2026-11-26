@@ -1,4 +1,4 @@
-import { agentAction, fraudFlag, partner, payout, workspace } from "@openpromoter/db";
+import { agentAction, fraudFlag, partner, payout, workspace } from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import Link from "next/link";
 import { DemoBanner } from "@/components/demo-banner";

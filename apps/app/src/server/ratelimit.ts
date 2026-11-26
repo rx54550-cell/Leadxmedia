@@ -1,4 +1,4 @@
-import { rateLimit as rateLimitTable } from "@openpromoter/db";
+import { rateLimit as rateLimitTable } from "@leadxmedia/db";
 import { lt, sql } from "drizzle-orm";
 import { sha256 } from "@/lib/crypto";
 import { db, query } from "./db";

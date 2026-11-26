@@ -12,8 +12,8 @@ import {
   Input,
   Select,
   StatusBadge,
-} from "@openpromoter/ui";
-import { Ban, Check, Pause, UserPlus, Users, X } from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui";
+import { Ban, Check, Pause, UserPlus, Users, X } from "@leadxmedia/ui/icons";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";

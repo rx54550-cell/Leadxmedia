@@ -1,4 +1,4 @@
-import { commission } from "@openpromoter/db";
+import { commission } from "@leadxmedia/db";
 import { and, eq, gte, sql } from "drizzle-orm";
 import { db } from "./db";
 import { baseAmount } from "./fx";

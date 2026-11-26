@@ -12,7 +12,7 @@ import {
 export function stripeClient(secret: string) {
   return new Stripe(secret, {
     maxNetworkRetries: 2,
-    appInfo: { name: "OpenPromoter", url: "https://openpromoter.com" },
+    appInfo: { name: "LeadXMedia", url: "https://leadxmedia.com" },
   });
 }
 
@@ -257,7 +257,7 @@ export async function normalizeStripe(evt: Stripe.Event, lookup: StripeLookup = 
   return { eventId: evt.id, eventType: evt.type, livemode: evt.livemode, events };
 }
 
-/** Webhook events OpenPromoter subscribes to. */
+/** Webhook events LeadXMedia subscribes to. */
 export const STRIPE_EVENTS: Stripe.WebhookEndpointCreateParams.EnabledEvent[] = [
   "customer.created",
   "checkout.session.completed",

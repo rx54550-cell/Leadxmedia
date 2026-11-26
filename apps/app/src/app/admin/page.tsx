@@ -1,5 +1,5 @@
-import { Badge, Card } from "@openpromoter/ui";
-import { Activity, Coins, ExternalLink, TrendUp, UsersRound } from "@openpromoter/ui/icons";
+import { Badge, Card } from "@leadxmedia/ui";
+import { Activity, Coins, ExternalLink, TrendUp, UsersRound } from "@leadxmedia/ui/icons";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BarChart, DotChart } from "@/components/charts";
@@ -23,7 +23,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     <>
       <PageHeader
         title="Overview"
-        description="Every workspace on OpenPromoter Cloud. Read-only: nothing here changes a customer's data."
+        description="Every workspace on LeadXMedia Cloud. Read-only: nothing here changes a customer's data."
         actions={
           <>
             <span className="text-[13px] text-subtle">

@@ -1,4 +1,4 @@
-import { partner, user } from "@openpromoter/db";
+import { partner, user } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { createCode } from "@/lib/id";
@@ -17,15 +17,15 @@ async function signedIn() {
 describe("partner marketplace", () => {
   it("lists only opted-in public programs and filters by category and commission type", async () => {
     const tag = `Mk${createCode(4)}`;
-    const ai = await fixture({ name: `${tag} AI`, listedInNetwork: true, category: "AI" });
+    const ai = await fixture({ name: `${tag} AI`, listedInNetwork: true, category: "Other" });
     const fixed = await fixture({
       name: `${tag} Fixed`,
       listedInNetwork: true,
-      category: "Finance",
+      category: "Finance / Loan Offer",
       commissionType: "fixed",
       commissionValue: 5000,
     });
-    const hidden = await fixture({ name: `${tag} Hidden`, listedInNetwork: false, category: "AI" });
+    const hidden = await fixture({ name: `${tag} Hidden`, listedInNetwork: false, category: "Other" });
     const priv = await fixture({ name: `${tag} Private`, listedInNetwork: true, visibility: "private" });
     const ids = (rows: Awaited<ReturnType<typeof listMarketplace>>) => rows.map((r) => r.program.id);
 
@@ -34,7 +34,7 @@ describe("partner marketplace", () => {
     expect(all).not.toContain(hidden.program.id);
     expect(all).not.toContain(priv.program.id);
 
-    const aiOnly = ids(await listMarketplace({ category: "AI" }));
+    const aiOnly = ids(await listMarketplace({ category: "Other" }));
     expect(aiOnly).toContain(ai.program.id);
     expect(aiOnly).not.toContain(fixed.program.id);
 
@@ -44,11 +44,11 @@ describe("partner marketplace", () => {
 
     // an unknown category is ignored instead of matching nothing
     expect(ids(await listMarketplace({ category: "'; drop table program; --" }))).toEqual(all);
-    expect(await marketplaceCategories()).toEqual(expect.arrayContaining(["AI", "Finance"]));
+    expect(await marketplaceCategories()).toEqual(expect.arrayContaining(["Other", "Finance / Loan Offer"]));
   });
 
   it("applies with one click from the signed-in account and shows the status after", async () => {
-    const f = await fixture({ listedInNetwork: true, category: "Sales" });
+    const f = await fixture({ listedInNetwork: true, category: "Lead Gen Offer" });
     const u = await signedIn();
     const r = await joinFromMarketplace(u, f.program.slug, "9.9.9.9");
     expect(r.autoApproved).toBe(true);
@@ -59,7 +59,7 @@ describe("partner marketplace", () => {
     const rows = await db().select().from(partner).where(eq(partner.userId, u.id));
     expect(rows).toHaveLength(1);
 
-    const listed = await listMarketplace({ category: "Sales" }, u.id);
+    const listed = await listMarketplace({ category: "Lead Gen Offer" }, u.id);
     expect(listed.find((x) => x.program.id === f.program.id)?.status).toBe("approved");
   });
 

@@ -23,9 +23,9 @@
 
 1. **Partner code with a dash, underscore or dot** (`john-doe`, `jane_s`, `a.b`): it must be stored exactly as exported so `?via=john-doe` still matches. Today `slugify(...).replace(/-/g, "")` turns it into `johndoe`. Test in Task 1.
 2. **Code already taken by a different partner**: today a random suffix is added silently and that partner's old links die. The row must be skipped and reported by email and code, never renamed. Test in Task 1.
-3. **Referral row whose partner is not in OpenPromoter yet** (balances or referrals imported before partners): row is skipped and listed, nothing half-created. Tests in Tasks 2 and 3.
+3. **Referral row whose partner is not in LeadXMedia yet** (balances or referrals imported before partners): row is skipped and listed, nothing half-created. Tests in Tasks 2 and 3.
 4. **Money written as `$1,234.50` or `1234.5`**: must parse to `123450` minor units; a value that does not parse skips the row rather than writing 0. Test in Task 3.
-5. **Customer already referred in OpenPromoter** (same `externalCustomerId` in this program): the existing referral wins and the row is counted as skipped. Test in Task 2.
+5. **Customer already referred in LeadXMedia** (same `externalCustomerId` in this program): the existing referral wins and the row is counted as skipped. Test in Task 2.
 
 ---
 
@@ -177,7 +177,7 @@ UI: a segmented control above the file input with three options, in this order, 
 Result line lists `conflicts` and `missing` (first 10, then "and N more").
 
 - [ ] **Step 1: Take before screenshots** of the Import card (light and dark) with the local app.
-- [ ] **Step 2: Implement** the control with the existing `@openpromoter/ui` segmented or tabs component (look in `packages/ui` for what Plan & billing uses for its Monthly/Yearly switch and reuse it).
+- [ ] **Step 2: Implement** the control with the existing `@leadxmedia/ui` segmented or tabs component (look in `packages/ui` for what Plan & billing uses for its Monthly/Yearly switch and reuse it).
 - [ ] **Step 3: Run** `pnpm --filter app e2e full-settings` and expect PASS; import a small file of each kind by hand and see the counts.
 - [ ] **Step 4: Take after screenshots**, send before and after side by side to the owner.
 - [ ] **Step 5: Commit** `Settings > Import takes partners, referred customers and balances`
@@ -186,11 +186,11 @@ Result line lists `conflicts` and `missing` (first 10, then "and N more").
 
 **Files:**
 - Modify: `README.md:65` and `:135`
-- Modify in `../openpromoter-site`: `apps/www/content/docs/team-and-access.md` (the "Import partners from another tool" section), `apps/www/content/docs/getting-started.md:75`, `apps/www/lib/compare.ts:292` and `:1372`, `apps/www/app/changelog/page.tsx` (new entry)
+- Modify in `../leadxmedia-site`: `apps/www/content/docs/team-and-access.md` (the "Import partners from another tool" section), `apps/www/content/docs/getting-started.md:75`, `apps/www/lib/compare.ts:292` and `:1372`, `apps/www/app/changelog/page.tsx` (new entry)
 
 - [ ] **Step 1:** Rewrite the import section as three steps (partners, referred customers, balances) with which export to pull from each tool. Before writing per-tool export steps, check each tool's help docs for the real export names; say only what the docs confirm.
 - [ ] **Step 2:** Replace "CSV import of partners" claims with "partners, referred customers and balances", and the FAQ answer at `compare.ts:292` with one that says renewals keep paying the same partner.
-- [ ] **Step 3:** Run the site build (`nvm use 22 && pnpm build` in `../openpromoter-site`) and expect it to pass; run the content-guidelines checks the site has.
+- [ ] **Step 3:** Run the site build (`nvm use 22 && pnpm build` in `../leadxmedia-site`) and expect it to pass; run the content-guidelines checks the site has.
 - [ ] **Step 4: Commit** in each repo: `Docs: switching brings partners, referred customers and balances`
 
 ---

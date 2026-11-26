@@ -1,5 +1,5 @@
-import { Badge, Card, cn, Tooltip } from "@openpromoter/ui";
-import { type Icon, Info, TrendDown, TrendUp } from "@openpromoter/ui/icons";
+import { Badge, Card, cn, Tooltip } from "@leadxmedia/ui";
+import { type Icon, Info, TrendDown, TrendUp } from "@leadxmedia/ui/icons";
 
 export function PageHeader({
   title,

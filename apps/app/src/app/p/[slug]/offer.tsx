@@ -1,5 +1,5 @@
-import { billingConnection, type program } from "@openpromoter/db";
-import { cn } from "@openpromoter/ui";
+import { billingConnection, type program } from "@leadxmedia/db";
+import { cn } from "@leadxmedia/ui";
 import { eq } from "drizzle-orm";
 import { formatMoney } from "@/lib/money";
 import { afterLabel, rateLabel } from "@/lib/program-labels";

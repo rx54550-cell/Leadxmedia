@@ -1,8 +1,8 @@
 "use client";
 
-import type { CampaignRule } from "@openpromoter/db";
-import { Badge, Button, Card, CardHeader, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { Check, Megaphone, Rocket, Sparkles, X } from "@openpromoter/ui/icons";
+import type { CampaignRule } from "@leadxmedia/db";
+import { Badge, Button, Card, CardHeader, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { Check, Megaphone, Rocket, Sparkles, X } from "@leadxmedia/ui/icons";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import { useAction } from "@/components/use-action";

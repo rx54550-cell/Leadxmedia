@@ -4,7 +4,7 @@
  * The served script is MIT licensed (see its banner) so it can run on any site; this file is AGPL.
  */
 export function snippet(base: string): string {
-  return `/*! OpenPromoter op.js | MIT | https://openpromoter.com */
+  return `/*! LeadXMedia op.js | MIT | https://leadxmedia.com */
 (function () {
   var s = document.currentScript || document.querySelector('script[data-program]');
   if (!s) return;
@@ -21,7 +21,7 @@ export function snippet(base: string): string {
   var consented = !needConsent;
   var KEY = "op_ref";
   var state = { clickId: null, visitorId: null, code: null };
-  var q = (window.openpromoter && window.openpromoter.q) || [];
+  var q = (window.leadxmedia && window.leadxmedia.q) || [];
 
   function readCookie() {
     var m = document.cookie.match(/(?:^|; )op_ref=([^;]*)/);
@@ -68,7 +68,7 @@ export function snippet(base: string): string {
     return post("/api/track/lead", { program: program, email: o.email, name: o.name || null, clickId: state.clickId, visitorId: state.visitorId, code: state.code });
   };
   api.consent = function (v) { api("consent", v); };
-  window.openpromoter = api;
+  window.leadxmedia = api;
 
   var existing = readCookie();
   if (existing) apply(existing);

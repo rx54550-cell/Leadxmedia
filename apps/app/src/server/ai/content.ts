@@ -1,4 +1,4 @@
-import { contentAsset, type program } from "@openpromoter/db";
+import { contentAsset, type program } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { sha256 } from "@/lib/crypto";

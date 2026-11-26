@@ -1,6 +1,6 @@
-import { message } from "@openpromoter/db";
-import { Badge, cn } from "@openpromoter/ui";
-import { Inbox, Megaphone } from "@openpromoter/ui/icons";
+import { message } from "@leadxmedia/db";
+import { Badge, cn } from "@leadxmedia/ui";
+import { Inbox, Megaphone } from "@leadxmedia/ui/icons";
 import { and, desc, eq, isNull, or } from "drizzle-orm";
 import Link from "next/link";
 import { PageHeader } from "@/components/page";

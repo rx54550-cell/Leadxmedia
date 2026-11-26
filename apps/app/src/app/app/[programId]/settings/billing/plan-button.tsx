@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@openpromoter/ui";
+import { Button } from "@leadxmedia/ui";
 import { useTransition } from "react";
 import { toast } from "sonner";
 import { billingPortalAction, choosePlanAction } from "./actions";

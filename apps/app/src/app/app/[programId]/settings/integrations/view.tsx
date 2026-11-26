@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Card, CardBody, CardHeader, Field, Input, Switch } from "@openpromoter/ui";
-import { CheckCircle2, Link2 } from "@openpromoter/ui/icons";
+import { Badge, Button, Card, CardBody, CardHeader, Field, Input, Switch } from "@leadxmedia/ui";
+import { CheckCircle2, Link2 } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { BrandTitle } from "@/components/brand";
 import { CodeBlock, CopyField } from "@/components/copy";

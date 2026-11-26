@@ -1,4 +1,4 @@
-import { billingConnection, billingCustomer, billingPrice, partner, program } from "@openpromoter/db";
+import { billingConnection, billingCustomer, billingPrice, partner, program } from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import type Stripe from "stripe";
 import { decrypt, encrypt, hmacHex, safeEqual } from "@/lib/crypto";
@@ -79,7 +79,7 @@ async function registerEndpoint(
     const ep = await stripe.webhookEndpoints.create({
       url: webhookUrl("stripe", workspaceId),
       enabled_events: STRIPE_EVENTS,
-      description: "OpenPromoter attribution",
+      description: "LeadXMedia attribution",
     });
     if (old?.id && old.id !== ep.id) await stripe.webhookEndpoints.del(old.id).catch(() => {});
     return { endpointId: ep.id, secret: ep.secret ?? null, error: null };
@@ -300,7 +300,7 @@ export async function partnerOnboardingLink(programId: string, partnerId: string
           url: row.p.website ?? undefined,
           product_description: `Affiliate partner of ${row.prog.name}`,
         },
-        metadata: { openpromoter_partner: row.p.id },
+        metadata: { leadxmedia_partner: row.p.id },
       })
       .catch((e: Error) => {
         // Stripe accounts registered in some countries (India among them) can't be a Connect platform that

@@ -1,4 +1,4 @@
-import { billingConnection } from "@openpromoter/db";
+import { billingConnection } from "@leadxmedia/db";
 import { and, eq, isNull, lt, or } from "drizzle-orm";
 import type Stripe from "stripe";
 import { decrypt } from "@/lib/crypto";

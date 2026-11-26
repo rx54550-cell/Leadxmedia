@@ -1,4 +1,4 @@
-import { payout } from "@openpromoter/db";
+import { payout } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { programCtx } from "@/server/context";

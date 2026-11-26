@@ -1,6 +1,6 @@
 "use server";
 
-import { partner, partnerGroup, payout, savedView, user } from "@openpromoter/db";
+import { partner, partnerGroup, payout, savedView, user } from "@leadxmedia/db";
 import { and, eq, ilike, inArray, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";

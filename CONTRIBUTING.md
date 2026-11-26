@@ -1,4 +1,4 @@
-# Contributing to OpenPromoter
+# Contributing to LeadXMedia
 
 Thanks for helping. A few things before you open a pull request:
 

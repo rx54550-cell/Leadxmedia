@@ -9,7 +9,7 @@ import {
   prospect,
   rateLimit as rateLimitTable,
   user,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { hmacHex } from "@/lib/crypto";

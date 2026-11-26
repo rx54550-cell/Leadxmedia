@@ -13,9 +13,9 @@ const schema = z.object({
   AI_MODEL: z.string().optional(),
   SMTP_URL: z.string().optional(),
   RESEND_API_KEY: z.string().optional(),
-  EMAIL_FROM: z.string().default("OpenPromoter <hello@localhost>"),
+  EMAIL_FROM: z.string().default("LeadXMedia <hello@localhost>"),
   STRIPE_CONNECT_CLIENT_ID: z.string().optional(),
-  /** OpenPromoter's own Stripe account (cloud billing + Connect OAuth). */
+  /** LeadXMedia's own Stripe account (cloud billing + Connect OAuth). */
   PLATFORM_STRIPE_SECRET_KEY: z.string().optional(),
   PLATFORM_STRIPE_WEBHOOK_SECRET: z.string().optional(),
   /** Customer portal configuration (bpc_...) for plan billing. Unset: the account's default portal. */

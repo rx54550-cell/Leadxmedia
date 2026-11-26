@@ -618,7 +618,7 @@ test("30 /r/[slug]/[code] and /r/[slug]/l/[key] only ever redirect to the progra
 
 const waitClick = (page: Page) =>
   page.waitForFunction(
-    () => (window as unknown as { openpromoter?: { clickId?: string } }).openpromoter?.clickId,
+    () => (window as unknown as { leadxmedia?: { clickId?: string } }).leadxmedia?.clickId,
     null,
     {
       timeout: 15_000,
@@ -626,8 +626,8 @@ const waitClick = (page: Page) =>
   );
 const opState = (page: Page) =>
   page.evaluate(() => {
-    const o = (window as unknown as { openpromoter: { clickId: string; visitorId: string; code: string } })
-      .openpromoter;
+    const o = (window as unknown as { leadxmedia: { clickId: string; visitorId: string; code: string } })
+      .leadxmedia;
     return { clickId: o.clickId, visitorId: o.visitorId, code: o.code };
   });
 const cookieVal = (c: { value: string } | undefined) =>
@@ -660,7 +660,7 @@ test("31 op.js ?via=code records the click, sets the cookie for the program's wi
   // a new visit without a code keeps the attribution from the cookie
   await page.goto(`${siteUrl(s)}/pricing`);
   await page.waitForFunction(
-    () => (window as unknown as { openpromoter?: { clickId?: string } }).openpromoter?.clickId,
+    () => (window as unknown as { leadxmedia?: { clickId?: string } }).leadxmedia?.clickId,
   );
   expect((await opState(page)).clickId).toBe(st.clickId);
   await ctx.close();
@@ -675,7 +675,7 @@ test("32 last click (default): a newer partner click replaces the cookie", async
   const first = await opState(page);
   await page.goto(`${siteUrl(s)}/?via=${s.partners.sub!.code}`);
   await page.waitForFunction(
-    (c) => (window as unknown as { openpromoter: { code: string } }).openpromoter.code === c,
+    (c) => (window as unknown as { leadxmedia: { code: string } }).leadxmedia.code === c,
     s.partners.sub!.code,
   );
   const v = cookieVal(await cookieOf(ctx))!;
@@ -735,7 +735,7 @@ test("34 consent mode: no cookie before consent, click id still reaches checkout
   expect(await cookieOf(ctx)).toBeUndefined();
   await expect(page.locator("#buy")).toHaveAttribute("href", new RegExp(`client_reference_id=${st.clickId}`));
   await page.evaluate(() =>
-    (window as unknown as { openpromoter: (c: string, v: boolean) => void }).openpromoter("consent", true),
+    (window as unknown as { leadxmedia: (c: string, v: boolean) => void }).leadxmedia("consent", true),
   );
   const c = await cookieOf(ctx);
   expect(cookieVal(c)).toEqual({ c: st.clickId, v: st.visitorId, p: st.code });
@@ -751,7 +751,7 @@ test("35 consent mode: the cookie written after consent uses the program's cooki
   await page.goto(`${siteUrl(s)}/consent/${s.slug}?via=${s.partners.p1!.code}`);
   await waitClick(page);
   await page.evaluate(() =>
-    (window as unknown as { openpromoter: { consent: (v: boolean) => void } }).openpromoter.consent(true),
+    (window as unknown as { leadxmedia: { consent: (v: boolean) => void } }).leadxmedia.consent(true),
   );
   const c = await cookieOf(ctx);
   expect(c).toBeTruthy();
@@ -769,7 +769,7 @@ test("36 cookieless mode never writes a cookie, even after consent, and still de
   await waitClick(page);
   const st = await opState(page);
   await page.evaluate(() =>
-    (window as unknown as { openpromoter: { consent: (v: boolean) => void } }).openpromoter.consent(true),
+    (window as unknown as { leadxmedia: { consent: (v: boolean) => void } }).leadxmedia.consent(true),
   );
   await page.waitForTimeout(300);
   expect(await cookieOf(ctx)).toBeUndefined();
@@ -966,8 +966,8 @@ test("41 E2E: op.js click → signup lead → Stripe invoice.paid → $60.00 pen
   const lead = await page.evaluate(
     (email) =>
       (
-        window as unknown as { openpromoter: { signup: (o: object) => Promise<{ ok: boolean }> } }
-      ).openpromoter.signup({
+        window as unknown as { leadxmedia: { signup: (o: object) => Promise<{ ok: boolean }> } }
+      ).leadxmedia.signup({
         email,
         name: "Bea Buyer",
       }),
@@ -1344,13 +1344,13 @@ test("70 /embed/[slug] with a signed token shows the partner's dashboard; framea
   const js = await request.get("/embed.js");
   expect(js.headers()["content-type"]).toContain("javascript");
   expect(js.headers()["access-control-allow-origin"]).toBe("*");
-  expect(await js.text()).toContain('customElements.define("openpromoter-dashboard"');
+  expect(await js.text()).toContain('customElements.define("leadxmedia-dashboard"');
 
   // embed.js on the founder's site frames the dashboard
   const ctx = await newCtx(browser);
   const page = await ctx.newPage();
   await page.goto(`${siteUrl(s)}/embed/${s.slug}?token=${encodeURIComponent(token)}`);
-  const frame = page.frameLocator("openpromoter-dashboard iframe");
+  const frame = page.frameLocator("leadxmedia-dashboard iframe");
   await expect(frame.getByText(`/r/${s.slug}/l/${s.partners.p1!.linkKey}`)).toBeVisible();
   await ctx.close();
 });

@@ -88,7 +88,7 @@ export function normalizePaddle(body: Json, livemode = true): ParsedWebhook {
           chargeId: d.transaction_id,
           refundKey: d.id,
           refunded,
-          // an adjustment carries only its own amount: OpenPromoter adds earlier refunds and uses the sale amount
+          // an adjustment carries only its own amount: LeadXMedia adds earlier refunds and uses the sale amount
           charged: 0,
           incremental: true,
         });

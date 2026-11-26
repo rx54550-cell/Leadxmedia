@@ -1,4 +1,4 @@
-import { commission, partner, payout } from "@openpromoter/db";
+import { commission, partner, payout } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { createId } from "@/lib/id";

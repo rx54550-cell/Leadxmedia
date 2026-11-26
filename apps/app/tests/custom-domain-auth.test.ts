@@ -1,4 +1,4 @@
-import { program } from "@openpromoter/db";
+import { program } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 

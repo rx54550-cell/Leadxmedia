@@ -1,4 +1,4 @@
-import type { program } from "@openpromoter/db";
+import type { program } from "@leadxmedia/db";
 import { formatMoney } from "./money";
 
 type P = Pick<

@@ -1,5 +1,5 @@
-import { commission, partner } from "@openpromoter/db";
-import { Badge, Card, cn, StatusBadge } from "@openpromoter/ui";
+import { commission, partner } from "@leadxmedia/db";
+import { Badge, Card, cn, StatusBadge } from "@leadxmedia/ui";
 import {
   ArrowRight,
   BadgeCheck,
@@ -8,7 +8,7 @@ import {
   LayoutDashboard,
   PauseCircle,
   Receipt,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import { and, asc, desc, eq, ilike, or, type SQL, sql } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";

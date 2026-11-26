@@ -1,5 +1,5 @@
-import { Badge, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { Store } from "@openpromoter/ui/icons";
+import { Badge, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { Store } from "@leadxmedia/ui/icons";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
@@ -58,7 +58,7 @@ export default async function NetworkPage({
             SaaS programs that pay you every month
           </h1>
           <p className="mt-3 max-w-[60ch] text-[15px] leading-6 text-muted">
-            Affiliate programs you can join today. Every one pays through OpenPromoter with no fees taken from
+            Affiliate programs you can join today. Every one pays through LeadXMedia with no fees taken from
             your commissions.{" "}
             {u ? "Apply with one click from your account." : "Sign in to apply with one click."}
           </p>

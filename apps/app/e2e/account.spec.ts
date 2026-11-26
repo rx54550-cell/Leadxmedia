@@ -71,7 +71,7 @@ test("Google-only founder deletes the account by typing DELETE", async ({ page }
   const stripe = key ? new Stripe(key) : null;
   let subId: string | null = null;
   if (stripe) {
-    const [price] = (await stripe.prices.list({ lookup_keys: ["openpromoter_starter_monthly"] })).data;
+    const [price] = (await stripe.prices.list({ lookup_keys: ["leadxmedia_starter_monthly"] })).data;
     const cus = await stripe.customers.create({ email, metadata: { e2e: "account-delete" } });
     const sub = await stripe.subscriptions.create({
       customer: cus.id,

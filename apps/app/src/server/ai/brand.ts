@@ -134,7 +134,7 @@ export async function fetchSite(rawUrl: string): Promise<SiteFacts> {
     await assertPublicUrl(url);
     // redirects are followed by safeFetch one hop at a time, each re-checked against private networks
     const res = await safeFetch(url, {
-      headers: { "User-Agent": "OpenPromoterBot/1.0 (+https://openpromoter.com)", Accept: "text/html" },
+      headers: { "User-Agent": "LeadXMediaBot/1.0 (+https://leadxmedia.com)", Accept: "text/html" },
       timeoutMs: 8000,
       maxBytes: 500_000,
     });

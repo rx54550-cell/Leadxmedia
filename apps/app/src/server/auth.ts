@@ -7,7 +7,7 @@ import {
   user,
   verification,
   workspace,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { type BetterAuthPlugin, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { APIError, createAuthMiddleware } from "better-auth/api";
@@ -60,7 +60,7 @@ function turnstile(): BetterAuthPlugin[] {
 export async function customDomainOrigins(request?: Request): Promise<string[]> {
   const host = request?.headers.get("host")?.toLowerCase();
   if (!host || host === new URL(env.APP_URL).host || !/^[a-z0-9.:-]{1,260}$/.test(host)) return [];
-  // a program's free subdomain (acme.openpromoter.com): trusted when that program exists
+  // a program's free subdomain (acme.leadxmedia.com): trusted when that program exists
   const sub = subdomainSlug(host);
   if (sub) {
     const [p] = await db().select({ id: program.id }).from(program).where(eq(program.slug, sub)).limit(1);

@@ -1,4 +1,4 @@
-import { auditLog } from "@openpromoter/db";
+import { auditLog } from "@leadxmedia/db";
 import { createId } from "@/lib/id";
 import { type AppDb, db, type Tx } from "./db";
 

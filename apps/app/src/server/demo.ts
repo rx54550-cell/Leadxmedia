@@ -1,4 +1,4 @@
-import { user } from "@openpromoter/db";
+import { user } from "@leadxmedia/db";
 import type { BetterAuthPlugin } from "better-auth";
 import { APIError, createAuthEndpoint, createAuthMiddleware, getSessionFromCtx } from "better-auth/api";
 import { setSessionCookie } from "better-auth/cookies";
@@ -29,7 +29,7 @@ const ACCOUNT_CHANGES =
 
 export function demoPlugin(): BetterAuthPlugin {
   return {
-    id: "openpromoter-demo",
+    id: "leadxmedia-demo",
     endpoints: {
       demoSignIn: createAuthEndpoint(
         "/demo/sign-in",

@@ -1,4 +1,4 @@
-import { member, partner, partnerGroup, program, user, workspace } from "@openpromoter/db";
+import { member, partner, partnerGroup, program, user, workspace } from "@leadxmedia/db";
 import { createCode, createId } from "@/lib/id";
 import type { BillingEvent, ParsedWebhook } from "@/server/billing/types";
 import { db } from "@/server/db";

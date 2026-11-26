@@ -1,7 +1,7 @@
 "use client";
 
-import type { ApplicationQuestion } from "@openpromoter/db";
-import { Button, Field, Input, Select, Textarea } from "@openpromoter/ui";
+import type { ApplicationQuestion } from "@leadxmedia/db";
+import { Button, Field, Input, Select, Textarea } from "@leadxmedia/ui";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";

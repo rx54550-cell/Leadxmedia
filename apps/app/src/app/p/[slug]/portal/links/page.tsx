@@ -1,5 +1,5 @@
-import { click, link, partner, promoCode, referral } from "@openpromoter/db";
-import { Card, CardHeader } from "@openpromoter/ui";
+import { click, link, partner, promoCode, referral } from "@leadxmedia/db";
+import { Card, CardHeader } from "@leadxmedia/ui";
 import { eq, sql } from "drizzle-orm";
 import { CopyButton } from "@/components/copy";
 import { PageHeader } from "@/components/page";

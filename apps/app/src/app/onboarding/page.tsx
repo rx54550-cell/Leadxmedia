@@ -1,4 +1,4 @@
-import { billingConnection, program } from "@openpromoter/db";
+import { billingConnection, program } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";

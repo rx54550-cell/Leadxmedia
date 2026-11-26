@@ -820,7 +820,7 @@ test.describe("settings", () => {
       .poll(() => got.map((g) => g.path).sort(), { timeout: 30_000 })
       .toEqual(["/discord", "/slack", "/webhook"]);
     const wh = got.find((g) => g.path === "/webhook")!;
-    expect(wh.headers["openpromoter-signature"]).toMatch(/t=\d+,v1=[0-9a-f]+/);
+    expect(wh.headers["leadxmedia-signature"]).toMatch(/t=\d+,v1=[0-9a-f]+/);
     expect(JSON.parse(wh.body).type).toBe("commission.created");
     expect(JSON.parse(got.find((g) => g.path === "/slack")!.body).text).toBeTruthy();
     expect(JSON.parse(got.find((g) => g.path === "/discord")!.body).content).toBeTruthy();
@@ -915,7 +915,7 @@ test.describe("team", () => {
     await ctx.close();
 
     for (const [role, who] of Object.entries(people)) {
-      const link = await mailLink(who.email, /Join .* on OpenPromoter/, /\/invite\//, sent);
+      const link = await mailLink(who.email, /Join .* on LeadXMedia/, /\/invite\//, sent);
       const token = new URL(link).pathname;
       const m = await newPage(browser, `accept-${role}`);
       await m.page.goto(token);
@@ -1249,7 +1249,7 @@ test.describe("account", () => {
     const dl = page.waitForEvent("download");
     await page.getByRole("link", { name: "Export my data" }).click();
     const file = await dl;
-    expect(file.suggestedFilename()).toBe("openpromoter-data.json");
+    expect(file.suggestedFilename()).toBe("leadxmedia-data.json");
     const data = JSON.parse(await (await import("node:fs/promises")).readFile((await file.path())!, "utf8"));
     expect(data.user.email).toBe(acct.email);
     expect(JSON.stringify(data)).not.toMatch(/"password"|twoFactorSecret|"secret"/);

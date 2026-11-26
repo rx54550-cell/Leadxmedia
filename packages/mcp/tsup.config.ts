@@ -5,5 +5,5 @@ export default defineConfig({
   format: ["esm"],
   clean: true,
   banner: { js: "#!/usr/bin/env node" },
-  noExternal: ["openpromoter"],
+  noExternal: ["leadxmedia"],
 });

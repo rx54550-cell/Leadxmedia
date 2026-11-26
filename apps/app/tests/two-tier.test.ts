@@ -1,4 +1,4 @@
-import { commission, fraudFlag, partner } from "@openpromoter/db";
+import { commission, fraudFlag, partner } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import type { BillingEvent, ParsedWebhook } from "@/server/billing/types";

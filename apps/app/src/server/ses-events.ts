@@ -1,5 +1,5 @@
 import { createVerify } from "node:crypto";
-import { emailLog, partner } from "@openpromoter/db";
+import { emailLog, partner } from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import { db } from "./db";
 

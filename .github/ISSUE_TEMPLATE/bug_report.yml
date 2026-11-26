@@ -1,5 +1,5 @@
 name: Bug report
-description: Something in OpenPromoter does not work as the docs say.
+description: Something in LeadXMedia does not work as the docs say.
 labels: [bug]
 body:
   - type: markdown
@@ -28,7 +28,7 @@ body:
     attributes:
       label: Where you run it
       options:
-        - OpenPromoter Cloud
+        - LeadXMedia Cloud
         - Self-hosted with docker compose
         - Self-hosted another way
     validations:

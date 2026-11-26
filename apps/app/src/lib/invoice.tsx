@@ -1,4 +1,4 @@
-import type { partner, payout, program } from "@openpromoter/db";
+import type { partner, payout, program } from "@leadxmedia/db";
 import { formatMoney } from "./money";
 
 const EU = new Set([

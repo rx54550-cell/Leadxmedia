@@ -21,7 +21,7 @@ export default async function AdminUsers({
     <>
       <PageHeader
         title="Users"
-        description="Everyone with an OpenPromoter sign-in: founders, their teams and partners. Newest first."
+        description="Everyone with an LeadXMedia sign-in: founders, their teams and partners. Newest first."
       />
       <UsersTable
         rows={rows.map((r) => ({

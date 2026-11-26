@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** Portal page skeleton: ticket stub, three figures and a chart. */
 export default function Loading() {

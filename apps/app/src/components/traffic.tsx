@@ -1,4 +1,4 @@
-import { Card, CardHeader } from "@openpromoter/ui";
+import { Card, CardHeader } from "@leadxmedia/ui";
 import { formatNumber } from "@/lib/money";
 import type { TrafficReport } from "@/server/traffic";
 

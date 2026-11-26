@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Card, CardHeader, Field, Input, InputAdornment, Select, Textarea } from "@openpromoter/ui";
-import { Plus, Sparkles, Trash2 } from "@openpromoter/ui/icons";
+import { Button, Card, CardHeader, Field, Input, InputAdornment, Select, Textarea } from "@leadxmedia/ui";
+import { Plus, Sparkles, Trash2 } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { SettingsCard } from "@/components/page";
 import { useAction } from "@/components/use-action";

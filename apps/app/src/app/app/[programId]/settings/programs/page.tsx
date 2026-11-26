@@ -1,4 +1,4 @@
-import { Badge, Card, CardHeader } from "@openpromoter/ui";
+import { Badge, Card, CardHeader } from "@leadxmedia/ui";
 import Link from "next/link";
 import { programCtx, userPrograms } from "@/server/context";
 import { DeleteProgram } from "./delete";

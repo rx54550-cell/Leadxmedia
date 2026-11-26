@@ -1,4 +1,4 @@
-import { contentAsset, resource } from "@openpromoter/db";
+import { contentAsset, resource } from "@leadxmedia/db";
 import { asc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page";

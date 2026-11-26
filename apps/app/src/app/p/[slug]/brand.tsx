@@ -1,4 +1,4 @@
-import { cn } from "@openpromoter/ui";
+import { cn } from "@leadxmedia/ui";
 import { onColor, readableOnWhite } from "@/server/ai/brand";
 
 /**

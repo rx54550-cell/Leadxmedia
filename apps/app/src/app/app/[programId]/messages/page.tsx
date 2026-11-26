@@ -1,4 +1,4 @@
-import { commission, message, partner } from "@openpromoter/db";
+import { commission, message, partner } from "@leadxmedia/db";
 import { and, desc, eq, isNotNull, isNull, sql } from "drizzle-orm";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber } from "@/lib/money";

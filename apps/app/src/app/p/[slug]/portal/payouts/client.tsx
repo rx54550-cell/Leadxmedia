@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Card, CardBody, CardHeader, cn, Input } from "@openpromoter/ui";
-import { Bank, CheckCircle2 } from "@openpromoter/ui/icons";
+import { Badge, Button, Card, CardBody, CardHeader, cn, Input } from "@leadxmedia/ui";
+import { Bank, CheckCircle2 } from "@leadxmedia/ui/icons";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import { BRANDS, BrandIcon } from "@/components/brand";

@@ -1,4 +1,4 @@
-import { billingPrice, member, partnerGroup, program, user, workspace } from "@openpromoter/db";
+import { billingPrice, member, partnerGroup, program, user, workspace } from "@leadxmedia/db";
 import { and, asc, eq } from "drizzle-orm";
 import { createCode, createId, slugify } from "@/lib/id";
 import { RESERVED_SUBDOMAINS } from "@/lib/subdomain";

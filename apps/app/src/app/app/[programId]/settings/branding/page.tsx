@@ -1,4 +1,4 @@
-import { PROGRAM_CATEGORIES } from "@openpromoter/db";
+import { PROGRAM_CATEGORIES } from "@leadxmedia/db";
 import { subdomainOrigin } from "@/lib/subdomain";
 import { programCtx } from "@/server/context";
 import { cloudflareOn, cnameTarget } from "@/server/custom-hostnames";

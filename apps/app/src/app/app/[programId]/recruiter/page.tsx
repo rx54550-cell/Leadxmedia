@@ -1,4 +1,4 @@
-import { prospect } from "@openpromoter/db";
+import { prospect } from "@leadxmedia/db";
 import { desc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { aiProvider } from "@/server/ai/provider";

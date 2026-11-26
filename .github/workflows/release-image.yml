@@ -1,4 +1,4 @@
-# Publishes the self-host image to ghcr.io/openpromoter/openpromoter on every version tag (v0.1.1, ...).
+# Publishes the self-host image to ghcr.io/leadxmedia/leadxmedia on every version tag (v0.1.1, ...).
 # docker-compose.yml pulls it, so `docker compose up` needs no local build.
 # Each architecture builds on its own native runner (QEMU arm64 took over an hour), then one manifest joins them.
 name: Release image
@@ -8,7 +8,7 @@ on:
     tags: ["v*"]
 
 env:
-  IMAGE: ghcr.io/openpromoter/openpromoter
+  IMAGE: ghcr.io/leadxmedia/leadxmedia
 
 jobs:
   build:
@@ -36,7 +36,7 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           labels: |
-            org.opencontainers.image.source=https://github.com/openpromoter/openpromoter
+            org.opencontainers.image.source=https://github.com/leadxmedia/leadxmedia
             org.opencontainers.image.licenses=AGPL-3.0
           outputs: type=image,name=${{ env.IMAGE }},push-by-digest=true,name-canonical=true,push=true
           cache-from: type=gha,scope=${{ matrix.arch }}

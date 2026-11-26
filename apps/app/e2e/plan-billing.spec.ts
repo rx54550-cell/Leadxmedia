@@ -5,7 +5,7 @@ import Stripe from "stripe";
 import { newFounder } from "./full-settings.helpers";
 
 /**
- * OpenPromoter's own plans against real Stripe test mode. The app must run in Cloud mode with a known
+ * LeadXMedia's own plans against real Stripe test mode. The app must run in Cloud mode with a known
  * platform webhook secret, so this runs only when started like:
  *   HOSTED_MODE=true PLATFORM_STRIPE_WEBHOOK_SECRET=whsec_e2e_plan_secret pnpm e2e plan-billing
  * (PLATFORM_STRIPE_SECRET_KEY must be an sk_test_ key in .env.local).
@@ -26,7 +26,7 @@ let wsId = "";
 let customer = "";
 let subId = "";
 const price = async (plan: string) =>
-  (await stripe.prices.list({ lookup_keys: [`openpromoter_${plan}_monthly`] })).data[0]!.id;
+  (await stripe.prices.list({ lookup_keys: [`leadxmedia_${plan}_monthly`] })).data[0]!.id;
 
 /** Sends a signed platform event the way Stripe does; the app then reads the subscription from Stripe. */
 async function send(page: Page, type: string, sub: Stripe.Subscription) {

@@ -5,7 +5,7 @@ import Stripe from "stripe";
 import { newFounder } from "./full-settings.helpers";
 
 /**
- * Real payments for OpenPromoter's own plans, through the real Stripe Checkout and customer portal pages
+ * Real payments for LeadXMedia's own plans, through the real Stripe Checkout and customer portal pages
  * in Stripe test mode. Needs the app in Cloud mode and `stripe listen` forwarding plan events:
  *   stripe listen --api-key sk_test_... --forward-to localhost:3000/api/webhooks/platform
  *   (HOSTED_MODE=true and that whsec as PLATFORM_STRIPE_WEBHOOK_SECRET in .env.local)

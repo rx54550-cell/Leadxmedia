@@ -1,4 +1,4 @@
-import { bountySubmission, campaign, partner } from "@openpromoter/db";
+import { bountySubmission, campaign, partner } from "@leadxmedia/db";
 import { desc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page";

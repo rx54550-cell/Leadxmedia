@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Button, cn, EmptyState, Kbd, StatusBadge } from "@openpromoter/ui";
+import { Avatar, Button, cn, EmptyState, Kbd, StatusBadge } from "@leadxmedia/ui";
 import {
   ArrowLeft,
   Check,
@@ -14,7 +14,7 @@ import {
   Search,
   Send,
   X,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { Fragment, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";

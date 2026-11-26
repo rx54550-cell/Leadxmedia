@@ -10,7 +10,7 @@ import {
   payout,
   program,
   referral,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, asc, desc, eq, gt, type SQL, sql } from "drizzle-orm";
 import { z } from "zod";
 import { sha256 } from "@/lib/crypto";
@@ -178,7 +178,7 @@ export const ROUTES: Route[] = [
     scope: "read",
     tag: "Events",
     summary:
-      "Events (same payloads as webhooks) after a cursor with the oldest first. Used by `openpromoter listen`.",
+      "Events (same payloads as webhooks) after a cursor with the oldest first. Used by `leadxmedia listen`.",
     query: z.object({
       after: z.string().optional(),
       limit: z.coerce.number().int().min(1).max(100).default(50),
@@ -762,7 +762,7 @@ export function openApi(baseUrl: string) {
   return {
     openapi: "3.1.0",
     info: {
-      title: "OpenPromoter API",
+      title: "LeadXMedia API",
       version: "1.0.0",
       description:
         "Partner programs, tracking, commissions and payouts. Payouts prepared by API always need a person to approve them in the dashboard.",

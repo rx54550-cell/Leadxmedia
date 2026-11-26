@@ -1,4 +1,4 @@
-import type { CampaignRule, CommissionDuration, CommissionType, ProductRate } from "@openpromoter/db";
+import type { CampaignRule, CommissionDuration, CommissionType, ProductRate } from "@leadxmedia/db";
 
 export interface CommissionPlan {
   type: CommissionType;

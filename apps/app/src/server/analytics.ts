@@ -1,4 +1,4 @@
-import { click, clickDaily, commission, link, partner, payout, referral } from "@openpromoter/db";
+import { click, clickDaily, commission, link, partner, payout, referral } from "@leadxmedia/db";
 import { and, desc, eq, gte, inArray, isNull, lt, type SQL, sql } from "drizzle-orm";
 import { cache } from "react";
 import { db, query } from "./db";

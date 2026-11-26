@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar, Badge, Button, Checkbox, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { AlertTriangle, Banknote, Check, FileText, RotateCcw, X } from "@openpromoter/ui/icons";
+import { Avatar, Badge, Button, Checkbox, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { AlertTriangle, Banknote, Check, FileText, RotateCcw, X } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -212,7 +212,7 @@ export function ApprovalQueue({
               <span className="num text-fg">{formatMoney(total, cur)}</span>
             </div>
             <div className="mt-1.5 flex items-baseline text-[13px]">
-              <span className="text-muted">Fees from OpenPromoter</span>
+              <span className="text-muted">Fees from LeadXMedia</span>
               <span className="leader" />
               <span className="num text-fg">{formatMoney(0, cur)}</span>
             </div>

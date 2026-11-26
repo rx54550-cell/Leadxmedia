@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Field, Input } from "@openpromoter/ui";
-import { ShieldCheck } from "@openpromoter/ui/icons";
+import { Badge, Button, Field, Input } from "@leadxmedia/ui";
+import { ShieldCheck } from "@leadxmedia/ui/icons";
 import { useRouter } from "next/navigation";
 import QRCode from "qrcode";
 import { useState } from "react";
@@ -263,7 +263,7 @@ export function AccountView({
       </SettingsCard>
       <SettingsCard
         title="Your data"
-        description="Export everything OpenPromoter stores about you or delete your account (GDPR)."
+        description="Export everything LeadXMedia stores about you or delete your account (GDPR)."
       >
         <div className="flex flex-wrap gap-2">
           <Button asChild variant="secondary">

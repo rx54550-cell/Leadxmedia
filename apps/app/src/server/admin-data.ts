@@ -12,7 +12,7 @@ import {
   webhookDelivery,
   webhookEndpoint,
   workspace,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import {
   and,
   count,

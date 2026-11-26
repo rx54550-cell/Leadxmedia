@@ -1,4 +1,4 @@
-import { commission } from "@openpromoter/db";
+import { commission } from "@leadxmedia/db";
 import { describe, expect, it } from "vitest";
 import { createId } from "@/lib/id";
 import { ask } from "@/server/ai/assistant";

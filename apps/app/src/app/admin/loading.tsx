@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** Every admin page streams in behind this inside the sidebar shell: a title, four figures and a table. */
 export default function Loading() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@openpromoter/ui";
+import { Button } from "@leadxmedia/ui";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 

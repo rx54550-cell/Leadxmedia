@@ -1,6 +1,6 @@
 "use client";
 
-import { Switch } from "@openpromoter/ui";
+import { Switch } from "@leadxmedia/ui";
 import { useState } from "react";
 import { SettingsCard } from "@/components/page";
 import { useAction } from "@/components/use-action";

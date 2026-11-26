@@ -1,5 +1,5 @@
-import { Badge, Card, CardHeader, Progress } from "@openpromoter/ui";
-import { ArrowLeft, Check, Circle, ExternalLink } from "@openpromoter/ui/icons";
+import { Badge, Card, CardHeader, Progress } from "@leadxmedia/ui";
+import { ArrowLeft, Check, Circle, ExternalLink } from "@leadxmedia/ui/icons";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LedgerLine, PageHeader, Section } from "@/components/page";

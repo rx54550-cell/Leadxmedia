@@ -131,11 +131,11 @@ function Shell({ title, preview, children }: { title: string; preview: string; c
   );
 }
 
-/** OpenPromoter's own mark: a PNG (Gmail and Outlook don't show SVG) on its own white tile, so it reads in dark mode. */
-export const OPENPROMOTER_LOGO = "https://openpromoter.com/email/openpromoter-logo.png";
+/** LeadXMedia's own mark: a PNG (Gmail and Outlook don't show SVG) on its own white tile, so it reads in dark mode. */
+export const LEADXMEDIA_LOGO = "https://leadxmedia.com/email/leadxmedia-logo.png";
 
 function Masthead({ name, logoUrl, color }: { name: string; logoUrl?: string | null; color: string }) {
-  const logo = logoUrl || (name === "OpenPromoter" ? OPENPROMOTER_LOGO : null);
+  const logo = logoUrl || (name === "LeadXMedia" ? LEADXMEDIA_LOGO : null);
   return (
     <Section className="op-head" style={{ padding: "0 8px 20px" }}>
       <table role="presentation" cellPadding={0} cellSpacing={0} border={0}>
@@ -389,8 +389,8 @@ function Footer({ reason, links }: { reason: string; links: ReactNode }) {
 const footLink: CSSProperties = { color: c.faint, textDecoration: "underline" };
 
 const poweredBy = (
-  <Link href="https://openpromoter.com" className="op-faint" style={footLink}>
-    Powered by OpenPromoter
+  <Link href="https://leadxmedia.com" className="op-faint" style={footLink}>
+    Powered by LeadXMedia
   </Link>
 );
 
@@ -494,9 +494,9 @@ export function Notice({
                 {"  ·  "}
               </>
             ) : null}
-            {brandName === "OpenPromoter" ? (
-              <Link href="https://openpromoter.com" className="op-faint" style={footLink}>
-                openpromoter.com
+            {brandName === "LeadXMedia" ? (
+              <Link href="https://leadxmedia.com" className="op-faint" style={footLink}>
+                leadxmedia.com
               </Link>
             ) : (
               poweredBy

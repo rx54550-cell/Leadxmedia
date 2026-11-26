@@ -9,7 +9,7 @@ const publicUrl = !/localhost|127\.0\.0\.1/.test(process.env.APP_URL ?? "");
 for (const k of ["BETTER_AUTH_SECRET", "ENCRYPTION_KEY"]) {
   if (publicUrl && (!process.env[k] || process.env[k]!.startsWith("change-me"))) {
     throw new Error(
-      `${k} still has the placeholder value. Set a random 32+ character secret before exposing OpenPromoter on ${process.env.APP_URL}.`,
+      `${k} still has the placeholder value. Set a random 32+ character secret before exposing LeadXMedia on ${process.env.APP_URL}.`,
     );
   }
 }

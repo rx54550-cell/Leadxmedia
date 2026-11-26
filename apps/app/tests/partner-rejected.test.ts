@@ -1,4 +1,4 @@
-import { job } from "@openpromoter/db";
+import { job } from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { db } from "@/server/db";

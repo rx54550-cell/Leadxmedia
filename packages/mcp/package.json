@@ -1,7 +1,7 @@
 {
-  "name": "openpromoter-mcp",
+  "name": "leadxmedia-mcp",
   "version": "0.1.3",
-  "description": "MCP server for OpenPromoter: let Claude, Cursor and other agents run your affiliate program (money movement always needs a human)",
+  "description": "MCP server for LeadXMedia: let Claude, Cursor and other agents run your affiliate program (money movement always needs a human)",
   "keywords": [
     "mcp",
     "mcp-server",
@@ -11,11 +11,11 @@
     "ai-agents",
     "affiliate",
     "referral-program",
-    "openpromoter"
+    "leadxmedia"
   ],
-  "homepage": "https://openpromoter.com",
+  "homepage": "https://leadxmedia.com",
   "bugs": {
-    "url": "https://github.com/openpromoter/openpromoter/issues"
+    "url": "https://github.com/leadxmedia/leadxmedia/issues"
   },
   "author": "DevDiggers (https://devdiggers.com)",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "./tools": "./src/tools.ts"
   },
   "bin": {
-    "openpromoter-mcp": "dist/index.js"
+    "leadxmedia-mcp": "dist/index.js"
   },
   "files": [
     "dist",
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openpromoter/openpromoter.git",
+    "url": "git+https://github.com/leadxmedia/leadxmedia.git",
     "directory": "packages/mcp"
   },
   "scripts": {
@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.2",
-    "openpromoter": "workspace:*",
+    "leadxmedia": "workspace:*",
     "zod": "4.6.7"
   },
   "devDependencies": {
@@ -55,5 +55,5 @@
   "engines": {
     "node": ">=18"
   },
-  "mcpName": "io.github.openpromoter/openpromoter-mcp"
+  "mcpName": "io.github.leadxmedia/leadxmedia-mcp"
 }

@@ -1,6 +1,6 @@
-import { program } from "@openpromoter/db";
-import { Button } from "@openpromoter/ui";
-import { ArrowRight, ArrowUpRight } from "@openpromoter/ui/icons";
+import { program } from "@leadxmedia/db";
+import { Button } from "@leadxmedia/ui";
+import { ArrowRight, ArrowUpRight } from "@leadxmedia/ui/icons";
 import { eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -208,8 +208,8 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
             {hosted && plan.id === "free" ? (
               <span>
                 Powered by{" "}
-                <a href="https://openpromoter.com" className="text-muted hover:text-fg">
-                  OpenPromoter
+                <a href="https://leadxmedia.com" className="text-muted hover:text-fg">
+                  LeadXMedia
                 </a>
               </span>
             ) : null}

@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, cn } from "@openpromoter/ui";
-import { ChartColumn as ChartBar, ChartLine, DotMatrix, TrendDown, TrendUp } from "@openpromoter/ui/icons";
+import { Badge, cn } from "@leadxmedia/ui";
+import { ChartColumn as ChartBar, ChartLine, DotMatrix, TrendDown, TrendUp } from "@leadxmedia/ui/icons";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { formatMoney, formatNumber } from "@/lib/money";
 

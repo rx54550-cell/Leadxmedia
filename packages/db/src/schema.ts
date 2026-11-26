@@ -325,7 +325,7 @@ export interface Brand {
   fontFamily?: string;
 }
 
-/** Vertical categories available to LeadX Media CPA offers. */
+/** Vertical categories available to LeadXMedia CPA offers. */
 export const PROGRAM_CATEGORIES = [
   "E-commerce Offer",
   "Finance / Loan Offer",
@@ -1128,7 +1128,7 @@ export const kvStore = pgTable("kv", {
   updatedAt: updated(),
 });
 
-/** Outgoing events, kept for the API/CLI event stream (`openpromoter listen`). */
+/** Outgoing events, kept for the API/CLI event stream (`leadxmedia listen`). */
 export const eventLog = pgTable(
   "event_log",
   {

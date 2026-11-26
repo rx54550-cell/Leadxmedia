@@ -11,7 +11,7 @@ import {
   program,
   promoCode,
   referral,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, desc, eq, gte, inArray, isNull, like, lt, sql } from "drizzle-orm";
 import { createId } from "@/lib/id";
 import { ATTRIBUTION_ORDER, type AttributionHints, hintsFromStripe, pickClick } from "./attribution";

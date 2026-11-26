@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** A settings tab while it loads. The title and tabs come from the layout, so this is only the cards. */
 export function FormSkeleton() {

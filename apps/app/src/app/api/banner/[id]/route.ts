@@ -1,4 +1,4 @@
-import { contentAsset, program } from "@openpromoter/db";
+import { contentAsset, program } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { onColor } from "@/server/ai/brand";
 import { bannerSvg } from "@/server/ai/content";

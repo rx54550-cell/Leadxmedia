@@ -1,4 +1,4 @@
-import { Beacon, type BeaconPose } from "@openpromoter/ui";
+import { Beacon, type BeaconPose } from "@leadxmedia/ui";
 import { Logo } from "@/components/logo";
 import { PRODUCT } from "@/lib/config";
 import { AuthScene, type SceneKind } from "./product-fragment";
@@ -34,7 +34,7 @@ export function AuthCard({
   children: React.ReactNode;
   footer?: React.ReactNode;
   scene?: SceneKind;
-  /** Inside a program's own frame (PartnerAuthShell): the form only, without OpenPromoter's page and panel. */
+  /** Inside a program's own frame (PartnerAuthShell): the form only, without LeadXMedia's page and panel. */
   bare?: boolean;
 }) {
   const s = SCENE[scene];
@@ -70,7 +70,7 @@ export function AuthCard({
           <a href={PRODUCT.github} className="-my-2 ml-auto py-2 hover:text-fg">
             GitHub
           </a>
-          <a href="https://openpromoter.com/docs/" className="-my-2 py-2 hover:text-fg">
+          <a href="https://leadxmedia.com/docs/" className="-my-2 py-2 hover:text-fg">
             Docs
           </a>
         </div>
@@ -98,7 +98,7 @@ export function AuthCard({
             <span className="h-[22px] w-[13px] rounded-full bg-white" />
           </span>
           <div className="flex items-center justify-between px-8 pt-7 text-[12px] text-white/55">
-            <span>[ openpromoter ]</span>
+            <span>[ leadxmedia ]</span>
             <span className="num">v0.1 · AGPL-3.0</span>
           </div>
           <div className="flex flex-1 items-center justify-center px-10 py-10">

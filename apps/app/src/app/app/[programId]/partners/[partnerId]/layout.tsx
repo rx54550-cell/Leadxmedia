@@ -1,4 +1,4 @@
-import { partner } from "@openpromoter/db";
+import { partner } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { programCtx } from "@/server/context";

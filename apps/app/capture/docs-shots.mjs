@@ -1,9 +1,9 @@
 /**
- * Docs screenshots for openpromoter.com/docs, taken by doing each workflow for real on the local app with
+ * Docs screenshots for leadxmedia.com/docs, taken by doing each workflow for real on the local app with
  * the seeded Acme Analytics demo (scripts/seed.ts). Run with the dev server on :3000 in Cloud mode
  * (HOSTED_MODE=true), then: node capture/docs-shots.mjs [only-name-prefix]
  *
- * House style (like wpreturns.com docs, in OpenPromoter blue):
+ * House style (like wpreturns.com docs, in LeadXMedia blue):
  *  - one action: a #2442F5 ring with a 3px white gap around the control, no arrows
  *  - a numbered list on one screen: ring plus a square chip with the doc's step number
  *  - results and reference screens stay clean
@@ -19,11 +19,11 @@ const ONLY = process.argv[2] ?? "";
 mkdirSync(OUT, { recursive: true });
 
 const SWAP = [
-  ["http://acme-analytics.openpromoter.com:3000", "https://acme-analytics.openpromoter.com"],
-  [".openpromoter.com:3000", ".openpromoter.com"],
-  ["acme-analytics.localhost:3000", "acme-analytics.openpromoter.com"],
-  ["http://localhost:3000", "https://app.openpromoter.com"],
-  ["localhost:3000", "app.openpromoter.com"],
+  ["http://acme-analytics.leadxmedia.com:3000", "https://acme-analytics.leadxmedia.com"],
+  [".leadxmedia.com:3000", ".leadxmedia.com"],
+  ["acme-analytics.localhost:3000", "acme-analytics.leadxmedia.com"],
+  ["http://localhost:3000", "https://app.leadxmedia.com"],
+  ["localhost:3000", "app.leadxmedia.com"],
 ];
 
 async function swapHosts(page) {
@@ -145,7 +145,7 @@ const opts = { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, col
 // ---------------------------------------------------------------- founder (Acme Analytics demo)
 {
   const ctx = await b.newContext(opts);
-  const page = await signIn(ctx, "demo@openpromoter.test", "openpromoter-demo");
+  const page = await signIn(ctx, "demo@leadxmedia.test", "leadxmedia-demo");
   await page.waitForURL(/\/app\/prg_/, { timeout: 60_000 });
   const pid = page.url().match(/prg_[\w-]+/)[0];
   const A = `${B}/app/${pid}`;
@@ -269,7 +269,7 @@ const opts = { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, col
 // ---------------------------------------------------------------- partner portal (Leo Martins)
 {
   const ctx = await b.newContext(opts);
-  const page = await signIn(ctx, "leo@partners.example", "openpromoter-demo");
+  const page = await signIn(ctx, "leo@partners.example", "leadxmedia-demo");
   const P = `${B}/p/acme-analytics/portal`;
   for (const [path, name] of [
     ["", "portal-home"],

@@ -1,4 +1,4 @@
-import { apiKey } from "@openpromoter/db";
+import { apiKey } from "@leadxmedia/db";
 import { randomToken, sha256 } from "@/lib/crypto";
 import { createId } from "@/lib/id";
 import type { ApiScope } from "@/lib/scopes";

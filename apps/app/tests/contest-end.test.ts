@@ -1,4 +1,4 @@
-import { campaign, click, commission } from "@openpromoter/db";
+import { campaign, click, commission } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { settleEndedCampaigns } from "@/server/campaigns";

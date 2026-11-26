@@ -1,4 +1,4 @@
-import { click, link, partner, program, referral } from "@openpromoter/db";
+import { click, link, partner, program, referral } from "@leadxmedia/db";
 import { and, desc, eq, or, sql } from "drizzle-orm";
 import { hashIp } from "@/lib/crypto";
 import { createId } from "@/lib/id";

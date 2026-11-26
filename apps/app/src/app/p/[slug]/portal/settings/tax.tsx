@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Button, Field, Input, Select, Textarea } from "@openpromoter/ui";
+import { Badge, Button, Field, Input, Select, Textarea } from "@leadxmedia/ui";
 import { useState } from "react";
 import { CountrySelect } from "@/components/country-select";
 import { SettingsCard } from "@/components/page";

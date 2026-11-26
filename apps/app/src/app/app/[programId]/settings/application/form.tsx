@@ -1,8 +1,8 @@
 "use client";
 
-import type { ApplicationQuestion, AutoApproveRules } from "@openpromoter/db";
-import { Button, Field, Input, Select, Switch } from "@openpromoter/ui";
-import { Plus, Trash2 } from "@openpromoter/ui/icons";
+import type { ApplicationQuestion, AutoApproveRules } from "@leadxmedia/db";
+import { Button, Field, Input, Select, Switch } from "@leadxmedia/ui";
+import { Plus, Trash2 } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { CopyField } from "@/components/copy";
 import { SettingsCard } from "@/components/page";

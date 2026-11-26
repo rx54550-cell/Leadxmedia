@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Card, CardHeader, Field, Input, Tooltip } from "@openpromoter/ui";
-import { Plus, QrCode } from "@openpromoter/ui/icons";
+import { Badge, Button, Card, CardHeader, Field, Input, Tooltip } from "@leadxmedia/ui";
+import { Plus, QrCode } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { CopyButton } from "@/components/copy";
 import { useAction } from "@/components/use-action";

@@ -1,4 +1,4 @@
-import { program } from "@openpromoter/db";
+import { program } from "@leadxmedia/db";
 import { and, eq, isNull, or } from "drizzle-orm";
 import { CORS, preflight } from "@/lib/cors";
 import { db } from "@/server/db";

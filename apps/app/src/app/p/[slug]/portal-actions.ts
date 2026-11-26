@@ -10,7 +10,7 @@ import {
   prospect,
   cpaLead,
   payoutRequest,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";

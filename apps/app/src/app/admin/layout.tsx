@@ -1,4 +1,4 @@
-import { job, webhookDelivery } from "@openpromoter/db";
+import { job, webhookDelivery } from "@leadxmedia/db";
 import { and, count, eq, gte, isNull, lt, or } from "drizzle-orm";
 import type { Metadata } from "next";
 import { requireAdmin } from "@/server/admin";

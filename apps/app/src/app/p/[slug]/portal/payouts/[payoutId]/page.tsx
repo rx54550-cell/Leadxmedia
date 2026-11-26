@@ -1,4 +1,4 @@
-import { payout, workspace } from "@openpromoter/db";
+import { payout, workspace } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { Invoice } from "@/lib/invoice";

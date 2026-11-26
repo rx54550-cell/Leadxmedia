@@ -16,7 +16,7 @@ import {
   Input,
   StatusBadge,
   Textarea,
-} from "@openpromoter/ui";
+} from "@leadxmedia/ui";
 import {
   Check,
   Copy,
@@ -28,7 +28,7 @@ import {
   Sparkles,
   UserPlus,
   Users,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { PageHeader } from "@/components/page";
 import { useAction } from "@/components/use-action";

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Card, CardBody, CardHeader, Field, Input, Select } from "@openpromoter/ui";
-import { Download, ExternalLink, Trophy } from "@openpromoter/ui/icons";
+import { Button, Card, CardBody, CardHeader, Field, Input, Select } from "@leadxmedia/ui";
+import { Download, ExternalLink, Trophy } from "@leadxmedia/ui/icons";
 import { CopyButton } from "@/components/copy";
 import { useAction } from "@/components/use-action";
 import { formatMoney } from "@/lib/money";

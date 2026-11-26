@@ -15,7 +15,7 @@ import { signUp, uid } from "./helpers";
 
 // the website repo sits next to this one; the docs check is skipped when it isn't there
 const DOCS =
-  process.env.SITE_DOCS_DIR ?? `${import.meta.dirname}/../../../../openpromoter-site/apps/www/content/docs`;
+  process.env.SITE_DOCS_DIR ?? `${import.meta.dirname}/../../../../leadxmedia-site/apps/www/content/docs`;
 const PASSWORD = "e2e-password-123";
 const hex = (n = 16) => randomBytes(n).toString("hex");
 const now = () => Math.floor(Date.now() / 1000);
@@ -38,7 +38,7 @@ let listener: Server;
  * report their own result. The runner's pid identifies the run.
  */
 // state shared with tools that drive the SDK, CLI and MCP server against the same data
-const DIR = process.env.E2E_STATE_DIR ?? `${tmpdir()}/openpromoter-api-e2e`;
+const DIR = process.env.E2E_STATE_DIR ?? `${tmpdir()}/leadxmedia-api-e2e`;
 mkdirSync(DIR, { recursive: true });
 const STATE = `${DIR}/state-${process.ppid}.json`;
 const HOOKS = `${DIR}/received-${process.ppid}.jsonl`;
@@ -187,7 +187,7 @@ test.describe("developer surface", () => {
           `${JSON.stringify({ headers: req.headers, body, at: Date.now(), path: req.url })}\n`,
         );
         // /flaky answers the first attempt of each delivery with a redirect (docs: a redirect is a failure)
-        const d = String(req.headers["openpromoter-delivery"]);
+        const d = String(req.headers["leadxmedia-delivery"]);
         if (req.url === "/flaky" && !seen.has(d)) {
           seen.add(d);
           res.writeHead(302, { location: "/hook" }).end();
@@ -964,7 +964,7 @@ test.describe("developer surface", () => {
     const { verifyWebhook } = await import("../../../packages/sdk/src/index");
     const hooks = await waitFor(async () => {
       const got = received();
-      const types = new Set(got.map((r) => r.headers["openpromoter-event"]));
+      const types = new Set(got.map((r) => r.headers["leadxmedia-event"]));
       return types.has("commission.created") &&
         types.has("partner.approved") &&
         types.has("commission.reversed") &&
@@ -974,21 +974,21 @@ test.describe("developer surface", () => {
     }, 60_000);
     const endpointSecret = S.endpointSecret;
     for (const h of hooks) {
-      expect(h.headers["user-agent"]).toBe("OpenPromoter-Webhooks/1");
+      expect(h.headers["user-agent"]).toBe("LeadXMedia-Webhooks/1");
       expect(h.headers["content-type"]).toContain("application/json");
-      expect(h.headers["openpromoter-delivery"]).toMatch(/^whd_/);
-      const sig = String(h.headers["openpromoter-signature"]);
+      expect(h.headers["leadxmedia-delivery"]).toMatch(/^whd_/);
+      const sig = String(h.headers["leadxmedia-signature"]);
       expect(sig).toMatch(/^t=\d+,v1=[0-9a-f]{64}$/);
       const evt = verifyAsDocs(h.body, sig, endpointSecret);
       expect(verifyWebhook(h.body, sig, endpointSecret)).toEqual(evt);
       expect(() => verifyAsDocs(h.body, sig, "whsec_wrong")).toThrow();
       expect(() => verifyWebhook(`${h.body} `, sig, endpointSecret)).toThrow();
-      expect(evt.type).toBe(h.headers["openpromoter-event"]);
-      expect(evt.id).toBe(h.headers["openpromoter-delivery"]);
+      expect(evt.type).toBe(h.headers["leadxmedia-event"]);
+      expect(evt.id).toBe(h.headers["leadxmedia-delivery"]);
       expect(typeof evt.created).toBe("number");
     }
     const parse = (t: string) =>
-      hooks.filter((h) => h.headers["openpromoter-event"] === t).map((h) => JSON.parse(h.body).data);
+      hooks.filter((h) => h.headers["leadxmedia-event"] === t).map((h) => JSON.parse(h.body).data);
     for (const d of parse("partner.approved")) expect(d).toHaveProperty("recruitedBy");
     expect(parse("partner.approved").find((d) => d.id === partners.sub!.id)?.recruitedBy).toBe(
       partners.one!.id,
@@ -1027,15 +1027,15 @@ test.describe("developer surface", () => {
       const mine = received().filter((r) => r.path === "/flaky" && JSON.parse(r.body).data?.id === p.id);
       return mine.length >= 2 ? mine : null;
     }, 120_000);
-    expect(hits[0]!.headers["openpromoter-delivery"]).toBe(hits[1]!.headers["openpromoter-delivery"]);
+    expect(hits[0]!.headers["leadxmedia-delivery"]).toBe(hits[1]!.headers["leadxmedia-delivery"]);
     expect(hits[1]!.at - hits[0]!.at).toBeGreaterThan(20_000);
-    verifyAsDocs(hits[1]!.body, String(hits[1]!.headers["openpromoter-signature"]), secret);
+    verifyAsDocs(hits[1]!.body, String(hits[1]!.headers["leadxmedia-signature"]), secret);
     // the redirect was not followed: /hook never saw this endpoint's delivery id
     expect(
       received().filter(
         (r) =>
           r.path === "/hook" &&
-          r.headers["openpromoter-delivery"] === hits[0]!.headers["openpromoter-delivery"],
+          r.headers["leadxmedia-delivery"] === hits[0]!.headers["leadxmedia-delivery"],
       ),
     ).toHaveLength(0);
   });

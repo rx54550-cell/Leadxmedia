@@ -1,5 +1,5 @@
 import { createSign, generateKeyPairSync } from "node:crypto";
-import { emailLog } from "@openpromoter/db";
+import { emailLog } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { sendMail } from "@/server/email";
@@ -17,7 +17,7 @@ const note = (over: Partial<SnsMessage> = {}) =>
   sign({
     Type: "Notification",
     MessageId: "m1",
-    TopicArn: "arn:aws:sns:us-east-1:1:openpromoter-ses",
+    TopicArn: "arn:aws:sns:us-east-1:1:leadxmedia-ses",
     Message: "{}",
     Timestamp: "2026-11-09T00:00:00Z",
     SignatureVersion: "2",

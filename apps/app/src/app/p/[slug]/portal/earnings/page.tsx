@@ -1,6 +1,6 @@
-import { commission } from "@openpromoter/db";
-import { Button, Card, CardBody, CardHeader, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { ChevronLeft, ChevronRight, Coins, Download } from "@openpromoter/ui/icons";
+import { commission } from "@leadxmedia/db";
+import { Button, Card, CardBody, CardHeader, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { ChevronLeft, ChevronRight, Coins, Download } from "@leadxmedia/ui/icons";
 import { desc, eq } from "drizzle-orm";
 import { DotChart } from "@/components/charts";
 import { LedgerLine, PageHeader } from "@/components/page";

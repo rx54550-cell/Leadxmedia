@@ -1,4 +1,4 @@
-import { job } from "@openpromoter/db";
+import { job } from "@leadxmedia/db";
 import { and, eq, isNull, lte, sql } from "drizzle-orm";
 import { createId } from "@/lib/id";
 import { type AppDb, db, type Tx } from "./db";

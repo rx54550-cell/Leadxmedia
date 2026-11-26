@@ -1,4 +1,4 @@
-import { workspace } from "@openpromoter/db";
+import { workspace } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import type Stripe from "stripe";
 import { describe, expect, it } from "vitest";
@@ -6,7 +6,7 @@ import { applyPlanSubscription, planStatus } from "@/server/billing-plans";
 import { db } from "@/server/db";
 import { fixture } from "./helpers";
 
-// Every state OpenPromoter's own plan subscription can reach in Stripe, applied the way the platform
+// Every state LeadXMedia's own plan subscription can reach in Stripe, applied the way the platform
 // webhook applies it (after reading the subscription as it is now).
 const DAY = 86_400;
 const now = () => Math.floor(Date.now() / 1000);
@@ -15,7 +15,7 @@ function sub(
   wsId: string,
   over: Partial<Stripe.Subscription> & { lookup?: string; periodEnd?: number } = {},
 ) {
-  const { lookup = "openpromoter_starter_monthly", periodEnd = now() + 30 * DAY, ...rest } = over;
+  const { lookup = "leadxmedia_starter_monthly", periodEnd = now() + 30 * DAY, ...rest } = over;
   return {
     id: "sub_1",
     customer: "cus_1",
@@ -91,11 +91,11 @@ describe("plan subscription states", () => {
   it("upgrade or downgrade in the portal follows the price, not the old metadata", async () => {
     const f = await fixture();
     await applyPlanSubscription(sub(f.ws.id));
-    await applyPlanSubscription(sub(f.ws.id, { lookup: "openpromoter_growth_monthly" }));
+    await applyPlanSubscription(sub(f.ws.id, { lookup: "leadxmedia_growth_monthly" }));
     expect((await ws(f.ws.id)).plan).toBe("growth");
-    await applyPlanSubscription(sub(f.ws.id, { lookup: "openpromoter_scale_monthly" }));
+    await applyPlanSubscription(sub(f.ws.id, { lookup: "leadxmedia_scale_monthly" }));
     expect((await ws(f.ws.id)).plan).toBe("scale");
-    await applyPlanSubscription(sub(f.ws.id, { lookup: "openpromoter_starter_monthly" }));
+    await applyPlanSubscription(sub(f.ws.id, { lookup: "leadxmedia_starter_monthly" }));
     expect((await ws(f.ws.id)).plan).toBe("starter");
   });
 
@@ -104,7 +104,7 @@ describe("plan subscription states", () => {
     await applyPlanSubscription(sub(f.ws.id, { id: "sub_old" }));
     await applyPlanSubscription(sub(f.ws.id, { id: "sub_old", status: "canceled" }));
     expect((await ws(f.ws.id)).plan).toBe("free");
-    await applyPlanSubscription(sub(f.ws.id, { id: "sub_new", lookup: "openpromoter_growth_monthly" }));
+    await applyPlanSubscription(sub(f.ws.id, { id: "sub_new", lookup: "leadxmedia_growth_monthly" }));
     const w = await ws(f.ws.id);
     expect(w.plan).toBe("growth");
     expect(w.billingSubscriptionId).toBe("sub_new");
@@ -117,7 +117,7 @@ describe("plan subscription states", () => {
     const f = await fixture();
     await applyPlanSubscription(sub(f.ws.id, { id: "sub_a" }));
     expect(
-      await applyPlanSubscription(sub(f.ws.id, { id: "sub_b", lookup: "openpromoter_scale_monthly" })),
+      await applyPlanSubscription(sub(f.ws.id, { id: "sub_b", lookup: "leadxmedia_scale_monthly" })),
     ).toBe(false);
     expect((await ws(f.ws.id)).plan).toBe("starter");
   });

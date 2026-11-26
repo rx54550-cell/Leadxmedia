@@ -1,10 +1,10 @@
 /** Single source of truth for product naming. */
 export const PRODUCT = {
-  name: "LeadX Media",
+  name: "LeadXMedia",
   domain: "leadx.media",
-  github: "https://github.com/openpromoter/openpromoter",
-  npm: "openpromoter",
-  mcpPackage: "openpromoter-mcp",
+  github: "https://github.com/leadxmedia/leadxmedia",
+  npm: "leadxmedia",
+  mcpPackage: "leadxmedia-mcp",
   tagline: "General CPA offers and performance tracking",
-  company: "LeadX Media",
+  company: "LeadXMedia",
 } as const;

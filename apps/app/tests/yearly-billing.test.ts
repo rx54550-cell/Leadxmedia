@@ -22,18 +22,18 @@ describe("yearly billing", () => {
     expect(monthlyValue(7900, "year")).toBe(6583);
     expect(monthlyValue(7900, "month")).toBe(7900);
     expect(monthlyValue(7900, null)).toBe(7900);
-    expect(lookupKey("scale")).toBe("openpromoter_scale_monthly");
-    expect(lookupKey("scale", "year")).toBe("openpromoter_scale_yearly");
+    expect(lookupKey("scale")).toBe("leadxmedia_scale_monthly");
+    expect(lookupKey("scale", "year")).toBe("leadxmedia_scale_yearly");
   });
 
   it("the webhook reads the plan from a yearly price and stores the interval; it clears when the plan ends", async () => {
     const f = await fixture();
-    await applyPlanSubscription(sub(f.ws.id, "openpromoter_growth_yearly", "year"));
+    await applyPlanSubscription(sub(f.ws.id, "leadxmedia_growth_yearly", "year"));
     expect(await planStatus(f.ws.id)).toMatchObject({ plan: { id: "growth" }, interval: "year" });
     // switched to monthly in the Stripe portal
-    await applyPlanSubscription(sub(f.ws.id, "openpromoter_growth_monthly", "month"));
+    await applyPlanSubscription(sub(f.ws.id, "leadxmedia_growth_monthly", "month"));
     expect((await planStatus(f.ws.id)).interval).toBe("month");
-    await applyPlanSubscription(sub(f.ws.id, "openpromoter_growth_yearly", "year", "canceled"));
+    await applyPlanSubscription(sub(f.ws.id, "leadxmedia_growth_yearly", "year", "canceled"));
     expect(await planStatus(f.ws.id)).toMatchObject({ plan: { id: "free" }, interval: null });
   });
 });

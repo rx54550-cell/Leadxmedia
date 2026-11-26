@@ -8,7 +8,7 @@
 process.env.AI_LOG = "1";
 // the recruiter and Autopilot import the email templates (JSX)
 (globalThis as { React?: unknown }).React = await import("react");
-const { contentAsset, program, prospect } = await import("@openpromoter/db");
+const { contentAsset, program, prospect } = await import("@leadxmedia/db");
 const { and, desc, eq } = await import("drizzle-orm");
 const { writeFileSync } = await import("node:fs");
 const { db } = await import("@/server/db");

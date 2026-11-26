@@ -1,4 +1,4 @@
-import { billingConnection, commission, payout } from "@openpromoter/db";
+import { billingConnection, commission, payout } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { encrypt } from "@/lib/crypto";

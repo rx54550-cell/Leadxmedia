@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Card, Checkbox, cn, EmptyState, Input, Kbd, Skeleton } from "@openpromoter/ui";
+import { Button, Card, Checkbox, cn, EmptyState, Input, Kbd, Skeleton } from "@leadxmedia/ui";
 import {
   ArrowDown,
   ArrowUp,
@@ -11,7 +11,7 @@ import {
   Search,
   SearchX,
   X,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";

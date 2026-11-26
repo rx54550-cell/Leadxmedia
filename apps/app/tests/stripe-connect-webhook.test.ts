@@ -1,4 +1,4 @@
-import { billingConnection, referral } from "@openpromoter/db";
+import { billingConnection, referral } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import Stripe from "stripe";
 import { describe, expect, it } from "vitest";

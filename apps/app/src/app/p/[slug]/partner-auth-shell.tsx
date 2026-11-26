@@ -1,5 +1,5 @@
-import type { program } from "@openpromoter/db";
-import { ArrowLeft } from "@openpromoter/ui/icons";
+import type { program } from "@leadxmedia/db";
+import { ArrowLeft } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { planStatus } from "@/server/billing-plans";
 import { at, programBase } from "@/server/program-base";
@@ -42,8 +42,8 @@ export async function PartnerAuthShell({
             {hosted && plan.id === "free" ? (
               <p className="px-4 pb-5 text-xs text-subtle sm:px-10">
                 Powered by{" "}
-                <a href="https://openpromoter.com" className="text-muted hover:text-fg">
-                  OpenPromoter
+                <a href="https://leadxmedia.com" className="text-muted hover:text-fg">
+                  LeadXMedia
                 </a>
               </p>
             ) : null}

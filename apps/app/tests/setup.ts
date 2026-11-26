@@ -1,6 +1,6 @@
 import { PGlite } from "@electric-sql/pglite";
-import { schema } from "@openpromoter/db";
-import { migrationsFolder } from "@openpromoter/db/migrate";
+import { schema } from "@leadxmedia/db";
+import { migrationsFolder } from "@leadxmedia/db/migrate";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { beforeAll } from "vitest";

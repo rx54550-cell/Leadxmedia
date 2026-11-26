@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Field, Select } from "@openpromoter/ui";
+import { Card, Field, Select } from "@leadxmedia/ui";
 import { useRouter } from "next/navigation";
 import { useAction } from "@/components/use-action";
 import { billingRegionAction } from "./actions";

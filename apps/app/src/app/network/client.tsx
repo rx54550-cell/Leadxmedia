@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Select } from "@openpromoter/ui";
+import { Button, Select } from "@leadxmedia/ui";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";

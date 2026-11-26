@@ -1,6 +1,6 @@
-import { partner, payout } from "@openpromoter/db";
-import { Badge, Button, Card, CardHeader } from "@openpromoter/ui";
-import { BadgeCheck, Clock, Coins, Download, FileText, Wallet } from "@openpromoter/ui/icons";
+import { partner, payout } from "@leadxmedia/db";
+import { Badge, Button, Card, CardHeader } from "@leadxmedia/ui";
+import { BadgeCheck, Clock, Coins, Download, FileText, Wallet } from "@leadxmedia/ui/icons";
 import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader, Stat } from "@/components/page";
@@ -99,7 +99,7 @@ export default async function PayoutsPage({ params }: { params: Promise<{ progra
           sub={`${paid?.n ?? 0} payouts`}
         />
         <Stat
-          label="OpenPromoter fees"
+          label="LeadXMedia fees"
           icon={Coins}
           value={mw(0)}
           sub="Provider fees (Stripe, PayPal, Wise) still apply"

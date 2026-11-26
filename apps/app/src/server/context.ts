@@ -1,4 +1,4 @@
-import { member, partner, program, workspace } from "@openpromoter/db";
+import { member, partner, program, workspace } from "@leadxmedia/db";
 import { and, asc, eq } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
 import { cache } from "react";

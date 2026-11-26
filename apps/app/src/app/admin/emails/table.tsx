@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, type BadgeTone, Button, Dialog, DialogContent, Skeleton } from "@openpromoter/ui";
-import { Mail } from "@openpromoter/ui/icons";
+import { Badge, type BadgeTone, Button, Dialog, DialogContent, Skeleton } from "@leadxmedia/ui";
+import { Mail } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -84,7 +84,7 @@ export function EmailsTable(props: {
     {
       key: "program",
       header: "Program",
-      render: (r) => <span className="text-muted">{r.program ?? "OpenPromoter"}</span>,
+      render: (r) => <span className="text-muted">{r.program ?? "LeadXMedia"}</span>,
     },
     {
       key: "status",
@@ -133,7 +133,7 @@ export function EmailsTable(props: {
     ? [
         ["To", open.to],
         ["Subject", open.subject],
-        ["From program", open.program ?? "OpenPromoter"],
+        ["From program", open.program ?? "LeadXMedia"],
         ["Sent", when(open.at)],
         ["Last report", when(open.updatedAt)],
         ["Provider note", open.detail || "None"],

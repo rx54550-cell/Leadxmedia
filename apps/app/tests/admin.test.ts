@@ -1,4 +1,4 @@
-import { workspace } from "@openpromoter/db";
+import { workspace } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { describe, expect, it, vi } from "vitest";
 
@@ -66,7 +66,7 @@ describe("admin", () => {
   it("a workspace's partners carry their own revenue and earnings", async () => {
     const { adminWorkspace } = await admin();
     const { addPartner } = await import("./helpers");
-    const { commission } = await import("@openpromoter/db");
+    const { commission } = await import("@leadxmedia/db");
     const f = await fixture();
     const p = await addPartner(f.program.id, f.ws.id);
     await db()

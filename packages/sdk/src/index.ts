@@ -58,7 +58,7 @@ export interface Page<T> {
   hasMore: boolean;
 }
 
-export class OpenPromoterError extends Error {
+export class LeadXMediaError extends Error {
   constructor(
     public status: number,
     public code: string,
@@ -66,28 +66,28 @@ export class OpenPromoterError extends Error {
     public issues?: { path: string; message: string }[],
   ) {
     super(message);
-    this.name = "OpenPromoterError";
+    this.name = "LeadXMediaError";
   }
 }
 
 export interface Options {
   apiKey: string;
-  /** Your OpenPromoter URL. Defaults to the cloud edition. */
+  /** Your LeadXMedia URL. Defaults to the cloud edition. */
   baseUrl?: string;
   fetch?: typeof fetch;
 }
 
 type Query = Record<string, string | number | undefined>;
 
-export class OpenPromoter {
+export class LeadXMedia {
   private base: string;
   private key: string;
   private f: typeof fetch;
 
   constructor(opts: Options) {
-    if (!opts?.apiKey) throw new Error("OpenPromoter: apiKey is required");
+    if (!opts?.apiKey) throw new Error("LeadXMedia: apiKey is required");
     this.key = opts.apiKey;
-    this.base = `${(opts.baseUrl ?? "https://app.openpromoter.com").replace(/\/$/, "")}/api/v1`;
+    this.base = `${(opts.baseUrl ?? "https://app.leadxmedia.com").replace(/\/$/, "")}/api/v1`;
     this.f = opts.fetch ?? fetch;
   }
 
@@ -108,7 +108,7 @@ export class OpenPromoter {
       headers: {
         Authorization: `Bearer ${this.key}`,
         "Content-Type": "application/json",
-        "User-Agent": "openpromoter-node/0.1.0",
+        "User-Agent": "leadxmedia-node/0.1.0",
       },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
@@ -116,7 +116,7 @@ export class OpenPromoter {
       error?: { code: string; message: string; issues?: { path: string; message: string }[] };
     };
     if (!res.ok)
-      throw new OpenPromoterError(
+      throw new LeadXMediaError(
         res.status,
         json.error?.code ?? "http_error",
         json.error?.message ?? `HTTP ${res.status}`,
@@ -149,7 +149,7 @@ export class OpenPromoter {
       >("GET", `/partners/${e(partnerId)}`),
     update: (partnerId: string, input: { status?: Exclude<PartnerStatus, "pending">; groupId?: string }) =>
       this.request<Partner>("PATCH", `/partners/${e(partnerId)}`, input),
-    /** Token for <openpromoter-dashboard> (embeddable partner dashboard inside your app). */
+    /** Token for <leadxmedia-dashboard> (embeddable partner dashboard inside your app). */
     embedToken: (programId: string, input: { email: string; name: string }) =>
       this.request<{ token: string; partnerId: string; expiresIn: number }>(
         "POST",
@@ -299,7 +299,7 @@ export interface WebhookEvent<T = Record<string, unknown>> {
 }
 
 /**
- * Verify an OpenPromoter webhook. Header: `OpenPromoter-Signature: t=<unix>,v1=<hex>`,
+ * Verify an LeadXMedia webhook. Header: `LeadXMedia-Signature: t=<unix>,v1=<hex>`,
  * where v1 = HMAC-SHA256(secret, `${t}.${rawBody}`). Throws on a bad or stale signature.
  */
 export function verifyWebhook<T = Record<string, unknown>>(
@@ -308,17 +308,17 @@ export function verifyWebhook<T = Record<string, unknown>>(
   secret: string,
   toleranceSeconds = 300,
 ): WebhookEvent<T> {
-  if (!header) throw new OpenPromoterError(400, "invalid_signature", "Missing OpenPromoter-Signature header");
+  if (!header) throw new LeadXMediaError(400, "invalid_signature", "Missing LeadXMedia-Signature header");
   const parts = Object.fromEntries(header.split(",").map((p) => p.split("=") as [string, string]));
   const t = Number(parts.t);
-  if (!t || !parts.v1) throw new OpenPromoterError(400, "invalid_signature", "Malformed signature header");
+  if (!t || !parts.v1) throw new LeadXMediaError(400, "invalid_signature", "Malformed signature header");
   if (Math.abs(Date.now() / 1000 - t) > toleranceSeconds)
-    throw new OpenPromoterError(400, "invalid_signature", "Signature timestamp outside tolerance");
+    throw new LeadXMediaError(400, "invalid_signature", "Signature timestamp outside tolerance");
   const expected = createHmac("sha256", secret).update(`${t}.${rawBody}`).digest("hex");
   const a = Buffer.from(expected);
   const b = Buffer.from(parts.v1);
   if (a.length !== b.length || !timingSafeEqual(a, b))
-    throw new OpenPromoterError(400, "invalid_signature", "Invalid signature");
+    throw new LeadXMediaError(400, "invalid_signature", "Invalid signature");
   return JSON.parse(rawBody) as WebhookEvent<T>;
 }
 
@@ -346,7 +346,7 @@ export function readReferralCookie(cookieHeader: string | null | undefined): Ref
  * Cookie header. It records the lead and never throws, so signups never fail because of tracking.
  */
 export async function trackSignup(
-  op: OpenPromoter,
+  op: LeadXMedia,
   input: {
     programId: string;
     email: string;

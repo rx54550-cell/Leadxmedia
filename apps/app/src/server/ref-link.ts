@@ -5,7 +5,7 @@ type LinkProgram = { slug: string; customDomain: string | null; customDomainVeri
 
 /**
  * Where the program lives on its own host: the founder's verified custom domain (https://partners.acme.com),
- * else its free subdomain (https://acme.openpromoter.com) when those are on, else null (the app's /p/slug).
+ * else its free subdomain (https://acme.leadxmedia.com) when those are on, else null (the app's /p/slug).
  */
 export const domainOrigin = (p: LinkProgram) =>
   p.customDomain && p.customDomainVerifiedAt ? `https://${p.customDomain}` : subdomainOrigin(p.slug);

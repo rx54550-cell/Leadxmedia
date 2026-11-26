@@ -6,7 +6,7 @@ import { env } from "@/server/env";
 
 export const runtime = "nodejs";
 
-/** Cloud edition: OpenPromoter's own subscription events. */
+/** Cloud edition: LeadXMedia's own subscription events. */
 export async function POST(req: Request) {
   if (!env.PLATFORM_STRIPE_WEBHOOK_SECRET) return Response.json({ error: "Not configured" }, { status: 404 });
   let evt: Stripe.Event;
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     throw err;
   }
   let sub = evt.data.object as Stripe.Subscription;
-  // the Stripe account is shared with other DevDiggers products: only OpenPromoter plans carry workspace_id
+  // the Stripe account is shared with other DevDiggers products: only LeadXMedia plans carry workspace_id
   if (evt.type.startsWith("customer.subscription.") && sub.metadata?.workspace_id) {
     // events arrive in any order: read the subscription as it is now
     const stripe = env.PLATFORM_STRIPE_SECRET_KEY ? stripeClient(env.PLATFORM_STRIPE_SECRET_KEY) : null;

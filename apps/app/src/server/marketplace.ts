@@ -1,4 +1,4 @@
-import { PROGRAM_CATEGORIES, type ProgramCategory, partner, program } from "@openpromoter/db";
+import { PROGRAM_CATEGORIES, type ProgramCategory, partner, program } from "@leadxmedia/db";
 import { and, desc, eq, inArray, type SQL } from "drizzle-orm";
 import { db } from "./db";
 import { applyToProgram } from "./partners";

@@ -9,7 +9,7 @@ import {
   program,
   prospect,
   resource,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";

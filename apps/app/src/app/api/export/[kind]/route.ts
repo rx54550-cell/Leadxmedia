@@ -1,4 +1,4 @@
-import { auditLog, commission, partner, payout, referral } from "@openpromoter/db";
+import { auditLog, commission, partner, payout, referral } from "@leadxmedia/db";
 import { and, desc, eq, gte, ilike, lt, or, type SQL, sql } from "drizzle-orm";
 import { decrypt } from "@/lib/crypto";
 import { csvResponse, toCsv } from "@/lib/csv";

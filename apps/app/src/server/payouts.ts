@@ -1,4 +1,4 @@
-import { billingConnection, commission, partner, payout, program } from "@openpromoter/db";
+import { billingConnection, commission, partner, payout, program } from "@leadxmedia/db";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { decrypt, sha256 } from "@/lib/crypto";
 import { createId } from "@/lib/id";
@@ -146,7 +146,7 @@ export async function approvePayouts(
   return results;
 }
 
-/** Mark a manual payout as paid outside OpenPromoter (bank transfer, etc). */
+/** Mark a manual payout as paid outside LeadXMedia (bank transfer, etc). */
 export async function markPaid(programId: string, id: string, actor: Actor, reference?: string) {
   if (actor.type !== "user") throw new PayoutError("Only a signed-in team member can mark payouts paid");
   const [po] = await db()
@@ -380,7 +380,7 @@ const PROVIDERS: Record<Exclude<PayoutMethod, "manual">, (po: Payout, p: Partner
           currency: po.currency,
           destination: p.stripeAccountId,
           description: `Commission payout ${po.invoiceNumber}`,
-          metadata: { openpromoter_payout: po.id },
+          metadata: { leadxmedia_payout: po.id },
         },
         // a retry with the same key within 24 hours returns the first transfer instead of a second one
         { idempotencyKey: `op-payout-${po.id}` },
@@ -495,7 +495,7 @@ async function reconcile(po: Payout): Promise<string> {
         created: { gte: since },
         limit: 100,
       }))
-        if (t.metadata?.openpromoter_payout === po.id) {
+        if (t.metadata?.leadxmedia_payout === po.id) {
           await settle(po, t.id);
           return "paid";
         }

@@ -1,7 +1,7 @@
-# LeadX Media — General CPA Network PRD
+# LeadXMedia — General CPA Network PRD
 
 ## 1. Product overview
-LeadX Media is a self-hosted, multi-vertical CPA network. Advertisers add offers; approved publishers browse eligible offers, create tracking links, review performance, and request payouts. The platform records clicks and conversions from signed postbacks, including CPAHouse-compatible macros.
+LeadXMedia is a self-hosted, multi-vertical CPA network. Advertisers add offers; approved publishers browse eligible offers, create tracking links, review performance, and request payouts. The platform records clicks and conversions from signed postbacks, including CPAHouse-compatible macros.
 
 ## 2. Goals
 - Support general CPA offers across multiple verticals.

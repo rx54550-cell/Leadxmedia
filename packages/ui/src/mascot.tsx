@@ -157,7 +157,7 @@ const FRONT: Partial<Record<BeaconPose, React.ReactNode>> = {
 };
 
 /**
- * Beacon, the OpenPromoter mascot: an ink body with the logo's blue dot on its antenna. It turns
+ * Beacon, the LeadXMedia mascot: an ink body with the logo's blue dot on its antenna. It turns
  * light (Mist) in dark mode so it never disappears. Only for friendly moments, never on money or tax
  * screens, and never in the partner portal, which carries the founder's brand.
  */

@@ -10,7 +10,7 @@ import { stripeEvent, uid } from "./helpers";
  * one founder per `playwright test` run, no extra sign-ins after a failure.
  */
 // outside test-results/: other testers share that folder and Playwright wipes it on every run
-const DIR = path.join(tmpdir(), "openpromoter-e2e-full-founder");
+const DIR = path.join(tmpdir(), "leadxmedia-e2e-full-founder");
 const FILE = path.join(DIR, `run-${process.ppid}.json`);
 export const FOUNDER_STATE = path.join(DIR, `founder-${process.ppid}.json`);
 export const PARTNER_STATE = path.join(DIR, `partner-${process.ppid}.json`);

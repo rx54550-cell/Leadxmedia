@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@openpromoter/ui";
+import { cn } from "@leadxmedia/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

@@ -1,4 +1,4 @@
-import { cpaLead, click, offer } from "@openpromoter/db";
+import { cpaLead, click, offer } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 import { createId } from "@/lib/id";

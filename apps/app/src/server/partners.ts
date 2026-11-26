@@ -10,7 +10,7 @@ import {
   prospect,
   user,
   workspace,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, gte, inArray, isNull, sql } from "drizzle-orm";
 import { hashIp } from "@/lib/crypto";
 import { createCode, createId, slugify } from "@/lib/id";

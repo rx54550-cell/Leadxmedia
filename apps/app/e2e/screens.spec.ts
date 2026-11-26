@@ -33,8 +33,8 @@ test.beforeAll(async ({ browser }) => {
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
   await page.goto("/login");
-  await page.getByLabel("Email").fill("demo@openpromoter.test");
-  await page.getByLabel("Password", { exact: true }).fill("openpromoter-demo");
+  await page.getByLabel("Email").fill("demo@leadxmedia.test");
+  await page.getByLabel("Password", { exact: true }).fill("leadxmedia-demo");
   await page.getByRole("button", { name: "Sign in" }).click();
   await page.waitForURL(/\/app\/prg_/);
   await ctx.storageState({ path: STATE });

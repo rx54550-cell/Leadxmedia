@@ -1,6 +1,6 @@
-import { auditLog, workspace } from "@openpromoter/db";
-import { Badge, Card, CardHeader } from "@openpromoter/ui";
-import { AlertTriangle, Coins, ExternalLink, TrendUp, Users } from "@openpromoter/ui/icons";
+import { auditLog, workspace } from "@leadxmedia/db";
+import { Badge, Card, CardHeader } from "@leadxmedia/ui";
+import { AlertTriangle, Coins, ExternalLink, TrendUp, Users } from "@leadxmedia/ui/icons";
 import { desc, eq, like } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -20,7 +20,7 @@ const REGION: Record<string, string> = {
   in_other: "Other Indian states",
 };
 
-/** What OpenPromoter earns: MRR by plan, money at risk, who is about to upgrade and every plan change. */
+/** What LeadXMedia earns: MRR by plan, money at risk, who is about to upgrade and every plan change. */
 export default async function AdminRevenue() {
   await requireAdmin();
   const [{ rows }, changes] = await Promise.all([
@@ -58,7 +58,7 @@ export default async function AdminRevenue() {
     <>
       <PageHeader
         title="Revenue"
-        description="OpenPromoter Cloud's own revenue from plans. Prices before GST, in USD."
+        description="LeadXMedia Cloud's own revenue from plans. Prices before GST, in USD."
         actions={
           <a
             href="https://dashboard.stripe.com/subscriptions"

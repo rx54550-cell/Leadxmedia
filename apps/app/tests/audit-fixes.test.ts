@@ -1,4 +1,4 @@
-import { campaign, commission, partner, program, referral } from "@openpromoter/db";
+import { campaign, commission, partner, program, referral } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { describe, expect, it } from "vitest";
 import { percentBp, toMajor } from "@/lib/money";

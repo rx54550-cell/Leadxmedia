@@ -1,4 +1,4 @@
-import { click, commission, fraudFlag, partner, program, referral } from "@openpromoter/db";
+import { click, commission, fraudFlag, partner, program, referral } from "@leadxmedia/db";
 import { and, desc, eq, gte, inArray, isNull, like, or, sql } from "drizzle-orm";
 import { createId } from "@/lib/id";
 import { db } from "./db";

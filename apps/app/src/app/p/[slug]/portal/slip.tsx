@@ -1,4 +1,4 @@
-import { cn } from "@openpromoter/ui";
+import { cn } from "@leadxmedia/ui";
 import Link from "next/link";
 import { BRANDS, BrandIcon } from "@/components/brand";
 import { LedgerLine } from "@/components/page";

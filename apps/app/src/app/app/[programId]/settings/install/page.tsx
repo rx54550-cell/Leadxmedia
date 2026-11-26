@@ -1,6 +1,6 @@
-import { billingConnection, click, referral } from "@openpromoter/db";
-import { Badge, Card, CardBody, CardHeader } from "@openpromoter/ui";
-import { CheckCircle2, Circle } from "@openpromoter/ui/icons";
+import { billingConnection, click, referral } from "@leadxmedia/db";
+import { Badge, Card, CardBody, CardHeader } from "@leadxmedia/ui";
+import { CheckCircle2, Circle } from "@leadxmedia/ui/icons";
 import { and, eq, isNotNull, sql } from "drizzle-orm";
 import { CodeBlock } from "@/components/copy";
 import { snippets } from "@/lib/install";
@@ -68,7 +68,7 @@ export default async function InstallSettings({ params }: { params: Promise<{ pr
           </p>
           <p>
             Add <code className="font-mono text-[12px]">data-consent="required"</code> to wait for cookie
-            consent (call <code className="font-mono text-[12px]">openpromoter("consent", true)</code> once
+            consent (call <code className="font-mono text-[12px]">leadxmedia("consent", true)</code> once
             the visitor agrees). Add <code className="font-mono text-[12px]">data-storage="none"</code> to
             never set cookies. Add <code className="font-mono text-[12px]">data-api="/op"</code> with a
             rewrite on your own domain so ad blockers don't drop clicks.
@@ -78,7 +78,7 @@ export default async function InstallSettings({ params }: { params: Promise<{ pr
       <CodeBlock label="1. Script tag (every page)" code={s.script} />
       <CodeBlock
         label="2. Track signups before payment (optional)"
-        code={`<script>\n  // after your signup form succeeds\n  window.openpromoter?.signup({ email: user.email });\n</script>`}
+        code={`<script>\n  // after your signup form succeeds\n  window.leadxmedia?.signup({ email: user.email });\n</script>`}
       />
       <CodeBlock label="3. Custom Stripe Checkout (server)" code={s.checkout} />
       <CodeBlock label="Server-side SDK" code={s.npm} />
@@ -88,7 +88,7 @@ export default async function InstallSettings({ params }: { params: Promise<{ pr
       />
       <CodeBlock
         label="Paddle, Lemon Squeezy, Polar and Dodo Payments"
-        code={`// Pass the click id as custom data at checkout:\n// Paddle.js:      Paddle.Checkout.open({ customData: { op_click: window.openpromoter.clickId } })\n// Lemon Squeezy:  checkout URL ?checkout[custom][op_click]=<clickId>\n// Polar:          checkout metadata: { op_click: <clickId> }\n// Dodo Payments:  checkout session metadata: { op_click: <clickId> }, or payment link ?metadata_op_click=<clickId>`}
+        code={`// Pass the click id as custom data at checkout:\n// Paddle.js:      Paddle.Checkout.open({ customData: { op_click: window.leadxmedia.clickId } })\n// Lemon Squeezy:  checkout URL ?checkout[custom][op_click]=<clickId>\n// Polar:          checkout metadata: { op_click: <clickId> }\n// Dodo Payments:  checkout session metadata: { op_click: <clickId> }, or payment link ?metadata_op_click=<clickId>`}
       />
     </>
   );

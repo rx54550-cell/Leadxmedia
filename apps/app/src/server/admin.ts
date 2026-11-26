@@ -11,7 +11,7 @@ import {
   user,
   webhookDelivery,
   workspace,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import {
   and,
   count,
@@ -38,7 +38,7 @@ import { env } from "./env";
 import { baseAmount, baseSale, ecbRates, sumIn } from "./fx";
 
 /**
- * The owner's read-only view of OpenPromoter Cloud. Only signed-in, email-verified users listed in
+ * The owner's read-only view of LeadXMedia Cloud. Only signed-in, email-verified users listed in
  * ADMIN_EMAILS get in; everyone else gets a 404, so the page doesn't show it exists.
  */
 export const adminEmails = () =>

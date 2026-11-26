@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** Shown inside the shell while a dashboard page streams in: the same rhythm as a real page. */
 export default function Loading() {

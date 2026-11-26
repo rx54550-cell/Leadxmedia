@@ -1,4 +1,4 @@
-import { invitation, member, user } from "@openpromoter/db";
+import { invitation, member, user } from "@leadxmedia/db";
 import { and, eq, isNull } from "drizzle-orm";
 import { programCtx } from "@/server/context";
 import { db } from "@/server/db";

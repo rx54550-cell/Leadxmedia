@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** An admin list while it loads: the page title, the search and tabs row and the table's rows. */
 export default function ListSkeleton() {

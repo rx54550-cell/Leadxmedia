@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Dialog, DialogContent } from "@openpromoter/ui";
-import { Check, Copy, Download, QrCode } from "@openpromoter/ui/icons";
+import { Button, Dialog, DialogContent } from "@leadxmedia/ui";
+import { Check, Copy, Download, QrCode } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { CopyField, useCopy } from "@/components/copy";
 

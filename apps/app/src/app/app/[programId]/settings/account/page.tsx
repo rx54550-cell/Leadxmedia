@@ -1,4 +1,4 @@
-import { account } from "@openpromoter/db";
+import { account } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { programCtx } from "@/server/context";
 import { db } from "@/server/db";

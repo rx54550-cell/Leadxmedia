@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Card, CardBody, CardHeader, EmptyState, StatusBadge, Switch } from "@openpromoter/ui";
-import { Bot, Check, Play, Sparkles, Undo2, X } from "@openpromoter/ui/icons";
+import { Badge, Button, Card, CardBody, CardHeader, EmptyState, StatusBadge, Switch } from "@leadxmedia/ui";
+import { Bot, Check, Play, Sparkles, Undo2, X } from "@leadxmedia/ui/icons";
 import { useEffect, useState } from "react";
 import { useAction } from "@/components/use-action";
 import { agentAction_, autopilotSettingsAction, runAutopilotAction } from "../growth-actions";

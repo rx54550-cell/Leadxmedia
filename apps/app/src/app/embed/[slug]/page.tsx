@@ -1,4 +1,4 @@
-import { click, link, partner, program, referral } from "@openpromoter/db";
+import { click, link, partner, program, referral } from "@leadxmedia/db";
 import { and, asc, eq, sql } from "drizzle-orm";
 import { CopyButton } from "@/components/copy";
 import { formatNumber } from "@/lib/money";
@@ -11,7 +11,7 @@ import { BrandScope } from "../../p/[slug]/brand";
 
 export const dynamic = "force-dynamic";
 
-/** Framed inside the founder's app via <openpromoter-dashboard>. No login: the signed token identifies the partner. */
+/** Framed inside the founder's app via <leadxmedia-dashboard>. No login: the signed token identifies the partner. */
 export default async function EmbedPage({
   params,
   searchParams,

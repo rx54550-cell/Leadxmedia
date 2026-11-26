@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest something OpenPromoter should do.
+description: Suggest something LeadXMedia should do.
 labels: [enhancement]
 body:
   - type: textarea

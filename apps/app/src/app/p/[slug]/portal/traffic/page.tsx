@@ -1,5 +1,5 @@
-import { Card } from "@openpromoter/ui";
-import { MousePointerClick, Target, Users } from "@openpromoter/ui/icons";
+import { Card } from "@leadxmedia/ui";
+import { MousePointerClick, Target, Users } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { DotChart } from "@/components/charts";
 import { PageHeader, Stat } from "@/components/page";

@@ -1,6 +1,6 @@
-import { billingConnection, payout, payoutRequest, cpaLead } from "@openpromoter/db";
-import { Card, CardHeader, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { Banknote, FileText } from "@openpromoter/ui/icons";
+import { billingConnection, payout, payoutRequest, cpaLead } from "@leadxmedia/db";
+import { Card, CardHeader, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { Banknote, FileText } from "@leadxmedia/ui/icons";
 import { and, desc, eq, sql } from "drizzle-orm";
 import { BrandIcon } from "@/components/brand";
 import { PageHeader } from "@/components/page";

@@ -1,4 +1,4 @@
-import { partner, reportSubscription } from "@openpromoter/db";
+import { partner, reportSubscription } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { hmacHex, safeEqual } from "@/lib/crypto";
 import { db } from "./db";

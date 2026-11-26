@@ -1,4 +1,4 @@
-import { commission, partnerGroup, referral } from "@openpromoter/db";
+import { commission, partnerGroup, referral } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { beforeEach, describe, expect, it } from "vitest";
 import { createId } from "@/lib/id";
@@ -212,7 +212,7 @@ describe("exchange rates", () => {
   it("a partial refund and the recruiter's override carry the sale's rate", async () => {
     const s = await referred({ currency: "usd", commissionValue: 3000, overrideRate: 1000 });
     const recruiter = await addPartner(s.program.id, s.ws.id);
-    const { partner } = await import("@openpromoter/db");
+    const { partner } = await import("@leadxmedia/db");
     await db().update(partner).set({ recruitedBy: recruiter.id }).where(eq(partner.id, s.partner.id));
     await ingest(
       s.ws.id,
@@ -256,7 +256,7 @@ describe("exchange rates", () => {
 
     // the founder switches the program to euros
     const [before] = await db().select().from(referral).where(eq(referral.externalCustomerId, s.customerId));
-    const { program } = await import("@openpromoter/db");
+    const { program } = await import("@leadxmedia/db");
     await db().update(program).set({ currency: "eur" }).where(eq(program.id, s.program.id));
     await rebaseProgram(s.program.id, "usd", "eur");
     rows = await sales(s.partner.id);
@@ -268,7 +268,7 @@ describe("exchange rates", () => {
   });
 
   it("tier promotion compares converted revenue, so yen sales do not count as cents", async () => {
-    const { partner } = await import("@openpromoter/db");
+    const { partner } = await import("@leadxmedia/db");
     const tierAfter = async (yen: number) => {
       const s = await referred({ currency: "usd" });
       await db()

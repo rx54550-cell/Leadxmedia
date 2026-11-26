@@ -1,7 +1,7 @@
 "use client";
 
-import { StatusBadge } from "@openpromoter/ui";
-import { UsersRound } from "@openpromoter/ui/icons";
+import { StatusBadge } from "@leadxmedia/ui";
+import { UsersRound } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { type Column, DataTable, type Tab } from "@/components/data-table";
 import { formatMoney } from "@/lib/money";

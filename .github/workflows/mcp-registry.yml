@@ -1,6 +1,6 @@
 # Publishes packages/mcp/server.json to the official MCP Registry (registry.modelcontextprotocol.io).
-# GitHub OIDC proves the run belongs to the openpromoter org, so no token is stored.
-# Run it by hand after publishing a new openpromoter-mcp version to npm and bumping server.json.
+# GitHub OIDC proves the run belongs to the leadxmedia org, so no token is stored.
+# Run it by hand after publishing a new leadxmedia-mcp version to npm and bumping server.json.
 name: MCP Registry
 
 on:

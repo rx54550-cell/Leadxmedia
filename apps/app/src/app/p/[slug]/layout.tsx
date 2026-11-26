@@ -1,4 +1,4 @@
-import { program } from "@openpromoter/db";
+import { program } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { db } from "@/server/db";

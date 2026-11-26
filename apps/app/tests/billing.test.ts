@@ -312,7 +312,7 @@ describe("provider fixes", () => {
   });
 });
 
-import { billingConnection } from "@openpromoter/db";
+import { billingConnection } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { SYSTEM } from "@/server/audit";
 import { db } from "@/server/db";

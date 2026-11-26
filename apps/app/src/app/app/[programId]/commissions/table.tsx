@@ -12,8 +12,8 @@ import {
   InputAdornment,
   Select,
   StatusBadge,
-} from "@openpromoter/ui";
-import { Check, Coins, PauseCircle, Play, Plus, Undo2 } from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui";
+import { Check, Coins, PauseCircle, Play, Plus, Undo2 } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";

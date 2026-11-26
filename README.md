@@ -1,47 +1,47 @@
 <div align="center">
 
-<a href="https://openpromoter.com">
+<a href="https://leadxmedia.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/brand/logo-dark.svg">
-    <img src="docs/brand/logo-light.svg" alt="OpenPromoter logo" width="72" height="72">
+    <img src="docs/brand/logo-light.svg" alt="LeadXMedia logo" width="72" height="72">
   </picture>
 </a>
 
-# OpenPromoter
+# LeadXMedia
 
 ### Open-source affiliate and referral program software for SaaS
 
-A self-hosted alternative to [Rewardful](https://openpromoter.com/alternatives/rewardful/), [FirstPromoter](https://openpromoter.com/alternatives/firstpromoter/) and [Tolt](https://openpromoter.com/alternatives/tolt/). Track referrals from Stripe, stop affiliate fraud and pay partners with 0% payout fees.
+A self-hosted alternative to [Rewardful](https://leadxmedia.com/alternatives/rewardful/), [FirstPromoter](https://leadxmedia.com/alternatives/firstpromoter/) and [Tolt](https://leadxmedia.com/alternatives/tolt/). Track referrals from Stripe, stop affiliate fraud and pay partners with 0% payout fees.
 
-**[Try the live demo, no signup](https://openpromoter.com/demo/)**
+**[Try the live demo, no signup](https://leadxmedia.com/demo/)**
 
-[Website](https://openpromoter.com) · [Watch the film (1:20)](https://www.youtube.com/watch?v=PUepd2ts-mM) · [Live demo](https://openpromoter.com/demo/) · [Docs](https://openpromoter.com/docs/) · [Self-hosting](https://openpromoter.com/docs/self-hosting/) · [API](https://openpromoter.com/docs/api/) · [Discussions](https://github.com/openpromoter/openpromoter/discussions)
+[Website](https://leadxmedia.com) · [Watch the film (1:20)](https://www.youtube.com/watch?v=PUepd2ts-mM) · [Live demo](https://leadxmedia.com/demo/) · [Docs](https://leadxmedia.com/docs/) · [Self-hosting](https://leadxmedia.com/docs/self-hosting/) · [API](https://leadxmedia.com/docs/api/) · [Discussions](https://github.com/leadxmedia/leadxmedia/discussions)
 
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-2442F5)](LICENSE)
 [![Self-host with Docker](https://img.shields.io/badge/self--host-docker%20compose%20up-16171A)](#quick-start)
 [![Payout fees: 0%](https://img.shields.io/badge/payout%20fees-0%25-2442F5)](#pricing)
-[![MCP server](https://img.shields.io/badge/MCP-openpromoter--mcp-16171A)](packages/mcp)
+[![MCP server](https://img.shields.io/badge/MCP-leadxmedia--mcp-16171A)](packages/mcp)
 
-<a href="https://www.youtube.com/watch?v=PUepd2ts-mM" title="Watch the OpenPromoter launch film on YouTube">
-  <img src="docs/screenshots/launch-film.jpg" alt="OpenPromoter launch film: 0% payout fees. Play the 80-second film on YouTube" width="900">
+<a href="https://www.youtube.com/watch?v=PUepd2ts-mM" title="Watch the LeadXMedia launch film on YouTube">
+  <img src="docs/screenshots/launch-film.jpg" alt="LeadXMedia launch film: 0% payout fees. Play the 80-second film on YouTube" width="900">
 </a>
 
-<sub>▶ Watch OpenPromoter in 80 seconds: one sale from a partner link to a paid payout.</sub>
+<sub>▶ Watch LeadXMedia in 80 seconds: one sale from a partner link to a paid payout.</sub>
 
 <br><br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/app-dashboard-desktop-dark.png">
-  <img src="docs/screenshots/app-dashboard-desktop-light.png" alt="OpenPromoter affiliate program dashboard with referred revenue, partner balance and payouts waiting for approval" width="900">
+  <img src="docs/screenshots/app-dashboard-desktop-light.png" alt="LeadXMedia affiliate program dashboard with referred revenue, partner balance and payouts waiting for approval" width="900">
 </picture>
 
 </div>
 
-## Why OpenPromoter
+## Why LeadXMedia
 
-Affiliate software for SaaS usually costs $49 to $99 a month, and some tools also take a share of every payout. OpenPromoter is open-source affiliate software that you can self-host for free. Every feature ships in this repository.
+Affiliate software for SaaS usually costs $49 to $99 a month, and some tools also take a share of every payout. LeadXMedia is open-source affiliate software that you can self-host for free. Every feature ships in this repository.
 
-Use it for an affiliate program with creators, a referral program for your customers or a partner program with agencies. Partners share a link or a coupon. OpenPromoter turns each paid sale into a commission and pays it out.
+Use it for an affiliate program with creators, a referral program for your customers or a partner program with agencies. Partners share a link or a coupon. LeadXMedia turns each paid sale into a commission and pays it out.
 
 - **0% of your payouts** on every plan, self-hosted or Cloud.
 - **Every billing system at once:** Stripe, Paddle, Lemon Squeezy, Polar, Chargebee and Dodo Payments.
@@ -51,39 +51,39 @@ Use it for an affiliate program with creators, a referral program for your custo
 
 ## Open-source alternative to Rewardful and FirstPromoter
 
-Here is how OpenPromoter compares with the paid affiliate tools most SaaS founders look at first.
+Here is how LeadXMedia compares with the paid affiliate tools most SaaS founders look at first.
 
 | | Entry price | Fee on payouts | Open source |
 |---|---|---|---|
-| **OpenPromoter** | $0 (self-host or Cloud Free) | 0% | Yes (AGPL-3.0) |
+| **LeadXMedia** | $0 (self-host or Cloud Free) | 0% | Yes (AGPL-3.0) |
 | Rewardful | $49/mo | 0%, or 3% with Managed Payouts | No |
 | FirstPromoter | $49/mo | None listed | No |
 | Tolt | $99/mo | 2% of payouts | No |
 | Dub Partners | $81/mo | 5%, or 8% card-funded | Partner code is closed |
 | PartnerStack | Quote after a demo | Unpublished processing fee | No |
 
-<sub>List prices from each vendor's pricing page as of November 2026. Sources and full comparisons: [Rewardful](https://openpromoter.com/vs/rewardful/), [FirstPromoter](https://openpromoter.com/vs/firstpromoter/), [Tolt](https://openpromoter.com/vs/tolt/), [Dub Partners](https://openpromoter.com/vs/dub-partners/) and [PartnerStack](https://openpromoter.com/vs/partnerstack/). See every [alternative](https://openpromoter.com/alternatives/).</sub>
+<sub>List prices from each vendor's pricing page as of November 2026. Sources and full comparisons: [Rewardful](https://leadxmedia.com/vs/rewardful/), [FirstPromoter](https://leadxmedia.com/vs/firstpromoter/), [Tolt](https://leadxmedia.com/vs/tolt/), [Dub Partners](https://leadxmedia.com/vs/dub-partners/) and [PartnerStack](https://leadxmedia.com/vs/partnerstack/). See every [alternative](https://leadxmedia.com/alternatives/).</sub>
 
 Switching is a CSV import of your partners, the customers they referred and their balances. Links that use `?via=`, `?fpr=`, `?ref=`, `?gspk=` or Lemon Squeezy's `?aff=` keep working. Renewals keep paying the same partner and unpaid balances go into the next payout. Partners don't have to change anything. See [switching from another affiliate tool](#switching-from-another-affiliate-tool).
 
 ## Try the live demo
 
-Open the [live demo](https://openpromoter.com/demo/) to use a working account with sample data. It has the founder dashboard and the partner portal with no sign-up and no card. It rebuilds every day and is read-only.
+Open the [live demo](https://leadxmedia.com/demo/) to use a working account with sample data. It has the founder dashboard and the partner portal with no sign-up and no card. It rebuilds every day and is read-only.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/openpromoter/openpromoter
-cd openpromoter
+git clone https://github.com/leadxmedia/leadxmedia
+cd leadxmedia
 docker compose up
 ```
 
-Open http://localhost:3000 and sign in to the demo workspace with `demo@openpromoter.test` and `openpromoter-demo`. It holds 100,000 clicks, 10,000 conversions and payouts waiting for approval. Emails land in Mailpit at http://localhost:8025.
+Open http://localhost:3000 and sign in to the demo workspace with `demo@leadxmedia.test` and `leadxmedia-demo`. It holds 100,000 clicks, 10,000 conversions and payouts waiting for approval. Emails land in Mailpit at http://localhost:8025.
 
 ### Deploy to a server
 
-<a href="https://render.com/deploy?repo=https://github.com/openpromoter/openpromoter"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="40"></a>
-<a href="https://railway.com/deploy/openpromoter"><img src="https://railway.com/button.svg" alt="Deploy on Railway" height="40"></a>
+<a href="https://render.com/deploy?repo=https://github.com/leadxmedia/leadxmedia"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="40"></a>
+<a href="https://railway.com/deploy/leadxmedia"><img src="https://railway.com/button.svg" alt="Deploy on Railway" height="40"></a>
 
 Render reads [render.yaml](render.yaml) and creates the app and its Postgres database. The Railway button deploys the app with Postgres from a template. On Fly.io or your own VPS, run the [Dockerfile](Dockerfile) with Postgres 16 and set these variables:
 
@@ -96,13 +96,13 @@ Render reads [render.yaml](render.yaml) and creates the app and its Postgres dat
 | `SMTP_URL` or `RESEND_API_KEY` | Where email goes, with `EMAIL_FROM` as the sender |
 | `SEED_DEMO` | `false` in production |
 
-The container refuses to start on a public URL with the placeholder secrets. Every setting is in [.env.example](.env.example), and the [self-hosting guide](https://openpromoter.com/docs/self-hosting/) walks through Railway, Render and upgrades.
+The container refuses to start on a public URL with the placeholder secrets. Every setting is in [.env.example](.env.example), and the [self-hosting guide](https://leadxmedia.com/docs/self-hosting/) walks through Railway, Render and upgrades.
 
 **Upgrading:** outgoing webhooks now go to public addresses only. If your webhook endpoints are on a private network (`localhost`, `10.x`, `192.168.x`, a Docker service name), set `ALLOW_PRIVATE_WEBHOOKS=true` or they will fail after the upgrade.
 
 ## How it works
 
-1. **Paste your website.** OpenPromoter pulls your logo, color and copy to brand the partner portal.
+1. **Paste your website.** LeadXMedia pulls your logo, color and copy to brand the partner portal.
 2. **Connect Stripe** with a restricted key, or OAuth on Cloud. It imports products, customers and subscriptions and registers the webhook.
 3. **Accept the AI-designed program.** Rate, duration, cookie window, customer discount, tiers and payout rules each come with a short reason.
 4. **Install the tracking script.** Add one script tag, use the npm SDK or paste one prompt into any coding agent.
@@ -120,13 +120,13 @@ The container refuses to start on a public URL with the placeholder secrets. Eve
 - Short links, deep links, sub-IDs, UTM capture, QR codes and custom domains such as `partners.yourapp.com`.
 - Trials, upgrades, refunds, chargebacks and cancellations adjust commissions automatically.
 
-Read more: [affiliate tracking](https://openpromoter.com/features/affiliate-tracking/).
+Read more: [affiliate tracking](https://leadxmedia.com/features/affiliate-tracking/).
 
 ### Fraud detection
 
 Every referral gets a risk score from 0 to 100. It checks self-referral, shared networks, duplicate accounts, coupon leaks and paid ads on your brand. It also catches click spam, bots, refunds after payout, fast churn, shared payout accounts and self-recruiting. Commissions above your threshold are held until you review them.
 
-Read more: [affiliate fraud detection](https://openpromoter.com/features/fraud-detection/).
+Read more: [affiliate fraud detection](https://leadxmedia.com/features/fraud-detection/).
 
 ### Partner and affiliate management
 
@@ -138,7 +138,7 @@ Read more: [affiliate fraud detection](https://openpromoter.com/features/fraud-d
 - Two-tier commissions, one level deep and off by default.
 - A public partner marketplace that founders opt into.
 
-Read more: [partner portal](https://openpromoter.com/features/partner-portal/).
+Read more: [partner portal](https://leadxmedia.com/features/partner-portal/).
 
 ### Switching from another affiliate tool
 
@@ -149,7 +149,7 @@ Read more: [partner portal](https://openpromoter.com/features/partner-portal/).
 - Unpaid balances join the next payout. Totals already paid count toward each partner's lifetime earnings.
 - Lists of single commissions, amounts in cents and exports split across files all work. Running a file twice adds nothing.
 
-Read more: [the import guide](https://openpromoter.com/docs/team-and-access/#import-partners-from-another-tool).
+Read more: [the import guide](https://leadxmedia.com/docs/team-and-access/#import-partners-from-another-tool).
 
 ### Payouts and tax
 
@@ -159,7 +159,7 @@ Read more: [the import guide](https://openpromoter.com/docs/team-and-access/#imp
 - Every batch waits for a person to approve it. Large batches ask for a fresh 2FA code.
 - W-9 and W-8BEN collection, a 1099-NEC export and self-billed invoices with EU reverse charge and VIES checks.
 
-Read more: [affiliate payouts](https://openpromoter.com/features/affiliate-payouts/).
+Read more: [affiliate payouts](https://leadxmedia.com/features/affiliate-payouts/).
 
 ### AI that you can undo
 
@@ -174,7 +174,7 @@ AI features run on Anthropic by default. OpenAI and any OpenAI-compatible endpoi
 
 AI never moves money. API keys, the MCP server and AI can prepare payouts, and only a signed-in person can approve them.
 
-Read more: [AI Autopilot](https://openpromoter.com/features/ai-autopilot/).
+Read more: [AI Autopilot](https://leadxmedia.com/features/ai-autopilot/).
 
 ### Analytics
 
@@ -200,41 +200,41 @@ Read more: [AI Autopilot](https://openpromoter.com/features/ai-autopilot/).
 
 | Billing | Payouts | Tracking | Alerts |
 |---|---|---|---|
-| [Stripe](https://openpromoter.com/integrations/stripe/) | Stripe Connect Express | Script tag (`op.js`) | Slack |
-| [Paddle](https://openpromoter.com/integrations/paddle/) | PayPal Payouts | TypeScript SDK | Discord |
-| [Lemon Squeezy](https://openpromoter.com/integrations/lemon-squeezy/) | Wise | REST API | Signed webhooks |
-| [Polar](https://openpromoter.com/integrations/polar/) | CSV export | Stripe metadata | Email reports |
-| [Chargebee](https://openpromoter.com/integrations/chargebee/) | | Coupon codes | |
+| [Stripe](https://leadxmedia.com/integrations/stripe/) | Stripe Connect Express | Script tag (`op.js`) | Slack |
+| [Paddle](https://leadxmedia.com/integrations/paddle/) | PayPal Payouts | TypeScript SDK | Discord |
+| [Lemon Squeezy](https://leadxmedia.com/integrations/lemon-squeezy/) | Wise | REST API | Signed webhooks |
+| [Polar](https://leadxmedia.com/integrations/polar/) | CSV export | Stripe metadata | Email reports |
+| [Chargebee](https://leadxmedia.com/integrations/chargebee/) | | Coupon codes | |
 | [Dodo Payments](#dodo-payments) | | | |
 
-Any other billing system can report payments through `POST /api/v1/conversions`. Setup guides for each one are on the [integrations page](https://openpromoter.com/integrations/).
+Any other billing system can report payments through `POST /api/v1/conversions`. Setup guides for each one are on the [integrations page](https://leadxmedia.com/integrations/).
 
 ### Dodo Payments
 
 1. In Settings > Integrations, copy the Dodo Payments webhook URL.
 2. In the Dodo dashboard (Developer > Webhooks), add an endpoint with that URL and subscribe to `payment.succeeded`, `refund.succeeded`, the `dispute.*` events and the `subscription.*` events.
-3. Paste the endpoint's signing secret (`whsec_...`) into OpenPromoter and save. Dodo's test mode has its own endpoints and secrets, so for a test mode endpoint turn on Sandbox before saving.
-4. Pass the click ID to checkout so the sale finds its partner. With a checkout session, set `metadata: { op_click: window.openpromoter.clickId }`. With a payment link, add `?metadata_op_click=<clickId>`. A partner's coupon code also attributes the sale.
+3. Paste the endpoint's signing secret (`whsec_...`) into LeadXMedia and save. Dodo's test mode has its own endpoints and secrets, so for a test mode endpoint turn on Sandbox before saving.
+4. Pass the click ID to checkout so the sale finds its partner. With a checkout session, set `metadata: { op_click: window.leadxmedia.clickId }`. With a payment link, add `?metadata_op_click=<clickId>`. A partner's coupon code also attributes the sale.
 
 Commissions are calculated on the amount before tax. A full refund reverses the whole commission. Partial refund amounts from Dodo include tax, so a partial refund on a taxed sale reverses slightly more than its pre-tax share. Dodo sends no customer webhook, so a referral starts at the first payment.
 
 ## For developers and AI agents
 
-- **REST API** with an [OpenAPI spec](https://openpromoter.com/docs/api/) at `/api/openapi.json` and scoped API keys.
+- **REST API** with an [OpenAPI spec](https://leadxmedia.com/docs/api/) at `/api/openapi.json` and scoped API keys.
 - **Webhooks** signed with HMAC-SHA256, with retries and a delivery log.
-- **TypeScript SDK:** `npm install openpromoter`. See [packages/sdk](packages/sdk).
-- **CLI:** `npx openpromoter-cli`. Its `listen` command forwards events to localhost. See [packages/cli](packages/cli).
+- **TypeScript SDK:** `npm install leadxmedia`. See [packages/sdk](packages/sdk).
+- **CLI:** `npx leadxmedia-cli`. Its `listen` command forwards events to localhost. See [packages/cli](packages/cli).
 - **MCP server** for any MCP client: Claude Desktop, Claude Code, Codex, Cursor, VS Code with GitHub Copilot, Windsurf, Gemini CLI and Zed. It is read-only by default and no tool can send money. See [packages/mcp](packages/mcp).
-- **Remote MCP server** at `/mcp` on your OpenPromoter URL (`https://app.openpromoter.com/mcp` on Cloud). Claude, ChatGPT and other apps connect with a sign-in. OpenPromoter is listed in [Claude's connector directory](https://claude.ai/directory/openpromoter). You pick the workspace and whether the app can make changes.
-- **Agent skill:** `npx -y openpromoter-cli skill` installs an "add an affiliate program" skill for Claude Code, Codex and Cursor. Any other coding agent works with the [one-prompt install](https://openpromoter.com/docs/agent-skill/).
+- **Remote MCP server** at `/mcp` on your LeadXMedia URL (`https://app.leadxmedia.com/mcp` on Cloud). Claude, ChatGPT and other apps connect with a sign-in. LeadXMedia is listed in [Claude's connector directory](https://claude.ai/directory/leadxmedia). You pick the workspace and whether the app can make changes.
+- **Agent skill:** `npx -y leadxmedia-cli skill` installs an "add an affiliate program" skill for Claude Code, Codex and Cursor. Any other coding agent works with the [one-prompt install](https://leadxmedia.com/docs/agent-skill/).
 
 ```json
 {
   "mcpServers": {
-    "openpromoter": {
+    "leadxmedia": {
       "command": "npx",
-      "args": ["-y", "openpromoter-mcp"],
-      "env": { "OPENPROMOTER_API_KEY": "op_sk_...", "OPENPROMOTER_URL": "http://localhost:3000" }
+      "args": ["-y", "leadxmedia-mcp"],
+      "env": { "LEADXMEDIA_API_KEY": "op_sk_...", "LEADXMEDIA_URL": "http://localhost:3000" }
     }
   }
 }
@@ -244,17 +244,17 @@ Commissions are calculated on the amount before tax. A full refund reverses the 
 
 **Self-host:** free, with every feature and no limits on partners or revenue.
 
-**[OpenPromoter Cloud](https://openpromoter.com/pricing/):** free up to $1,000 a month in partner revenue. Above that, plans cost $29, $79 or $199 a month, or 2 months free when you pay yearly ($290, $790 or $1,990), with AI included. No plan takes a percentage of your payouts.
+**[LeadXMedia Cloud](https://leadxmedia.com/pricing/):** free up to $1,000 a month in partner revenue. Above that, plans cost $29, $79 or $199 a month, or 2 months free when you pay yearly ($290, $790 or $1,990), with AI included. No plan takes a percentage of your payouts.
 
 ## FAQ
 
-### Is OpenPromoter free?
+### Is LeadXMedia free?
 
-Yes. Self-hosting is free, with every feature and no limit on partners or revenue. OpenPromoter Cloud is also free until your partners bring in $1,000 a month.
+Yes. Self-hosting is free, with every feature and no limit on partners or revenue. LeadXMedia Cloud is also free until your partners bring in $1,000 a month.
 
 ### Is there an open-source alternative to Rewardful?
 
-OpenPromoter is one. It tracks Stripe and Paddle sales like Rewardful does and adds Lemon Squeezy, Polar, Chargebee and Dodo Payments. You can import your Rewardful partners, their referred customers and their commissions from CSV files.
+LeadXMedia is one. It tracks Stripe and Paddle sales like Rewardful does and adds Lemon Squeezy, Polar, Chargebee and Dodo Payments. You can import your Rewardful partners, their referred customers and their commissions from CSV files.
 
 ### How do I switch from another affiliate tool?
 
@@ -270,7 +270,7 @@ No. A cookieless mode is built in, and Stripe sales are credited on the server t
 
 ### What do I need to self-host it?
 
-A server that runs Docker and a Postgres 16 database. The [self-hosting guide](https://openpromoter.com/docs/self-hosting/) covers Render, Railway and a plain VPS.
+A server that runs Docker and a Postgres 16 database. The [self-hosting guide](https://leadxmedia.com/docs/self-hosting/) covers Render, Railway and a plain VPS.
 
 ## Tech stack
 
@@ -283,15 +283,15 @@ pnpm install
 docker compose up -d postgres mailpit
 cp .env.example apps/app/.env.local
 pnpm db:migrate && pnpm db:seed
-pnpm --filter @openpromoter/app dev   # http://localhost:3000
+pnpm --filter @leadxmedia/app dev   # http://localhost:3000
 pnpm test && pnpm e2e && pnpm lint
 ```
 
 ## Contributing
 
-Bug reports, ideas and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first and sign the [contributor agreement](CLA.md) in your pull request. Ask questions in [GitHub Discussions](https://github.com/openpromoter/openpromoter/discussions). Report security issues privately as [SECURITY.md](SECURITY.md) explains.
+Bug reports, ideas and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first and sign the [contributor agreement](CLA.md) in your pull request. Ask questions in [GitHub Discussions](https://github.com/leadxmedia/leadxmedia/discussions). Report security issues privately as [SECURITY.md](SECURITY.md) explains.
 
-If OpenPromoter helps you, a star on GitHub helps other founders find it.
+If LeadXMedia helps you, a star on GitHub helps other founders find it.
 
 ## License
 
@@ -301,6 +301,6 @@ The pieces you install in your own code or website are [MIT](packages/sdk/LICENS
 
 ## Who builds it
 
-OpenPromoter is built by [Yash Kapoor](https://openpromoter.com/blog/author/yash-kapoor/), founder of [DevDiggers](https://devdiggers.com). DevDiggers also makes a [WooCommerce affiliate plugin](https://devdiggers.com/product/woocommerce-affiliates/) that online stores use to run their own affiliate programs. OpenPromoter brings that experience to SaaS as open source.
+LeadXMedia is built by [Yash Kapoor](https://leadxmedia.com/blog/author/yash-kapoor/), founder of [DevDiggers](https://devdiggers.com). DevDiggers also makes a [WooCommerce affiliate plugin](https://devdiggers.com/product/woocommerce-affiliates/) that online stores use to run their own affiliate programs. LeadXMedia brings that experience to SaaS as open source.
 
 Follow along on [X](https://x.com/IamYashKapoor), [GitHub](https://github.com/IamYashKapoor) or [LinkedIn](https://www.linkedin.com/in/iamyashkapoor/).

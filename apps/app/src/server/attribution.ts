@@ -63,8 +63,8 @@ export function hintsFromStripe(input: {
   const ref = input.clientReferenceId ?? "";
   return {
     promoCode: input.promoCode ?? null,
-    clickId: ref.startsWith("clk_") ? ref : (md.op_click ?? md.openpromoter_click ?? null),
-    partnerCode: md.op_ref ?? md.openpromoter_ref ?? md.via ?? null,
+    clickId: ref.startsWith("clk_") ? ref : (md.op_click ?? md.leadxmedia_click ?? null),
+    partnerCode: md.op_ref ?? md.leadxmedia_ref ?? md.via ?? null,
     visitorId: md.op_visitor ?? (ref.startsWith("vis_") ? ref : null),
     email: input.email ?? null,
   };

@@ -1,4 +1,4 @@
-import { partner, payout } from "@openpromoter/db";
+import { partner, payout } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { Invoice } from "@/lib/invoice";

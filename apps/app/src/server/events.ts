@@ -1,4 +1,4 @@
-import { eventLog, webhookDelivery, webhookEndpoint } from "@openpromoter/db";
+import { eventLog, webhookDelivery, webhookEndpoint } from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import { hmacHex } from "@/lib/crypto";
 import { createId } from "@/lib/id";
@@ -57,7 +57,7 @@ export async function emitEvent(workspaceId: string, event: string, data: Record
   return endpoints.length;
 }
 
-/** Signature: OpenPromoter-Signature: t=<unix>,v1=<hex hmac-sha256(secret, `${t}.${body}`)> */
+/** Signature: LeadXMedia-Signature: t=<unix>,v1=<hex hmac-sha256(secret, `${t}.${body}`)> */
 export function signPayload(secret: string, body: string, t = Math.floor(Date.now() / 1000)) {
   return `t=${t},v1=${hmacHex(secret, `${t}.${body}`)}`;
 }
@@ -100,12 +100,12 @@ export async function deliver(deliveryId: string) {
         : JSON.stringify(d.payload);
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    "User-Agent": "OpenPromoter-Webhooks/1",
+    "User-Agent": "LeadXMedia-Webhooks/1",
   };
   if (ep.kind === "webhook") {
-    headers["OpenPromoter-Signature"] = signPayload(ep.secret, body);
-    headers["OpenPromoter-Event"] = d.event;
-    headers["OpenPromoter-Delivery"] = d.id;
+    headers["LeadXMedia-Signature"] = signPayload(ep.secret, body);
+    headers["LeadXMedia-Event"] = d.event;
+    headers["LeadXMedia-Delivery"] = d.id;
   }
   let status = 0;
   let error: string | null = null;

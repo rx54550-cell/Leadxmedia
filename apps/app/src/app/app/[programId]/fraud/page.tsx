@@ -1,6 +1,6 @@
-import { commission, fraudFlag, partner } from "@openpromoter/db";
-import { Card, CardBody, CardHeader } from "@openpromoter/ui";
-import { Flag, PauseCircle, ShieldAlert } from "@openpromoter/ui/icons";
+import { commission, fraudFlag, partner } from "@leadxmedia/db";
+import { Card, CardBody, CardHeader } from "@leadxmedia/ui";
+import { Flag, PauseCircle, ShieldAlert } from "@leadxmedia/ui/icons";
 import { and, desc, eq, sql } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader, Stat } from "@/components/page";

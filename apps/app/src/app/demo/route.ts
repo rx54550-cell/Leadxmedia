@@ -3,7 +3,7 @@ import { subdomainOrigin } from "@/lib/subdomain";
 import { demoOn } from "@/server/demo";
 
 /**
- * app.openpromoter.com/demo: straight into the read-only demo dashboard (server/demo.ts). ?as=partner opens
+ * app.leadxmedia.com/demo: straight into the read-only demo dashboard (server/demo.ts). ?as=partner opens
  * the partner portal, on the demo program's free subdomain when those are on (it shows that feature too).
  */
 export function GET(req: Request) {

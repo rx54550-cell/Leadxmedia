@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, Field, Input, Select, Switch, Textarea } from "@openpromoter/ui";
-import { CheckCircle2, ExternalLink, RefreshCw } from "@openpromoter/ui/icons";
+import { Badge, Button, Field, Input, Select, Switch, Textarea } from "@leadxmedia/ui";
+import { CheckCircle2, ExternalLink, RefreshCw } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { CopyField } from "@/components/copy";
 import { SettingsCard } from "@/components/page";
@@ -37,7 +37,7 @@ export function BrandingForm({
   brand: { color: string; logoUrl: string; headline: string; description: string };
   name: string;
   publicUrl: string;
-  /** acme.openpromoter.com when free subdomains are on */
+  /** acme.leadxmedia.com when free subdomains are on */
   freeAddress: string | null;
   domain: string | null;
   verified: boolean;

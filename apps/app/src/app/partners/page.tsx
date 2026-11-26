@@ -1,6 +1,6 @@
-import { partner, program } from "@openpromoter/db";
-import { EmptyState, StatusBadge } from "@openpromoter/ui";
-import { ArrowRight, Users } from "@openpromoter/ui/icons";
+import { partner, program } from "@leadxmedia/db";
+import { EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { ArrowRight, Users } from "@leadxmedia/ui/icons";
 import { eq } from "drizzle-orm";
 import Link from "next/link";
 import { Logo } from "@/components/logo";

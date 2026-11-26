@@ -5,6 +5,6 @@ export default defineConfig({
   schema: "./src/schema.ts",
   out: "./drizzle",
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? "postgres://openpromoter:openpromoter@localhost:5432/openpromoter",
+    url: process.env.DATABASE_URL ?? "postgres://leadxmedia:leadxmedia@localhost:5432/leadxmedia",
   },
 });

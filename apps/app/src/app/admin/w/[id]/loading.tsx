@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** One workspace while it loads: the header, then its cards of facts in two columns. */
 export default function Loading() {

@@ -8,11 +8,11 @@ export const PLANS = [
     /** Monthly AI allowance in micro-dollars (Cloud). */
     aiBudgetMicros: 250_000,
     features: [
-      "Everything in OpenPromoter",
+      "Everything in LeadXMedia",
       "Up to $1k/mo partner revenue",
       "Unlimited partners",
       "AI program setup",
-      "OpenPromoter badge on portal",
+      "LeadXMedia badge on portal",
     ],
   },
   {
@@ -57,6 +57,6 @@ export const yearlyPrice = (monthlyCents: number) => monthlyCents * 10;
 /** What a plan earns each month, for MRR: a yearly plan counts as its yearly price over 12 months. */
 export const monthlyValue = (monthlyCents: number, interval: BillingInterval | null | undefined) =>
   interval === "year" ? Math.round(yearlyPrice(monthlyCents) / 12) : monthlyCents;
-/** Stripe Price lookup keys created by the owner in OpenPromoter's own Stripe account. */
+/** Stripe Price lookup keys created by the owner in LeadXMedia's own Stripe account. */
 export const lookupKey = (id: PlanId, interval: BillingInterval = "month") =>
-  `openpromoter_${id}_${interval === "year" ? "yearly" : "monthly"}`;
+  `leadxmedia_${id}_${interval === "year" ? "yearly" : "monthly"}`;

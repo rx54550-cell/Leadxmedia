@@ -1,6 +1,6 @@
 # Content and design guidelines
 
-The house rules for OpenPromoter copy and design. They apply to every string a person reads: the
+The house rules for LeadXMedia copy and design. They apply to every string a person reads: the
 website, the app, the partner portal, emails, docs, the README and alt text. A single violation
 fails the change.
 
@@ -80,7 +80,7 @@ Competitor facts carry a dated source link. Trademarks are named only in text, n
 
 ## 7. Design rules
 
-These rules were set for OpenPromoter in November 2026.
+These rules were set for LeadXMedia in November 2026.
 
 - **Flat surfaces, one border level.** No decorative gradients or glows on surfaces. Cards on the page
   get a 1px hairline and no shadow. A tinted tile has no border; the UI inside it keeps its hairline.
@@ -128,7 +128,7 @@ These rules were set for OpenPromoter in November 2026.
 - **Callouts:** a paragraph that opens with **Tip:**, **Note:**, **Worth knowing:**, **Worth checking:**
   or **Important:** renders as a soft blue box, as on WPReturns and DevDiggers. Use one for a side fact
   the reader must not miss, about one per section at most.
-- **Links:** cited sources and our own pages (including app.openpromoter.com) are normal followed links.
+- **Links:** cited sources and our own pages (including app.leadxmedia.com) are normal followed links.
   Competitors' sites and share or "summarize with AI" buttons are `nofollow` (one helper:
   `outboundRel()` in the site's `lib/config.ts`). Paid or affiliate links take `sponsored`. Links people
   submit, such as a founder's website, take `ugc nofollow`. Never nofollow our own pages: robots.txt

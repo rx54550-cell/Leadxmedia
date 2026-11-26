@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, type BadgeTone } from "@openpromoter/ui";
-import { History, Layers, Users, UsersRound, Webhook } from "@openpromoter/ui/icons";
+import { Badge, type BadgeTone } from "@leadxmedia/ui";
+import { History, Layers, Users, UsersRound, Webhook } from "@leadxmedia/ui/icons";
 import { type Column, DataTable, type Tab } from "@/components/data-table";
 import { formatMoney } from "@/lib/money";
 

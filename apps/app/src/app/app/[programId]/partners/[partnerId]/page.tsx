@@ -7,8 +7,8 @@ import {
   partnerGroup,
   promoCode,
   referral,
-} from "@openpromoter/db";
-import { Avatar, Badge, Card, CardBody, CardHeader, EmptyState, StatusBadge } from "@openpromoter/ui";
+} from "@leadxmedia/db";
+import { Avatar, Badge, Card, CardBody, CardHeader, EmptyState, StatusBadge } from "@leadxmedia/ui";
 import {
   Banknote,
   ChartLine,
@@ -17,7 +17,7 @@ import {
   ShieldAlert,
   UsersRound,
   Wallet,
-} from "@openpromoter/ui/icons";
+} from "@leadxmedia/ui/icons";
 import { and, desc, eq, sql } from "drizzle-orm";
 import Link from "next/link";
 import { notFound } from "next/navigation";

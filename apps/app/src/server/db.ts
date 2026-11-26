@@ -1,4 +1,4 @@
-import { createDb, type schema } from "@openpromoter/db";
+import { createDb, type schema } from "@leadxmedia/db";
 import type { SQL } from "drizzle-orm";
 import type { PgDatabase, PgQueryResultHKT } from "drizzle-orm/pg-core";
 

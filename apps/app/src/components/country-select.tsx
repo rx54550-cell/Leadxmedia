@@ -1,6 +1,6 @@
 "use client";
 
-import { Select } from "@openpromoter/ui";
+import { Select } from "@leadxmedia/ui";
 import { useEffect, useState } from "react";
 
 // Intl also names groups (EU, UN), test codes and reserved areas. None are countries a partner lives in.

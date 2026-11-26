@@ -1,4 +1,4 @@
-import { commission, kvStore, program, referral } from "@openpromoter/db";
+import { commission, kvStore, program, referral } from "@leadxmedia/db";
 import { and, eq, inArray, isNull, ne, sql } from "drizzle-orm";
 import { minorFactor } from "@/lib/money";
 import { type AppDb, db, type Tx } from "./db";

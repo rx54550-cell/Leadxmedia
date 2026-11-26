@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@openpromoter/ui";
-import { Send } from "@openpromoter/ui/icons";
+import { Button } from "@leadxmedia/ui";
+import { Send } from "@leadxmedia/ui/icons";
 import { useRef } from "react";
 import { useAction } from "@/components/use-action";
 import { partnerReplyAction } from "../../portal-actions";

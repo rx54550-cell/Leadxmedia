@@ -1,6 +1,6 @@
-import { commission, partner } from "@openpromoter/db";
-import { Card, CardHeader, EmptyState, StatusBadge } from "@openpromoter/ui";
-import { UserPlus } from "@openpromoter/ui/icons";
+import { commission, partner } from "@leadxmedia/db";
+import { Card, CardHeader, EmptyState, StatusBadge } from "@leadxmedia/ui";
+import { UserPlus } from "@leadxmedia/ui/icons";
 import { and, desc, eq, ne, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { notFound } from "next/navigation";

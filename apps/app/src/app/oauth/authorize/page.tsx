@@ -1,4 +1,4 @@
-import { Button } from "@openpromoter/ui";
+import { Button } from "@leadxmedia/ui";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { AuthCard } from "@/components/auth/auth-card";
@@ -35,7 +35,7 @@ export default async function AuthorizePage({
     return (
       <AuthCard title="This link doesn't work">
         <p className="text-[14px] leading-[22px] text-muted">
-          The app that sent you here didn't register correctly. Go back to it and connect OpenPromoter again.
+          The app that sent you here didn't register correctly. Go back to it and connect LeadXMedia again.
         </p>
       </AuthCard>
     );
@@ -66,7 +66,7 @@ export default async function AuthorizePage({
   return (
     <AuthCard
       title={`Connect ${client.name}`}
-      subtitle={`${client.name} wants to use your OpenPromoter data. You're signed in as ${u.email}.`}
+      subtitle={`${client.name} wants to use your LeadXMedia data. You're signed in as ${u.email}.`}
       footer={
         <>
           This creates an API key named &ldquo;{client.name} (MCP)&rdquo;. Revoke it any time in Settings &gt;

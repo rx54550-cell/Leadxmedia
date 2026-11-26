@@ -36,7 +36,7 @@ export default async function AdminWorkspaces({
     <>
       <PageHeader
         title="Workspaces"
-        description="Every customer on OpenPromoter Cloud. Search by name, owner email or ID, and open one for its programs, partners and history."
+        description="Every customer on LeadXMedia Cloud. Search by name, owner email or ID, and open one for its programs, partners and history."
       />
       <WorkspacesTable
         rows={page.map((w) => ({

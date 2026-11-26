@@ -1,4 +1,4 @@
-import { agentAction, campaign, commission, partner, partnerGroup, payout, program } from "@openpromoter/db";
+import { agentAction, campaign, commission, partner, partnerGroup, payout, program } from "@leadxmedia/db";
 import { and, desc, eq, gte, inArray, sql } from "drizzle-orm";
 import { createId } from "@/lib/id";
 import { formatMoney, formatPercent } from "@/lib/money";
@@ -315,7 +315,7 @@ export async function undoAction(programId: string, actionId: string, actor: Act
   if (a?.status !== "applied") throw new Error("Only applied actions can be undone");
   const [prog] = await db().select().from(program).where(eq(program.id, programId));
   const u = (a.undo ?? {}) as Record<string, any>;
-  const { message } = await import("@openpromoter/db");
+  const { message } = await import("@leadxmedia/db");
   switch (a.kind as ActionKind) {
     case "message_idle":
       // emails that already went out can't be recalled; the portal messages are removed

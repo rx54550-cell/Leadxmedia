@@ -16,7 +16,7 @@ import {
   user,
   webhookDelivery,
   webhookEndpoint,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, count, eq, isNotNull, isNull, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
@@ -810,8 +810,8 @@ export async function inviteMemberAction(
         invitedBy: ctx.user.id,
         expiresAt: new Date(Date.now() + 7 * 86_400_000),
       });
-    await sendNotice(v.email, `Join ${ctx.program.name} on OpenPromoter`, {
-      brandName: "OpenPromoter",
+    await sendNotice(v.email, `Join ${ctx.program.name} on LeadXMedia`, {
+      brandName: "LeadXMedia",
       preview: "You're invited",
       title: `${ctx.user.name} invited you to ${ctx.program.name}`,
       paragraphs: [`You've been invited as ${v.role}. The invitation expires in 7 days.`],
@@ -1023,7 +1023,7 @@ export async function importAction(
 export async function deleteTestDataAction(programId: string) {
   return safe(async () => {
     const ctx = await actionCtx(programId, "program.write");
-    const { commission, referral } = await import("@openpromoter/db");
+    const { commission, referral } = await import("@leadxmedia/db");
     const c = await db()
       .delete(commission)
       .where(

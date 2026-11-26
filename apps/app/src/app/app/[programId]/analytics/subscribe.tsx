@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Card, Input, Select } from "@openpromoter/ui";
-import { Mail } from "@openpromoter/ui/icons";
+import { Button, Card, Input, Select } from "@leadxmedia/ui";
+import { Mail } from "@leadxmedia/ui/icons";
 import { useAction } from "@/components/use-action";
 import { subscribeReportAction } from "../settings-actions";
 

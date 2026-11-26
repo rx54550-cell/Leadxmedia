@@ -1,4 +1,4 @@
-import { billingConnection } from "@openpromoter/db";
+import { billingConnection } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { programCtx } from "@/server/context";
 import { db } from "@/server/db";

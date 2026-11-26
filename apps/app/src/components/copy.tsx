@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, cn, Tooltip } from "@openpromoter/ui";
-import { Check, Copy } from "@openpromoter/ui/icons";
+import { Button, cn, Tooltip } from "@leadxmedia/ui";
+import { Check, Copy } from "@leadxmedia/ui/icons";
 import { useState } from "react";
 import { toast } from "sonner";
 

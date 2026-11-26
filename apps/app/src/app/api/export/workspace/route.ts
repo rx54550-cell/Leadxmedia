@@ -9,7 +9,7 @@ import {
   program,
   referral,
   user,
-} from "@openpromoter/db";
+} from "@leadxmedia/db";
 import { and, eq, inArray } from "drizzle-orm";
 import type { PgColumn, PgTable } from "drizzle-orm/pg-core";
 import { AccessError, requireWorkspace } from "@/server/access";
@@ -53,7 +53,7 @@ export async function GET(req: Request) {
         if (n >= cap) return;
       }
     };
-  return jsonStream(`openpromoter-${wsId}.json`, [
+  return jsonStream(`leadxmedia-${wsId}.json`, [
     ["exportedAt", new Date().toISOString()],
     ["programs", programs],
     [

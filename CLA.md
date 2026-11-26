@@ -1,6 +1,6 @@
 # Contributor License Agreement
 
-This agreement is between you and DevDiggers, the maintainer of OpenPromoter. It applies to every
+This agreement is between you and DevDiggers, the maintainer of LeadXMedia. It applies to every
 contribution you submit to this repository: code, documentation, designs and anything else.
 
 1. **You keep your copyright.** You still own what you wrote.

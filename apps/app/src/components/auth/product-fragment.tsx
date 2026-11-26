@@ -1,4 +1,4 @@
-import { Beacon, type BeaconPose } from "@openpromoter/ui";
+import { Beacon, type BeaconPose } from "@leadxmedia/ui";
 
 export type SceneKind = "signin" | "signup";
 
@@ -59,7 +59,7 @@ function PayoutRun() {
       <div className="flex items-baseline justify-between border-t border-white/8 px-5 py-3.5">
         <span className="text-[12px] text-white/55">Through your Stripe account</span>
         <span className="text-[12px] text-white/55">
-          OpenPromoter fee <span className="num ml-1 text-[15px] font-medium text-white">$0.00</span>
+          LeadXMedia fee <span className="num ml-1 text-[15px] font-medium text-white">$0.00</span>
         </span>
       </div>
     </div>

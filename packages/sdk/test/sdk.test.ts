@@ -1,8 +1,8 @@
 import { createHmac } from "node:crypto";
 import { describe, expect, it, vi } from "vitest";
 import {
-  OpenPromoter,
-  OpenPromoterError,
+  LeadXMedia,
+  LeadXMediaError,
   readReferralCookie,
   stripeCheckoutParams,
   trackSignup,
@@ -17,7 +17,7 @@ describe("sdk", () => {
           status: 403,
         }),
     );
-    const op = new OpenPromoter({
+    const op = new LeadXMedia({
       apiKey: "op_sk_x",
       baseUrl: "http://localhost:3000/",
       fetch: f as unknown as typeof fetch,
@@ -40,7 +40,7 @@ describe("sdk", () => {
     const t = Math.floor(Date.now() / 1000);
     const sig = `t=${t},v1=${createHmac("sha256", "whsec").update(`${t}.${body}`).digest("hex")}`;
     expect(verifyWebhook(body, sig, "whsec").type).toBe("commission.created");
-    expect(() => verifyWebhook(body, sig, "wrong")).toThrow(OpenPromoterError);
+    expect(() => verifyWebhook(body, sig, "wrong")).toThrow(LeadXMediaError);
     expect(() => verifyWebhook(body, `t=1,v1=abc`, "whsec")).toThrow(/tolerance/);
   });
   it("reads the op_ref cookie and builds Stripe params", () => {
@@ -56,7 +56,7 @@ describe("sdk", () => {
     expect(readReferralCookie("x=1")).toBeNull();
   });
   it("trackSignup never throws", async () => {
-    const op = new OpenPromoter({
+    const op = new LeadXMedia({
       apiKey: "k",
       fetch: (async () => {
         throw new Error("down");

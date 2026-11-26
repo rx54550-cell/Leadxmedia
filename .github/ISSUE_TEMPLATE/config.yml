@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Questions and ideas
-    url: https://github.com/openpromoter/openpromoter/discussions
+    url: https://github.com/leadxmedia/leadxmedia/discussions
     about: Ask how something works or share an idea before you open an issue.
   - name: Report a security issue
-    url: https://github.com/openpromoter/openpromoter/security/policy
+    url: https://github.com/leadxmedia/leadxmedia/security/policy
     about: Please report security issues privately.
   - name: Docs
-    url: https://openpromoter.com/docs/
+    url: https://leadxmedia.com/docs/
     about: Setup, self-hosting, the API and the MCP server.

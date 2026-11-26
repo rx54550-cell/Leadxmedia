@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge, Button, cn, Field, Input, Textarea } from "@openpromoter/ui";
-import { ArrowRight, Check, CheckCircle2, Sparkles, Terminal } from "@openpromoter/ui/icons";
+import { Badge, Button, cn, Field, Input, Textarea } from "@leadxmedia/ui";
+import { ArrowRight, Check, CheckCircle2, Sparkles, Terminal } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
@@ -245,7 +245,7 @@ function StepStripe({
       <StepHeader
         n={2}
         title="Connect Stripe"
-        text="OpenPromoter reads payments from Stripe to attribute sales and calculate commissions even when cookies are blocked. Create a restricted key so it can only do what it needs."
+        text="LeadXMedia reads payments from Stripe to attribute sales and calculate commissions even when cookies are blocked. Create a restricted key so it can only do what it needs."
       />
       {initial.stripeConnected ? (
         <div className="mb-8 flex items-center gap-3 rounded-lg border border-border bg-success-soft px-4 py-3">

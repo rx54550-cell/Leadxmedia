@@ -1,4 +1,4 @@
-import type { CampaignRule } from "@openpromoter/db";
+import type { CampaignRule } from "@leadxmedia/db";
 import { formatMoney } from "./money";
 
 export function describeRule(r: CampaignRule, currency: string) {

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Card, EmptyState } from "@openpromoter/ui";
-import { CreditCard } from "@openpromoter/ui/icons";
+import { Button, Card, EmptyState } from "@leadxmedia/ui";
+import { CreditCard } from "@leadxmedia/ui/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

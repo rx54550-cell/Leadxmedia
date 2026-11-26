@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@openpromoter/ui";
-import { RotateCcw } from "@openpromoter/ui/icons";
+import { Button } from "@leadxmedia/ui";
+import { RotateCcw } from "@leadxmedia/ui/icons";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 

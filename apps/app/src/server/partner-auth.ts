@@ -1,4 +1,4 @@
-import { program } from "@openpromoter/db";
+import { program } from "@leadxmedia/db";
 import { and, eq, isNotNull } from "drizzle-orm";
 import { subdomainSlug } from "@/lib/subdomain";
 import { isAppHost } from "./captcha";

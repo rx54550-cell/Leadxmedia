@@ -2,24 +2,24 @@ import { chmodSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "n
 import { homedir } from "node:os";
 import path from "node:path";
 import { Command } from "commander";
-import { OpenPromoter, OpenPromoterError } from "openpromoter";
+import { LeadXMedia, LeadXMediaError } from "leadxmedia";
 
 declare const __SKILL__: string;
 
-const CONFIG = path.join(homedir(), ".config", "openpromoter", "config.json");
+const CONFIG = path.join(homedir(), ".config", "leadxmedia", "config.json");
 
 function config(): { url: string; key: string } {
-  const url = process.env.OPENPROMOTER_URL;
-  const key = process.env.OPENPROMOTER_API_KEY;
+  const url = process.env.LEADXMEDIA_URL;
+  const key = process.env.LEADXMEDIA_API_KEY;
   if (url && key) return { url, key };
   if (!existsSync(CONFIG))
-    throw new Error("Not logged in. Run: openpromoter login --url <url> --key <api key>");
+    throw new Error("Not logged in. Run: leadxmedia login --url <url> --key <api key>");
   return JSON.parse(readFileSync(CONFIG, "utf8"));
 }
 
 const client = () => {
   const c = config();
-  return new OpenPromoter({ apiKey: c.key, baseUrl: c.url });
+  return new LeadXMedia({ apiKey: c.key, baseUrl: c.url });
 };
 
 const money = (n: number, c = "usd") =>
@@ -30,7 +30,7 @@ async function run(fn: () => Promise<void>) {
     await fn();
   } catch (err) {
     console.error(
-      err instanceof OpenPromoterError
+      err instanceof LeadXMediaError
         ? `Error ${err.status} ${err.code}: ${err.message}`
         : `Error: ${(err as Error).message}`,
     );
@@ -40,16 +40,16 @@ async function run(fn: () => Promise<void>) {
 
 const out = (v: unknown, json?: boolean) => console.log(json ? JSON.stringify(v, null, 2) : v);
 
-const program = new Command().name("openpromoter").description("OpenPromoter command line").version("0.1.2");
+const program = new Command().name("leadxmedia").description("LeadXMedia command line").version("0.1.2");
 
 program
   .command("login")
-  .description("Save your OpenPromoter URL and API key")
+  .description("Save your LeadXMedia URL and API key")
   .requiredOption("--key <key>", "API key (Settings > API & webhooks)")
-  .option("--url <url>", "OpenPromoter URL", "https://app.openpromoter.com")
+  .option("--url <url>", "LeadXMedia URL", "https://app.leadxmedia.com")
   .action((o) =>
     run(async () => {
-      const op = new OpenPromoter({ apiKey: o.key, baseUrl: o.url });
+      const op = new LeadXMedia({ apiKey: o.key, baseUrl: o.url });
       const { data } = await op.programs.list();
       mkdirSync(path.dirname(CONFIG), { recursive: true });
       writeFileSync(CONFIG, JSON.stringify({ url: o.url, key: o.key }, null, 2));
@@ -207,8 +207,8 @@ program
 
 program
   .command("listen")
-  .description("Forward live OpenPromoter events to a local URL, signed like real webhooks")
-  .requiredOption("--forward-to <url>", "e.g. http://localhost:4000/webhooks/openpromoter")
+  .description("Forward live LeadXMedia events to a local URL, signed like real webhooks")
+  .requiredOption("--forward-to <url>", "e.g. http://localhost:4000/webhooks/leadxmedia")
   .option("--secret <secret>", "signing secret for the forwarded requests", "whsec_local_listen")
   .action((o) =>
     run(async () => {
@@ -227,8 +227,8 @@ program
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "OpenPromoter-Signature": sig,
-              "OpenPromoter-Event": e.type,
+              "LeadXMedia-Signature": sig,
+              "LeadXMedia-Event": e.type,
             },
             body,
           }).catch((err: Error) => ({ status: err.message }));
@@ -243,15 +243,15 @@ program
 program
   .command("skill")
   .description(
-    "Install the 'add OpenPromoter' agent skill for Claude Code, Codex, Cursor and other coding agents in this project",
+    "Install the 'add LeadXMedia' agent skill for Claude Code, Codex, Cursor and other coding agents in this project",
   )
   .option("--dir <dir>", "project directory", ".")
   .action((o) =>
     run(async () => {
-      const claude = path.join(o.dir, ".claude", "skills", "openpromoter", "SKILL.md");
-      const cursor = path.join(o.dir, ".cursor", "rules", "openpromoter.mdc");
+      const claude = path.join(o.dir, ".claude", "skills", "leadxmedia", "SKILL.md");
+      const cursor = path.join(o.dir, ".cursor", "rules", "leadxmedia.mdc");
       // Codex and other agents that follow the open Agent Skills layout
-      const agents = path.join(o.dir, ".agents", "skills", "openpromoter", "SKILL.md");
+      const agents = path.join(o.dir, ".agents", "skills", "leadxmedia", "SKILL.md");
       for (const f of [claude, agents, cursor]) {
         mkdirSync(path.dirname(f), { recursive: true });
         writeFileSync(
@@ -259,13 +259,13 @@ program
           f.endsWith(".mdc")
             ? __SKILL__.replace(
                 /^---[\s\S]*?---/,
-                "---\ndescription: Add an OpenPromoter affiliate program to this app\nalwaysApply: false\n---",
+                "---\ndescription: Add an LeadXMedia affiliate program to this app\nalwaysApply: false\n---",
               )
             : __SKILL__,
         );
         console.log(`wrote ${f}`);
       }
-      console.log('Now ask your agent: "add an affiliate program to my app with OpenPromoter"');
+      console.log('Now ask your agent: "add an affiliate program to my app with LeadXMedia"');
     }),
   );
 

@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
-import { OpenPromoter } from "openpromoter";
-import { registerTools } from "openpromoter-mcp/tools";
+import { LeadXMedia } from "leadxmedia";
+import { registerTools } from "leadxmedia-mcp/tools";
 import { GET as v1 } from "@/app/api/v1/[...path]/route";
 import { ApiError, authenticate } from "@/server/api";
 import { appUrl } from "@/server/oauth";
@@ -23,12 +23,12 @@ const inProcess: typeof fetch = async (input, init) => {
 export async function POST(req: Request) {
   try {
     const ctx = await authenticate(req);
-    const op = new OpenPromoter({
+    const op = new LeadXMedia({
       apiKey: req.headers.get("authorization")!.slice(7).trim(),
       baseUrl: appUrl(),
       fetch: inProcess,
     });
-    const server = new McpServer({ name: "openpromoter", version: "0.1.3" });
+    const server = new McpServer({ name: "leadxmedia", version: "0.1.3" });
     // the API checks each call's scope too; this only hides tools the key can't use
     registerTools(server, op, ctx.scopes.includes("partners:write"));
     const transport = new WebStandardStreamableHTTPServerTransport({
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
 /** Stateless: no server-sent stream to open and no session to end. A browser visit gets a short note. */
 const notAllowed = () =>
   new Response(
-    "This is the OpenPromoter MCP server for AI apps. Add this URL as a connector in Claude, ChatGPT or another MCP app. Then sign in with your OpenPromoter account. Setup: https://openpromoter.com/docs/mcp/\n",
+    "This is the LeadXMedia MCP server for AI apps. Add this URL as a connector in Claude, ChatGPT or another MCP app. Then sign in with your LeadXMedia account. Setup: https://leadxmedia.com/docs/mcp/\n",
     { status: 405, headers: { Allow: "POST", "Content-Type": "text/plain; charset=utf-8" } },
   );
 

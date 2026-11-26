@@ -1,4 +1,4 @@
-import { commission, partner, program } from "@openpromoter/db";
+import { commission, partner, program } from "@leadxmedia/db";
 import { and, eq, sql } from "drizzle-orm";
 import { toMajor } from "@/lib/money";
 import { currentUser } from "@/server/context";

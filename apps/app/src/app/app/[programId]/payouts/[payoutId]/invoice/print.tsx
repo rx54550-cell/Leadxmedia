@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@openpromoter/ui";
-import { Printer } from "@openpromoter/ui/icons";
+import { Button } from "@leadxmedia/ui";
+import { Printer } from "@leadxmedia/ui/icons";
 
 export function PrintButton() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Badge, Button, Card, CardBody, CardHeader, Input, Select } from "@openpromoter/ui";
+import { Avatar, Badge, Button, Card, CardBody, CardHeader, Input, Select } from "@leadxmedia/ui";
 import { useAction } from "@/components/use-action";
 import { inviteMemberAction, setMemberRoleAction } from "../../settings-actions";
 

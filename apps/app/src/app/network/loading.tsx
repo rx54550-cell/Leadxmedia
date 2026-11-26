@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@openpromoter/ui";
+import { Card, Skeleton } from "@leadxmedia/ui";
 
 /** The marketplace while it loads or a filter changes: the same frame, heading and three program cards. */
 export default function Loading() {

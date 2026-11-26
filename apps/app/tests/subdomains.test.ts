@@ -8,36 +8,36 @@ afterEach(() => {
   process.env.APP_URL = prev.app;
 });
 const on = () => {
-  process.env.PROGRAM_SUBDOMAINS = "openpromoter.com";
-  process.env.APP_URL = "https://app.openpromoter.com";
+  process.env.PROGRAM_SUBDOMAINS = "leadxmedia.com";
+  process.env.APP_URL = "https://app.leadxmedia.com";
 };
 
 describe("free program subdomains", () => {
   it("are off until PROGRAM_SUBDOMAINS is set", () => {
     delete process.env.PROGRAM_SUBDOMAINS;
-    expect(subdomainSlug("acme.openpromoter.com")).toBeNull();
+    expect(subdomainSlug("acme.leadxmedia.com")).toBeNull();
     expect(subdomainOrigin("acme")).toBeNull();
   });
   it("map one label under the root to a slug, never our own names", () => {
     on();
-    expect(subdomainSlug("acme.openpromoter.com")).toBe("acme");
-    expect(subdomainSlug("Acme.OpenPromoter.com:443")).toBe("acme");
+    expect(subdomainSlug("acme.leadxmedia.com")).toBe("acme");
+    expect(subdomainSlug("Acme.LeadXMedia.com:443")).toBe("acme");
     for (const h of [
-      "app.openpromoter.com",
-      "www.openpromoter.com",
-      "api.openpromoter.com",
-      "openpromoter.com",
+      "app.leadxmedia.com",
+      "www.leadxmedia.com",
+      "api.leadxmedia.com",
+      "leadxmedia.com",
     ])
       expect(subdomainSlug(h)).toBeNull();
-    expect(subdomainSlug("a.b.openpromoter.com")).toBeNull();
-    expect(subdomainSlug("acme.evil-openpromoter.com")).toBeNull();
+    expect(subdomainSlug("a.b.leadxmedia.com")).toBeNull();
+    expect(subdomainSlug("acme.evil-leadxmedia.com")).toBeNull();
     expect(subdomainSlug("partners.acme.com")).toBeNull();
   });
   it("links use the subdomain, and a verified custom domain wins over it", () => {
     on();
     const p = { slug: "acme", customDomain: null, customDomainVerifiedAt: null };
-    expect(domainOrigin(p)).toBe("https://acme.openpromoter.com");
-    expect(linkUrl(p, "maya1")).toBe("https://acme.openpromoter.com/maya1");
+    expect(domainOrigin(p)).toBe("https://acme.leadxmedia.com");
+    expect(linkUrl(p, "maya1")).toBe("https://acme.leadxmedia.com/maya1");
     expect(
       domainOrigin({ ...p, customDomain: "partners.acme.com", customDomainVerifiedAt: new Date() }),
     ).toBe("https://partners.acme.com");

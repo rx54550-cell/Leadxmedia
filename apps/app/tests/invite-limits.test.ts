@@ -1,4 +1,4 @@
-import { emailLog, user, workspace } from "@openpromoter/db";
+import { emailLog, user, workspace } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { SYSTEM } from "@/server/audit";

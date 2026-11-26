@@ -1,6 +1,6 @@
-import { auditLog, user } from "@openpromoter/db";
-import { Badge, Button, Card, CardHeader } from "@openpromoter/ui";
-import { Download } from "@openpromoter/ui/icons";
+import { auditLog, user } from "@leadxmedia/db";
+import { Badge, Button, Card, CardHeader } from "@leadxmedia/ui";
+import { Download } from "@leadxmedia/ui/icons";
 import { desc, eq } from "drizzle-orm";
 import { programCtx } from "@/server/context";
 import { db } from "@/server/db";

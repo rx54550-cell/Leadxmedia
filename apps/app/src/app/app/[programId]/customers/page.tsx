@@ -1,4 +1,4 @@
-import { partner, referral } from "@openpromoter/db";
+import { partner, referral } from "@leadxmedia/db";
 import { and, asc, desc, eq, ilike, or, type SQL, sql } from "drizzle-orm";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page";

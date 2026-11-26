@@ -1,4 +1,4 @@
-import { member, partner, session, user } from "@openpromoter/db";
+import { member, partner, session, user } from "@leadxmedia/db";
 import { eq } from "drizzle-orm";
 import { currentUser } from "@/server/context";
 import { db } from "@/server/db";
@@ -28,7 +28,7 @@ export async function GET() {
   return new Response(JSON.stringify(data, null, 2), {
     headers: {
       "Content-Type": "application/json",
-      "Content-Disposition": 'attachment; filename="openpromoter-data.json"',
+      "Content-Disposition": 'attachment; filename="leadxmedia-data.json"',
     },
   });
 }

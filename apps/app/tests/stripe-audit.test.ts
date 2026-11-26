@@ -1,4 +1,4 @@
-import { chargeLink, commission, parkedPayment, referral } from "@openpromoter/db";
+import { chargeLink, commission, parkedPayment, referral } from "@leadxmedia/db";
 import { and, eq } from "drizzle-orm";
 import type Stripe from "stripe";
 import { describe, expect, it } from "vitest";

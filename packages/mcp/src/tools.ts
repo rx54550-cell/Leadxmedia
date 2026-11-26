@@ -1,5 +1,5 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { type OpenPromoter, OpenPromoterError } from "openpromoter";
+import { type LeadXMedia, LeadXMediaError } from "leadxmedia";
 import { z } from "zod";
 
 export interface ToolDef {
@@ -10,12 +10,12 @@ export interface ToolDef {
   write: boolean;
   /** Set only on write tools. Read tools are always read-only, closed-world, idempotent. */
   hints?: { destructive: boolean; openWorld: boolean; idempotent: boolean };
-  run: (op: OpenPromoter, args: Record<string, any>) => Promise<unknown>;
+  run: (op: LeadXMedia, args: Record<string, any>) => Promise<unknown>;
 }
 
 const program = { programId: z.string().describe("Program id (prg_...). Use list_programs to find it.") };
 
-/** Read tools are always on. Write tools need OPENPROMOTER_MCP_WRITE=true. No tool can send money. */
+/** Read tools are always on. Write tools need LEADXMEDIA_MCP_WRITE=true. No tool can send money. */
 export const TOOLS: ToolDef[] = [
   {
     name: "list_programs",
@@ -129,7 +129,7 @@ export const TOOLS: ToolDef[] = [
     name: "prepare_payouts",
     title: "Prepare payouts",
     description:
-      "Prepare payouts for partners over the minimum. This NEVER sends money: the batch waits until a person approves it in the OpenPromoter dashboard (Payouts page). Tell the user to review and approve it there.",
+      "Prepare payouts for partners over the minimum. This NEVER sends money: the batch waits until a person approves it in the LeadXMedia dashboard (Payouts page). Tell the user to review and approve it there.",
     input: { ...program, partnerIds: z.array(z.string()).optional() },
     write: true,
     hints: { destructive: false, openWorld: false, idempotent: false },
@@ -138,7 +138,7 @@ export const TOOLS: ToolDef[] = [
 ];
 
 /** Registers the tools on a server. Shared by the stdio CLI and the app's remote /mcp endpoint. */
-export function registerTools(server: McpServer, op: OpenPromoter, allowWrite: boolean) {
+export function registerTools(server: McpServer, op: LeadXMedia, allowWrite: boolean) {
   for (const t of TOOLS) {
     if (t.write && !allowWrite) continue;
     server.registerTool(
@@ -161,7 +161,7 @@ export function registerTools(server: McpServer, op: OpenPromoter, allowWrite: b
           return { content: [{ type: "text" as const, text: JSON.stringify(out, null, 2) }] };
         } catch (err) {
           const msg =
-            err instanceof OpenPromoterError ? `${err.code}: ${err.message}` : (err as Error).message;
+            err instanceof LeadXMediaError ? `${err.code}: ${err.message}` : (err as Error).message;
           return { isError: true, content: [{ type: "text" as const, text: msg }] };
         }
       },

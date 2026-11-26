@@ -37,7 +37,7 @@ services:
 
   app:
     # pulls the released image; `docker compose up --build` builds from source instead
-    image: ghcr.io/openpromoter/openpromoter:${OPENPROMOTER_VERSION:-latest}
+    image: ghcr.io/leadxmedia/leadxmedia:${LEADXMEDIA_VERSION:-latest}
     build: .
     depends_on:
       postgres:
@@ -51,7 +51,7 @@ services:
       ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change-me-in-production-please-32chars}
       CPA_POSTBACK_SECRET: ${CPA_POSTBACK_SECRET:-}
       SMTP_URL: ${SMTP_URL:-smtp://mailpit:1025}
-      EMAIL_FROM: ${EMAIL_FROM:-OpenPromoter <hello@localhost>}
+      EMAIL_FROM: ${EMAIL_FROM:-LeadXMedia <hello@localhost>}
       SEED_DEMO: ${SEED_DEMO:-true}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       HOSTED_MODE: ${HOSTED_MODE:-false}

@@ -1239,8 +1239,8 @@ test("demo account, read only: rich screens render without errors", async ({ bro
   page = await ctx.newPage();
   problems = watch(page);
   await page.goto("/login");
-  await page.getByLabel("Email").fill("demo@openpromoter.test");
-  await page.getByLabel("Password", { exact: true }).fill("openpromoter-demo");
+  await page.getByLabel("Email").fill("demo@leadxmedia.test");
+  await page.getByLabel("Password", { exact: true }).fill("leadxmedia-demo");
   await page.getByRole("button", { name: "Sign in" }).click();
   await page.waitForURL(/\/app\/prg_/, { timeout: 30_000 });
   const base = new URL(page.url()).pathname;

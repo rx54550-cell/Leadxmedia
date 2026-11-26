@@ -1,4 +1,4 @@
-import type { ApplicationQuestion } from "@openpromoter/db";
+import type { ApplicationQuestion } from "@leadxmedia/db";
 
 /** Multiple choice answers travel as one field, joined by this (a choice can't contain it). */
 export const MULTI_SEP = "\u001f";

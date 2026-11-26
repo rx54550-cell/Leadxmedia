@@ -1,4 +1,4 @@
-import { apiKey, webhookDelivery, webhookEndpoint } from "@openpromoter/db";
+import { apiKey, webhookDelivery, webhookEndpoint } from "@leadxmedia/db";
 import { and, desc, eq, inArray, isNull } from "drizzle-orm";
 import { programCtx } from "@/server/context";
 import { db } from "@/server/db";

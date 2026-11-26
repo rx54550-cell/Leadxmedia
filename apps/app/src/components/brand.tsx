@@ -1,8 +1,8 @@
 import { type ReactElement, type ReactNode, type SVGProps, useId } from "react";
 
 /*
- * Brand marks, shown only to say what OpenPromoter connects to or pays out through. Each name is a
- * trademark of its owner. Same marks as the website (openpromoter-site components/brand.tsx): Simple
+ * Brand marks, shown only to say what LeadXMedia connects to or pays out through. Each name is a
+ * trademark of its owner. Same marks as the website (leadxmedia-site components/brand.tsx): Simple
  * Icons (CC0-1.0) at 24px; Polar and Chargebee from their own brand kits, Polar in the text colour and
  * Chargebee in its own orange as their guides ask.
  */
