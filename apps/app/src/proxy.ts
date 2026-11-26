@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { appUrl } from "./lib/app-url";
 import { CLIENT_IP_HEADER, clientIp } from "./lib/client-ip";
 import { subdomainRoot, subdomainSlug } from "./lib/subdomain";
 
@@ -12,7 +13,7 @@ const MAX_ENTRIES = 10_000;
 const TTL = 5 * 60_000;
 const VERSION_EVERY = 5_000;
 let version: { value: string | null; checkedAt: number } = { value: null, checkedAt: 0 };
-const appHost = () => new URL(process.env.APP_URL ?? "http://localhost:3000").host;
+const appHost = () => new URL(appUrl()).host;
 
 async function db() {
   const [{ db }, schema, orm] = await Promise.all([

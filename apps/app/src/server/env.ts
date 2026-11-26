@@ -1,8 +1,11 @@
 import { z } from "zod";
+import { appUrl } from "@/lib/app-url";
 
 const schema = z.object({
   DATABASE_URL: z.string().optional(),
   APP_URL: z.string().default("http://localhost:3000"),
+  /** Vercel/Better Auth alias for APP_URL; takes precedence when set. */
+  BETTER_AUTH_URL: z.string().optional(),
   /** Cloud edition: enables plans, limits and Stripe Connect OAuth. */
   HOSTED_MODE: z.enum(["true", "false"]).default("false"),
   ANTHROPIC_API_KEY: z.string().optional(),
@@ -62,5 +65,5 @@ const schema = z.object({
   WORKSPACE_CREATORS: z.string().optional(),
 });
 
-export const env = schema.parse(process.env);
+export const env = schema.parse({ ...process.env, APP_URL: appUrl() });
 export const isHosted = () => env.HOSTED_MODE === "true";

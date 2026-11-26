@@ -95,7 +95,7 @@ const config: NextConfig = {
   // Cache-Control for /op.js and /embed.js is set by their route handlers (ETag + versioned URLs)
   async headers() {
     return securityHeaders({
-      appUrl: process.env.APP_URL ?? "http://localhost:3000",
+      appUrl: process.env.BETTER_AUTH_URL || process.env.APP_URL || "http://localhost:3000",
       dev: process.env.NODE_ENV !== "production",
     });
   },

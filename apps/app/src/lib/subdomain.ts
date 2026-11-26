@@ -4,6 +4,8 @@
  * there first). No server imports: proxy.ts uses this too.
  */
 
+import { appUrl } from "./app-url";
+
 /** Names a program can never take as its subdomain: our own hosts and the obvious impersonation bait. */
 export const RESERVED_SUBDOMAINS = new Set(
   (
@@ -35,7 +37,7 @@ export function subdomainSlug(host: string): string | null {
 export function subdomainOrigin(slug: string): string | null {
   const root = subdomainRoot();
   if (!root || !subdomainable(slug)) return null;
-  const u = new URL(process.env.APP_URL ?? "http://localhost:3000");
+  const u = new URL(appUrl());
   u.hostname = `${slug}.${root}`;
   return u.origin;
 }
