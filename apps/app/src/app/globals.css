@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@import "@openpromoter/ui/styles.css";
+@source "../../../../packages/ui/src";
+
+/*
+ * Admin buttons are ink, like Linear and Vercel: blue stays for data, links and the current
+ * selection, so a primary button never competes with a chart. The partner portal re-skins
+ * --primary with the founder's colour on [data-brand], which wins over these.
+ */
+:root {
+  --primary: var(--ink);
+  --primary-hover: color-mix(in oklab, var(--ink) 84%, #fff);
+  --primary-fg: var(--ink-fg);
+}
+.dark {
+  --primary: var(--ink);
+  --primary-hover: color-mix(in oklab, var(--ink) 84%, #000);
+  --primary-fg: var(--ink-fg);
+}
+@media (prefers-color-scheme: dark) {
+  .system {
+    --primary: var(--ink);
+    --primary-hover: color-mix(in oklab, var(--ink) 84%, #000);
+    --primary-fg: var(--ink-fg);
+  }
+}
+
+/*
+ * Desktop app shell (sidebar from 1024px; tablets in portrait get the phone layout with the tab bar):
+ * the panel scrolls, the page never does. Without this, anything a browser or an extension adds after
+ * the shell lets the whole document scroll and leaves blank space under it.
+ */
+@media (min-width: 1024px) {
+  html:has(.app-shell),
+  html:has(.app-shell) body {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+}
+
+@layer base {
+  /* A grid item may shrink below its content: a wide table or a long URL then scrolls or truncates inside
+     its card instead of pushing the whole page wider than a phone. */
+  .grid > * {
+    min-width: 0;
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.01em;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+  }
+}
+
+/* Auth panel: the website's ledger grid in white hairlines with small crosshairs at each corner. */
+.auth-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88'%3E%3Cpath d='M0 .5H88M.5 0V88' stroke='%23fff' stroke-opacity='.06'/%3E%3Cpath d='M0 .5h5M.5 0v5M83 .5h5M.5 83v5' stroke='%23fff' stroke-opacity='.22'/%3E%3C/svg%3E");
+  background-size: 88px 88px;
+  mask-image: linear-gradient(to bottom, #000 35%, transparent 85%);
+}
+
+/*
+ * Toasts: the icon sits on the first line of text, so a message that wraps reads like a paragraph with a
+ * bullet. Sonner centers it on the whole block. 2px centers a 16px icon on the 19.5px first line.
+ * Beacon's toast (mascot-toast.tsx) is taller than one line and stays centered.
+ * The `html` prefix outranks the styles Sonner injects at runtime.
+ */
+html [data-sonner-toast][data-styled="true"] {
+  align-items: flex-start;
+}
+html [data-sonner-toast][data-styled="true"] [data-icon] {
+  margin-top: 2px;
+}
+html [data-sonner-toast][data-styled="true"]:has(.op-mascot-icon) {
+  align-items: center;
+}
+html [data-sonner-toast][data-styled="true"] [data-icon].op-mascot-icon {
+  margin-top: 0;
+}

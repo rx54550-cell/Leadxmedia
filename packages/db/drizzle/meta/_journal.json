@@ -1,0 +1,216 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793720272393,
+      "tag": "0000_init",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793723865781,
+      "tag": "0001_features",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793736808908,
+      "tag": "0002_scale_security",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793876164740,
+      "tag": "0003_billing_livemode",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793876525194,
+      "tag": "0004_two_tier_marketplace",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793890033336,
+      "tag": "0005_charge_links",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793891205365,
+      "tag": "0006_payout_seq",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1793891448689,
+      "tag": "0007_parked_payments",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1793894566387,
+      "tag": "0008_payout_test",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1793896057375,
+      "tag": "0009_link_key_per_program",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1793959286726,
+      "tag": "0010_ai_cap_resource_files",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1794080794695,
+      "tag": "0011_auth_member_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1794084784491,
+      "tag": "0012_workspace_billing_status",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1794146171947,
+      "tag": "0013_workspace_billing_region",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1794209656688,
+      "tag": "0014_program_commission_after",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1794211788248,
+      "tag": "0015_program_product_rates",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1794216590214,
+      "tag": "0016_commission_ws_created",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1794216669455,
+      "tag": "0017_email_log",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1794220107325,
+      "tag": "0018_admin_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1794305296555,
+      "tag": "0019_commission_fx_rate",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1794306226165,
+      "tag": "0020_commission_charged_amount",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1794308771109,
+      "tag": "0021_email_settings",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1794489283098,
+      "tag": "0022_email_preview",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1794569552405,
+      "tag": "0023_partner_avatar",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1794776263205,
+      "tag": "0024_billing_interval",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1795004853141,
+      "tag": "0025_partner_external_id",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1795033614740,
+      "tag": "0026_referral_browser_lead",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "7",
+      "when": 1795036676303,
+      "tag": "0027_browser_confirmed_address_proven",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1795108019848,
+      "tag": "0028_program_hold_browser_leads",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1795640000000,
+      "tag": "0029_leadx_cpa_phase1",
+      "breakpoints": true
+    }
+  ]
+}

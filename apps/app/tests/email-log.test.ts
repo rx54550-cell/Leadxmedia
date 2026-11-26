@@ -1,0 +1,110 @@
+import { createSign, generateKeyPairSync } from "node:crypto";
+import { emailLog } from "@openpromoter/db";
+import { eq } from "drizzle-orm";
+import { describe, expect, it } from "vitest";
+import { sendMail } from "@/server/email";
+import { applySesNotice, type SnsMessage, signedString, verifySns } from "@/server/ses-events";
+
+const { db } = await import("@/server/db");
+const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+const pem = publicKey.export({ type: "spki", format: "pem" }).toString();
+const sign = (m: Omit<SnsMessage, "Signature">): SnsMessage => {
+  const s = createSign("RSA-SHA256");
+  s.update(signedString(m as SnsMessage));
+  return { ...m, Signature: s.sign(privateKey, "base64") };
+};
+const note = (over: Partial<SnsMessage> = {}) =>
+  sign({
+    Type: "Notification",
+    MessageId: "m1",
+    TopicArn: "arn:aws:sns:us-east-1:1:openpromoter-ses",
+    Message: "{}",
+    Timestamp: "2026-11-09T00:00:00Z",
+    SignatureVersion: "2",
+    SigningCertURL: "https://sns.us-east-1.amazonaws.com/cert.pem",
+    ...over,
+  });
+
+describe("email log", () => {
+  it("records every email with a copy that holds no link or token, even when no transport is set", async () => {
+    await sendMail({
+      to: "Log.Test@Example.test",
+      subject: "Reset your password",
+      html: '<b>Reset it</b> <a href="https://app.x/reset?token=SECRETTOKEN">here</a> or open https://app.x/reset?token=SECRETTOKEN',
+    });
+    const [row] = await db().select().from(emailLog).where(eq(emailLog.to, "log.test@example.test"));
+    expect(row!.subject).toBe("Reset your password");
+    expect(row!.status).toBe("not_sent");
+    // the admin preview keeps the words and drops everything a person could sign in with
+    expect(row!.preview).toContain("Reset it");
+    expect(JSON.stringify(row)).not.toContain("SECRETTOKEN");
+  });
+
+  it("accepts only SNS messages Amazon signed, from an Amazon host", async () => {
+    const fetchCert = async () => pem;
+    expect(await verifySns(note(), fetchCert)).toBe(true);
+    expect(await verifySns({ ...note(), Message: '{"tampered":1}' }, fetchCert)).toBe(false);
+    expect(await verifySns(note({ SigningCertURL: "https://evil.example/cert.pem" }), fetchCert)).toBe(false);
+    expect(
+      await verifySns(note({ SigningCertURL: "http://sns.us-east-1.amazonaws.com/c.pem" }), fetchCert),
+    ).toBe(false);
+  });
+
+  it("marks delivered, then bounced, and a late delivery never hides a bounce", async () => {
+    await db()
+      .insert(emailLog)
+      .values({ id: "eml_t1", to: "x@example.test", subject: "Hi", messageId: "ses-1", status: "sent" });
+    const status = async () => (await db().select().from(emailLog).where(eq(emailLog.id, "eml_t1")))[0]!;
+    await applySesNotice(JSON.stringify({ notificationType: "Delivery", mail: { messageId: "ses-1" } }));
+    expect((await status()).status).toBe("delivered");
+    await db().update(emailLog).set({ status: "sent" }).where(eq(emailLog.id, "eml_t1"));
+    await applySesNotice(
+      JSON.stringify({
+        notificationType: "Bounce",
+        mail: { messageId: "ses-1" },
+        bounce: {
+          bounceType: "Permanent",
+          bounceSubType: "General",
+          bouncedRecipients: [{ diagnosticCode: "550 no such user" }],
+        },
+      }),
+    );
+    expect(await status()).toMatchObject({
+      status: "bounced",
+      detail: "Permanent General: 550 no such user",
+    });
+    await applySesNotice(JSON.stringify({ notificationType: "Delivery", mail: { messageId: "ses-1" } }));
+    expect((await status()).status).toBe("bounced");
+  });
+
+  it("never emails an address that hard-bounced or complained, but retries a soft bounce", async () => {
+    await db()
+      .insert(emailLog)
+      .values([
+        {
+          id: "eml_hb",
+          to: "hard@bounce.test",
+          subject: "a",
+          status: "bounced",
+          detail: "Permanent General: 550",
+        },
+        { id: "eml_cp", to: "spam@complain.test", subject: "a", status: "complained" },
+        {
+          id: "eml_sb",
+          to: "soft@bounce.test",
+          subject: "a",
+          status: "bounced",
+          detail: "Transient MailboxFull: full",
+        },
+      ]);
+    const send = (to: string) => sendMail({ to, subject: "Again", html: "<p>x</p>", text: "x" });
+    const last = async (to: string) =>
+      (await db().select().from(emailLog).where(eq(emailLog.to, to))).find((r) => r.subject === "Again");
+    await send("hard@bounce.test");
+    await send("spam@complain.test");
+    await send("soft@bounce.test");
+    expect(await last("hard@bounce.test")).toMatchObject({ status: "not_sent" });
+    expect(await last("spam@complain.test")).toMatchObject({ status: "not_sent" });
+    expect((await last("soft@bounce.test"))?.detail).not.toBe("Address bounced or complained before");
+  });
+});
