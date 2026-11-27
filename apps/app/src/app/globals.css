@@ -26,6 +26,16 @@
 }
 
 /*
+ * Public marketing pages are always light. The white + royal-blue site must stay white even when the
+ * dashboard's theme cookie is "dark", including the overscroll area and native scrollbars.
+ */
+html:has(.marketing),
+html:has(.marketing) body {
+  background: #ffffff;
+  color-scheme: light;
+}
+
+/*
  * Desktop app shell (sidebar from 1024px; tablets in portrait get the phone layout with the tab bar):
  * the panel scrolls, the page never does. Without this, anything a browser or an extension adds after
  * the shell lets the whole document scroll and leaves blank space under it.
