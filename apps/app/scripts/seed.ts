@@ -11,6 +11,7 @@ import {
   billingPrice,
   campaign,
   contentAsset,
+  cpaOffer,
   fraudFlag,
   link,
   member,
@@ -132,6 +133,111 @@ const NAMES = [
 const FACES = new Set(["maya", "leo", "priya", "nora", "omar", "ella", "olivia", "ethan"]);
 
 /**
+ * The publisher-facing network offers. These are rows in cpa_offer, not UI constants: the dashboard reads
+ * them with real queries and every filter works against the database. Fixed ids make the seed idempotent.
+ */
+const NETWORK_OFFERS = [
+  {
+    id: "off_slotomania_us_ios",
+    name: "Slotomania",
+    description: "Install Slotomania and reach level 10 to qualify. iOS only, United States traffic.",
+    payout: 1.45,
+    cap: 250,
+    country: "US",
+    device: "iOS" as const,
+    type: "Mobile App" as const,
+    advertiserName: "Playtika",
+    advertiserId: "adv_playtika",
+    trackingUrl: "https://www.slotomania.com/",
+    postbackUrl: "https://www.slotomania.com/postback?click_id={clickId}&payout={payout}",
+    isFastPay: true,
+    isLockerOnly: false,
+  },
+  {
+    id: "off_starbucks_us_android",
+    name: "Starbucks Rewards",
+    description: "Single opt-in for the Starbucks Rewards program. Android traffic, content-locker only.",
+    payout: 0.68,
+    cap: 500,
+    country: "US",
+    device: "Android" as const,
+    type: "SOI" as const,
+    advertiserName: "Starbucks",
+    advertiserId: "adv_starbucks",
+    trackingUrl: "https://www.starbucks.com/",
+    postbackUrl: "https://www.starbucks.com/postback?click_id={clickId}&payout={payout}",
+    isFastPay: false,
+    isLockerOnly: true,
+  },
+  {
+    id: "off_cartoon_quiz_us_android",
+    name: "Cartoon Quiz",
+    description: "Install Cartoon Quiz and finish the first quiz pack. Android traffic, content-locker only.",
+    payout: 0.41,
+    cap: 400,
+    country: "US",
+    device: "Android" as const,
+    type: "SOI" as const,
+    advertiserName: "Playvalve",
+    advertiserId: "adv_playvalve",
+    trackingUrl: "https://www.playvalve.com/",
+    postbackUrl: "https://www.playvalve.com/postback?click_id={clickId}&payout={payout}",
+    isFastPay: false,
+    isLockerOnly: true,
+  },
+  {
+    id: "off_temu_us_android",
+    name: "Temu Shopping App",
+    description: "Install Temu and place a first order. Android traffic, revenue share on the basket.",
+    payout: 2.1,
+    cap: 150,
+    country: "US",
+    device: "Android" as const,
+    type: "CPS" as const,
+    advertiserName: "Temu",
+    advertiserId: "adv_temu",
+    trackingUrl: "https://www.temu.com/",
+    postbackUrl: "https://www.temu.com/postback?click_id={clickId}&payout={payout}",
+    isFastPay: true,
+    isLockerOnly: false,
+  },
+  {
+    id: "off_shein_us_ios",
+    name: "SHEIN Fashion",
+    description: "Install SHEIN and complete a first purchase. iOS traffic, revenue share on the basket.",
+    payout: 1.2,
+    cap: 200,
+    country: "US",
+    device: "iOS" as const,
+    type: "CPS" as const,
+    advertiserName: "SHEIN",
+    advertiserId: "adv_shein",
+    trackingUrl: "https://www.shein.com/",
+    postbackUrl: "https://www.shein.com/postback?click_id={clickId}&payout={payout}",
+    isFastPay: false,
+    isLockerOnly: false,
+  },
+];
+
+/** Idempotent: inserts any missing network offer without touching rows that already exist. */
+async function seedNetworkOffers(d: ReturnType<typeof db>) {
+  const inserted = await d
+    .insert(cpaOffer)
+    .values(
+      NETWORK_OFFERS.map((o, i) => ({
+        ...o,
+        isActive: true,
+        // a deterministic order so "Rank" (createdAt) is stable across seeds
+        createdAt: new Date(Date.UTC(2026, 0, 1 + i, 12)),
+      })),
+    )
+    .onConflictDoNothing()
+    .returning({ id: cpaOffer.id });
+  if (inserted.length) console.log(`Seeded ${inserted.length} network offer(s).`);
+  return inserted.length;
+}
+
+/**
  * `publicDemo`: the hosted demo anyone can open (demo.ts). No password (visitors get in through the demo
  * button), autopilot off (no AI spend) and kept out of the partner marketplace, which lists real programs.
  */
@@ -150,6 +256,8 @@ export async function seed({
   reviewer?: { email: string; password: string; slug: string };
 } = {}) {
   const d = db();
+  // the network offers are independent of the demo workspace: seed them even when the demo already exists
+  await seedNetworkOffers(d);
   const founderEmail = reviewer?.email ?? DEMO.email;
   const founderPassword = reviewer?.password ?? DEMO.password;
   const slug = reviewer?.slug ?? DEMO.slug;

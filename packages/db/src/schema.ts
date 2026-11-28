@@ -33,6 +33,12 @@ export const user = pgTable("user", {
   /** Set only by a completed password reset: proof of the inbox that a verification link can't give, since
    * anyone can ask for a link to be sent to an address they registered first. Gates WORKSPACE_CREATORS. */
   addressProvenAt: ts("address_proven_at"),
+  /** CPA network role. Every Better Auth sign-up starts as a publisher (the earning side). */
+  role: text("role").$type<CpaRole>().notNull().default("PUBLISHER"),
+  /** Publisher wallet, in major currency units (USD). Credited by approved conversions. */
+  balance: doublePrecision("balance").notNull().default(0),
+  /** Lifetime approved earnings, never reduced by payouts. */
+  totalEarned: doublePrecision("total_earned").notNull().default(0),
   createdAt: created(),
   updatedAt: updated(),
 });
@@ -1174,4 +1180,129 @@ export const emailLog = pgTable(
     index("email_log_to_created").on(t.to, t.createdAt),
     index("email_log_message").on(t.messageId).where(sql`message_id is not null`),
   ],
+);
+
+/* ------------------------------------------------------------------ CPA network (publisher dashboard) */
+
+export const CPA_ROLES = ["ADMIN", "PUBLISHER", "ADVERTISER"] as const;
+export type CpaRole = (typeof CPA_ROLES)[number];
+
+export const CPA_DEVICES = ["iOS", "Android", "Desktop", "All"] as const;
+export type CpaDevice = (typeof CPA_DEVICES)[number];
+
+export const CPA_OFFER_TYPES = ["Mobile App", "SOI", "DOI", "CPS"] as const;
+export type CpaOfferType = (typeof CPA_OFFER_TYPES)[number];
+
+export const CPA_CONVERSION_STATUSES = ["PENDING", "APPROVED", "REJECTED"] as const;
+export type CpaConversionStatus = (typeof CPA_CONVERSION_STATUSES)[number];
+
+export const CPA_PAYOUT_METHODS = ["PayPal", "Payoneer", "Wire", "Crypto"] as const;
+export type CpaPayoutMethod = (typeof CPA_PAYOUT_METHODS)[number];
+
+export const CPA_PAYOUT_STATUSES = ["PENDING", "APPROVED", "PAID", "REJECTED"] as const;
+export type CpaPayoutStatus = (typeof CPA_PAYOUT_STATUSES)[number];
+
+/** A network offer: what a publisher sends traffic to and what it pays per conversion. */
+export const cpaOffer = pgTable(
+  "cpa_offer",
+  {
+    id: text("id").primaryKey(),
+    name: text("name").notNull(),
+    description: text("description").notNull().default(""),
+    /** Major units (USD), e.g. 1.45. */
+    payout: doublePrecision("payout").notNull(),
+    /** Daily conversion cap. Null means uncapped. */
+    cap: integer("cap"),
+    /** ISO 3166-1 alpha-2, or "All". */
+    country: text("country").notNull().default("All"),
+    device: text("device").$type<CpaDevice>().notNull().default("All"),
+    type: text("type").$type<CpaOfferType>().notNull().default("SOI"),
+    advertiserName: text("advertiser_name").notNull(),
+    advertiserId: text("advertiser_id"),
+    /** Where the click is forwarded, with the click id appended as subId. */
+    trackingUrl: text("tracking_url").notNull(),
+    /** Optional advertiser S2S postback template. */
+    postbackUrl: text("postback_url"),
+    isActive: boolean("is_active").notNull().default(true),
+    isFastPay: boolean("is_fast_pay").notNull().default(false),
+    /** Only reachable through a content locker. */
+    isLockerOnly: boolean("is_locker_only").notNull().default(false),
+    createdAt: created(),
+  },
+  (t) => [
+    index("cpa_offer_active_created").on(t.isActive, t.createdAt),
+    index("cpa_offer_country").on(t.country),
+    index("cpa_offer_device").on(t.device),
+    index("cpa_offer_type").on(t.type),
+    index("cpa_offer_advertiser").on(t.advertiserName),
+  ],
+);
+
+/** One click from a publisher's traffic to an offer. */
+export const cpaClick = pgTable(
+  "cpa_click",
+  {
+    id: text("id").primaryKey(),
+    offerId: text("offer_id")
+      .notNull()
+      .references(() => cpaOffer.id, { onDelete: "cascade" }),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    ip: text("ip"),
+    userAgent: text("user_agent"),
+    country: text("country"),
+    /** The publisher's own tracking token (their sub id). */
+    subId: text("sub_id"),
+    createdAt: created(),
+  },
+  (t) => [
+    index("cpa_click_user_created").on(t.userId, t.createdAt),
+    index("cpa_click_offer_created").on(t.offerId, t.createdAt),
+  ],
+);
+
+/** A conversion reported back for a click. One per click, enforced by the unique click id. */
+export const cpaConversion = pgTable(
+  "cpa_conversion",
+  {
+    id: text("id").primaryKey(),
+    clickId: text("click_id")
+      .notNull()
+      .unique()
+      .references(() => cpaClick.id, { onDelete: "cascade" }),
+    offerId: text("offer_id")
+      .notNull()
+      .references(() => cpaOffer.id, { onDelete: "cascade" }),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    /** Major units (USD). Defaults to the offer payout when the postback omits it. */
+    payout: doublePrecision("payout").notNull(),
+    status: text("status").$type<CpaConversionStatus>().notNull().default("PENDING"),
+    /** Raw advertiser callback parameters, kept for auditing. */
+    postbackData: jsonb("postback_data").$type<Record<string, unknown>>(),
+    createdAt: created(),
+  },
+  (t) => [
+    index("cpa_conversion_user_created").on(t.userId, t.createdAt),
+    index("cpa_conversion_offer_created").on(t.offerId, t.createdAt),
+    index("cpa_conversion_status").on(t.status),
+  ],
+);
+
+/** A publisher's request to withdraw their balance. */
+export const cpaPayoutRequest = pgTable(
+  "cpa_payout_request",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    amount: doublePrecision("amount").notNull(),
+    method: text("method").$type<CpaPayoutMethod>().notNull().default("PayPal"),
+    status: text("status").$type<CpaPayoutStatus>().notNull().default("PENDING"),
+    createdAt: created(),
+  },
+  (t) => [index("cpa_payout_request_user_created").on(t.userId, t.createdAt)],
 );

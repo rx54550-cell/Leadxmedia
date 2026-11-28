@@ -12,7 +12,7 @@ import {
   Users,
   Wallet,
 } from "@leadxmedia/ui/icons";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { MarketingFooter, MarketingNav } from "@/components/marketing/chrome";
@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     "Join 12,000+ publishers earning daily from 4,800+ premium CPA offers. No experience needed. Get paid in 24 hours.",
 };
+
+// The public site is always white, so mobile browser chrome must be white too.
+export const viewport: Viewport = { themeColor: "#FFFFFF" };
 
 const primaryBtn =
   "inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-6 text-[15px] font-semibold text-white shadow-[0_10px_24px_-12px_rgba(37,99,235,0.65)] hover:bg-[#1D4ED8]";

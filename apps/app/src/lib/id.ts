@@ -28,6 +28,8 @@ export type IdPrefix =
   | "lead"
   | "off"
   | "prq"
+  | "cnv"
+  | "por"
   | "cmp"
   | "bty"
   | "act"

@@ -14,8 +14,11 @@ CREATE TABLE "offer" (
   "created_at" timestamptz DEFAULT now() NOT NULL,
   "updated_at" timestamptz DEFAULT now() NOT NULL
 );
+--> statement-breakpoint
 CREATE INDEX "offer_workspace_status" ON "offer" USING btree ("workspace_id", "status");
+--> statement-breakpoint
 CREATE INDEX "offer_category" ON "offer" USING btree ("category");
+--> statement-breakpoint
 
 CREATE TABLE "cpa_lead" (
   "id" text PRIMARY KEY NOT NULL,
@@ -28,8 +31,11 @@ CREATE TABLE "cpa_lead" (
   "currency" text DEFAULT 'usd' NOT NULL,
   "created_at" timestamptz DEFAULT now() NOT NULL
 );
+--> statement-breakpoint
 CREATE UNIQUE INDEX "cpa_lead_offer_transaction" ON "cpa_lead" USING btree ("offer_id", "transaction_id");
+--> statement-breakpoint
 CREATE INDEX "cpa_lead_partner_created" ON "cpa_lead" USING btree ("partner_id", "created_at");
+--> statement-breakpoint
 
 CREATE TABLE "payout_request" (
   "id" text PRIMARY KEY NOT NULL,
@@ -44,10 +50,14 @@ CREATE TABLE "payout_request" (
   "created_at" timestamptz DEFAULT now() NOT NULL,
   "reviewed_at" timestamptz
 );
+--> statement-breakpoint
 CREATE INDEX "payout_request_partner_created" ON "payout_request" USING btree ("partner_id", "created_at");
+--> statement-breakpoint
 CREATE INDEX "payout_request_workspace_status" ON "payout_request" USING btree ("workspace_id", "status");
+--> statement-breakpoint
 
 ALTER TABLE "click" ADD COLUMN "offer_id" text REFERENCES "offer"("id") ON DELETE SET NULL;
+--> statement-breakpoint
 CREATE INDEX "click_offer_created" ON "click" USING btree ("offer_id", "created_at") WHERE "offer_id" IS NOT NULL;
 -- CPA verticals are stored as text (not a database enum), so these options need no enum rebuild.
 -- `offer.category` accepts the LeadX category list defined by OFFER_CATEGORIES in schema.ts.

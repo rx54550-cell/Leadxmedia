@@ -43,7 +43,7 @@ export function Wordmark() {
 export function MarketingNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#F1F5F9] bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
+      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-3 px-4 sm:gap-4 sm:px-8">
         <Link href="/" aria-label="LeadXMedia home" className="shrink-0">
           <Wordmark />
         </Link>
@@ -172,8 +172,8 @@ export function MarketingFooter() {
         <div className="mx-auto flex max-w-[1200px] flex-col gap-2 px-5 py-6 text-[12px] text-[#94A3B8] sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>© {new Date().getFullYear()} LeadXMedia. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-[#22C55E]" aria-hidden />
-            All systems operational
+            <span className="size-1.5 rounded-full bg-[#2563EB]" aria-hidden />
+            Built for performance marketers
           </p>
         </div>
       </div>
