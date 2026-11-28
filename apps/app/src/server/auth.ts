@@ -35,11 +35,13 @@ import { limit } from "./ratelimit";
 const SOCIAL = {
   google: [process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET],
   github: [process.env.GITHUB_CLIENT_ID, process.env.GITHUB_CLIENT_SECRET],
+  facebook: [process.env.FACEBOOK_CLIENT_ID, process.env.FACEBOOK_CLIENT_SECRET],
 } as const;
 export type SocialProvider = keyof typeof SOCIAL;
-export const socialProviders = (Object.keys(SOCIAL) as SocialProvider[]).filter(
-  (p) => SOCIAL[p][0] && SOCIAL[p][1],
-);
+const configured = (p: SocialProvider) => Boolean(SOCIAL[p][0] && SOCIAL[p][1]);
+/** Sign-in only offers Google and GitHub; the signup page also offers Facebook (and Instagram through it). */
+export const socialProviders = (["google", "github"] as const).filter(configured);
+export const signupSocialProviders = (["google", "facebook"] as const).filter(configured);
 
 /** Turnstile on email sign-up, sign-in and password reset, on the app's own host only (captcha.ts says why). */
 function turnstile(): BetterAuthPlugin[] {
@@ -151,10 +153,9 @@ export const auth = betterAuth({
     },
   },
   socialProviders: Object.fromEntries(
-    socialProviders.map((p) => [
-      p,
-      { clientId: SOCIAL[p][0] as string, clientSecret: SOCIAL[p][1] as string },
-    ]),
+    (Object.keys(SOCIAL) as SocialProvider[])
+      .filter(configured)
+      .map((p) => [p, { clientId: SOCIAL[p][0] as string, clientSecret: SOCIAL[p][1] as string }]),
   ),
   // Linking a Google or GitHub login to an existing account needs the provider to say the email is
   // verified (better-auth's default, no trusted providers), so nobody can claim an account by email.
