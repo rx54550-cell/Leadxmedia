@@ -16,6 +16,9 @@ services:
         generateValue: true
       - key: APP_URL
         sync: false
+      # optional alias for APP_URL (Better Auth uses it as the canonical origin)
+      - key: BETTER_AUTH_URL
+        sync: false
       - key: SEED_DEMO
         value: "false"
 databases:

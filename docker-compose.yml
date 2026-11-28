@@ -47,6 +47,8 @@ services:
     environment:
       DATABASE_URL: postgres://openpromoter:openpromoter@postgres:5432/openpromoter
       APP_URL: ${APP_URL:-http://localhost:3000}
+      # optional alias for APP_URL; set this when the public URL differs from the bind URL
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL:-}
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-change-me-in-production-please-32chars}
       ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change-me-in-production-please-32chars}
       CPA_POSTBACK_SECRET: ${CPA_POSTBACK_SECRET:-}

@@ -79,10 +79,18 @@ export async function customDomainOrigins(request?: Request): Promise<string[]> 
 /**
  * Origins Better Auth accepts in addition to the request's own host. APP_URL comes from the
  * environment (BETTER_AUTH_URL is an accepted alias), so production is never hardcoded to localhost.
+ * The apex and www hosts are both listed because production serves the app from either one.
  */
 const STATIC_TRUSTED_ORIGINS = Array.from(
   new Set(
-    [env.APP_URL, env.BETTER_AUTH_URL, "https://leadxmedia.vercel.app", "http://localhost:3000"]
+    [
+      env.APP_URL,
+      env.BETTER_AUTH_URL,
+      "https://www.leadxmedia.com",
+      "https://leadxmedia.com",
+      "https://leadxmedia.vercel.app",
+      "http://localhost:3000",
+    ]
       .filter((origin): origin is string => Boolean(origin))
       .map((origin) => origin.replace(/\/+$/, "")),
   ),
@@ -90,7 +98,7 @@ const STATIC_TRUSTED_ORIGINS = Array.from(
 
 export const auth = betterAuth({
   appName: PRODUCT.name,
-  baseURL: env.APP_URL,
+  baseURL: env.BETTER_AUTH_URL || env.APP_URL,
   trustedOrigins: async (request) => [
     ...new Set([...STATIC_TRUSTED_ORIGINS, ...(await customDomainOrigins(request))]),
   ],
